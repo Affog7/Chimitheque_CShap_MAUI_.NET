@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChimithequeConsoleApp", "Tests\ChimithequeConsoleApp\ChimithequeConsoleApp.csproj", "{B4E12445-ACE0-4261-8332-FCF954361358}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChimithequeLib", "ChimithequeLib\ChimithequeLib.csproj", "{DA24405A-BABF-4FEA-9A02-3F5033D6A6A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4E12445-ACE0-4261-8332-FCF954361358}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4E12445-ACE0-4261-8332-FCF954361358}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4E12445-ACE0-4261-8332-FCF954361358}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4E12445-ACE0-4261-8332-FCF954361358}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA24405A-BABF-4FEA-9A02-3F5033D6A6A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA24405A-BABF-4FEA-9A02-3F5033D6A6A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA24405A-BABF-4FEA-9A02-3F5033D6A6A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA24405A-BABF-4FEA-9A02-3F5033D6A6A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {853D8DD9-72EA-4AF1-B59F-EEE0CF675312}
+	EndGlobalSection
+EndGlobal
