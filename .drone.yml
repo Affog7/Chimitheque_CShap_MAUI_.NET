@@ -33,8 +33,8 @@ steps:
       - dotnet restore ChimithequeMobileApp.sln
       - dotnet sonarscanner begin /k:ChimithequeMobile /d:sonar.host.url=$${PLUGIN_SONAR_HOST} /d:sonar.coverageReportPaths="coveragereport/SonarQube.xml" /d:sonar.coverage.exclusions="Tests/**,BowlingApp/**,BowlingEF/**,Business/**,BowlingMaping/**,BowlingStub/**" /d:sonar.login=$${PLUGIN_SONAR_TOKEN} 
       - dotnet build ChimithequeMobileApp.sln -c Release --no-restore
-      - dotnet test ChimithequeMobileApp.sln --logger trx --no-restore /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura --collect "XPlat Code Coverage"
-      - reportgenerator -reports:"**/coverage.cobertura.xml" -reporttypes:SonarQube -targetdir:"coveragereport"
+    #  - dotnet test ChimithequeMobileApp.sln --logger trx --no-restore /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura --collect "XPlat Code Coverage"
+    #  - reportgenerator -reports:"**/coverage.cobertura.xml" -reporttypes:SonarQube -targetdir:"coveragereport"
       - dotnet publish ChimithequeMobileApp.sln -c Release --no-restore -o CI_PROJECT_DIR/build/release
       - dotnet sonarscanner end /d:sonar.login=$${PLUGIN_SONAR_TOKEN}
     secrets: [ SECRET_SONAR_LOGIN ]
