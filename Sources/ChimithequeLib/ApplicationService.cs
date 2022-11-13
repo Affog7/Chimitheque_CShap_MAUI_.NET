@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace ChimithequeLib
 {
+
+    /// <summary>
+    /// Classe de service de l'application
+    /// </summary>
     public class ApplicationService
     {
         
