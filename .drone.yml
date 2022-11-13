@@ -14,36 +14,36 @@ steps:
         path: /docs
     commands:
       - cd Sources/
-      - dotnet restore Solution.sln
-      - dotnet build Solution.sln -c Release --no-restore
-      - dotnet publish Solution.sln -c Release --no-restore -o CI_PROJECT_DIR/build/release
+      - dotnet restore ChimithequeMobileApp.sln
+      - dotnet build ChimithequeMobileApp.sln -c Release --no-restore
+      - dotnet publish ChimithequeMobileApp.sln -c Release --no-restore -o CI_PROJECT_DIR/build/release
 
   - name: tests
     image: mcr.microsoft.com/dotnet/sdk:6.0
     commands:
       - cd Sources/
-      - dotnet restore Solution.sln
-      - dotnet test Solution.sln --no-restore
+      - dotnet restore ChimithequeMobileApp.sln
+      - dotnet test ChimithequeMobileApp.sln --no-restore
     depends_on: [build]
 
   - name: code-analysis
     image: hub.codefirst.iut.uca.fr/thomas.bellembois/codefirst-dronesonarplugin-dotnet6
     commands:
       - cd Sources/
-      - dotnet restore Solution.sln
-      - dotnet sonarscanner begin /k:EssaiTemplate /d:sonar.host.url=$${PLUGIN_SONAR_HOST} /d:sonar.coverageReportPaths="coveragereport/SonarQube.xml" /d:sonar.login=$${PLUGIN_SONAR_TOKEN} 
-      - dotnet build Solution.sln -c Release --no-restore
-      - dotnet test Solution.sln --logger trx --no-restore /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura --collect "XPlat Code Coverage"
+      - dotnet restore ChimithequeMobileApp.sln
+      - dotnet sonarscanner begin /k:ChimithequeMobile /d:sonar.host.url=$${PLUGIN_SONAR_HOST} /d:sonar.coverageReportPaths="coveragereport/SonarQube.xml" /d:sonar.coverage.exclusions="Tests/**,BowlingApp/**,BowlingEF/**,Business/**,BowlingMaping/**,BowlingStub/**" /d:sonar.login=$${PLUGIN_SONAR_TOKEN} 
+      - dotnet build ChimithequeMobileApp.sln -c Release --no-restore
+      - dotnet test ChimithequeMobileApp.sln --logger trx --no-restore /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura --collect "XPlat Code Coverage"
       - reportgenerator -reports:"**/coverage.cobertura.xml" -reporttypes:SonarQube -targetdir:"coveragereport"
-      - dotnet publish Solution.sln -c Release --no-restore -o CI_PROJECT_DIR/build/release
+      - dotnet publish ChimithequeMobileApp.sln -c Release --no-restore -o CI_PROJECT_DIR/build/release
       - dotnet sonarscanner end /d:sonar.login=$${PLUGIN_SONAR_TOKEN}
-    secrets: [ SECRECT_SONAR_LOGIN ]
+    secrets: [ SECRET_SONAR_LOGIN ]
     settings:
       # accessible en ligne de commande par ${PLUGIN_SONAR_HOST}
       sonar_host: https://codefirst.iut.uca.fr/sonar/
       # accessible en ligne de commande par ${PLUGIN_SONAR_TOKEN}
       sonar_token:
-        from_secret: SECRECT_SONAR_LOGIN 
+        from_secret: SECRET_SONAR_LOGIN
     depends_on: [tests]
 
   - name: generate-and-deploy-docs
@@ -59,8 +59,9 @@ steps:
     when:
       branch:
         - master
-    depends_on: [ build ]
+    depends_on: [ build ] 
 
-volumes: 
+volumes:
 - name: docs
   temp: {}
+  
