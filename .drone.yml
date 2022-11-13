@@ -31,7 +31,7 @@ steps:
     commands:
       - cd Sources/
       - dotnet restore ChimithequeMobileApp.sln
-      - dotnet sonarscanner begin /k:chimithequeMoblile /d:sonar.host.url=$${PLUGIN_SONAR_HOST} /d:sonar.coverageReportPaths="coveragereport/SonarQube.xml" /d:sonar.coverage.exclusions="Tests/**" /d:sonar.login=$${PLUGIN_SONAR_TOKEN} 
+      - dotnet sonarscanner begin /k:ChimithequeMobile /d:sonar.host.url=$${PLUGIN_SONAR_HOST} /d:sonar.coverageReportPaths="coveragereport/SonarQube.xml" /d:sonar.coverage.exclusions="Tests/**,BowlingApp/**,BowlingEF/**,Business/**,BowlingMaping/**,BowlingStub/**" /d:sonar.login=$${PLUGIN_SONAR_TOKEN} 
       - dotnet build ChimithequeMobileApp.sln -c Release --no-restore
       - dotnet test ChimithequeMobileApp.sln --logger trx --no-restore /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura --collect "XPlat Code Coverage"
       - reportgenerator -reports:"**/coverage.cobertura.xml" -reporttypes:SonarQube -targetdir:"coveragereport"
@@ -64,3 +64,4 @@ steps:
 volumes:
 - name: docs
   temp: {}
+  
