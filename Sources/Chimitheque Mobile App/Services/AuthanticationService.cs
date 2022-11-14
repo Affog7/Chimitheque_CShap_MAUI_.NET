@@ -18,6 +18,7 @@ internal class AuthanticationService:Services
             //save token to preferences
             Preferences.Set("token", token);
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Preferences.Get("token", ""));
+            
         }
     }
 
