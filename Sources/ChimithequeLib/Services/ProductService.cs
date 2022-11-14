@@ -1,16 +1,16 @@
-﻿namespace Chimitheque_Mobile_App.Services;
+﻿namespace ChimithequeLib;
 
-internal class StoreLocationService:Services
+public class ProductService : Services
 {
     /// <summary>
-    /// Méthode pour obtenir tous les lieux de stockage
+    /// Méthode pour obtenir tous les produits
     /// </summary>
     /// <returns></returns>
-    public async Task<String?> GetStoreLocationAsync()
+    public async Task<String?> GetProductsAsync()
     {
         try
         {
-            return await GetAsync("storelocations");
+            return await GetAsync("products");
         }
         catch (Exception ex)
         {
@@ -20,15 +20,15 @@ internal class StoreLocationService:Services
     }
 
     /// <summary>
-    /// Méthode pour obtenir un lieu de stockage en fonction de son id
+    /// Methode pour obtenir un produit en fonction de son id
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    public async Task<String?> GetStoreLocationByIdAsync(int id)
+    public async Task<String?> GetProductByIdAsync(int id)
     {
         try
         {
-            return await GetAsync("storelocations/" + id);
+            return await GetAsync("products/" + id);
         }
         catch (Exception ex)
         {

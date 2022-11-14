@@ -1,6 +1,6 @@
-﻿namespace Chimitheque_Mobile_App.Services;
+﻿namespace ChimithequeLib;
 
-internal class Services
+public class Services
 {
     protected HttpClient httpClient = new HttpClient();
 

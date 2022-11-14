@@ -1,19 +1,16 @@
-﻿
-using System.Diagnostics;
+﻿namespace ChimithequeLib;
 
-namespace Chimitheque_Mobile_App.Services;
-
-internal class StorageService:Services
+public class StoreLocationService:Services
 {
     /// <summary>
-    /// Méthode pour obtenir tous les stockages
+    /// Méthode pour obtenir tous les lieux de stockage
     /// </summary>
     /// <returns></returns>
-    public async Task<String?> GetStoragesAsync()
+    public async Task<String?> GetStoreLocationAsync()
     {
         try
         {
-            return await GetAsync("storages");
+            return await GetAsync("storelocations");
         }
         catch (Exception ex)
         {
@@ -23,15 +20,15 @@ internal class StorageService:Services
     }
 
     /// <summary>
-    /// Méthode pour obtenir un stockage en fonction de son id
+    /// Méthode pour obtenir un lieu de stockage en fonction de son id
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    public async Task<String?> GetStorageByIdAsync(int id)
+    public async Task<String?> GetStoreLocationByIdAsync(int id)
     {
         try
         {
-            return await GetAsync("storages/" + id);
+            return await GetAsync("storelocations/" + id);
         }
         catch (Exception ex)
         {
