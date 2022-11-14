@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChimithequeConsoleApp", "Tests\ChimithequeConsoleApp\ChimithequeConsoleApp.csproj", "{B4E12445-ACE0-4261-8332-FCF954361358}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChimithequeLib", "ChimithequeLib\ChimithequeLib.csproj", "{DA24405A-BABF-4FEA-9A02-3F5033D6A6A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chimitheque Mobile App", "Chimitheque Mobile App\Chimitheque Mobile App.csproj", "{8923E6AE-F5CD-459A-A228-A8CDBF3CB8B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,12 @@ Global
 		{B4E12445-ACE0-4261-8332-FCF954361358}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4E12445-ACE0-4261-8332-FCF954361358}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4E12445-ACE0-4261-8332-FCF954361358}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DA24405A-BABF-4FEA-9A02-3F5033D6A6A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA24405A-BABF-4FEA-9A02-3F5033D6A6A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA24405A-BABF-4FEA-9A02-3F5033D6A6A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA24405A-BABF-4FEA-9A02-3F5033D6A6A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8923E6AE-F5CD-459A-A228-A8CDBF3CB8B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8923E6AE-F5CD-459A-A228-A8CDBF3CB8B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8923E6AE-F5CD-459A-A228-A8CDBF3CB8B3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8923E6AE-F5CD-459A-A228-A8CDBF3CB8B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8923E6AE-F5CD-459A-A228-A8CDBF3CB8B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8923E6AE-F5CD-459A-A228-A8CDBF3CB8B3}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
