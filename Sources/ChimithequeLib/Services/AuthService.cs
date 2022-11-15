@@ -1,5 +1,8 @@
 ﻿namespace ChimithequeLib;
 
+/// <summary>
+/// Classe de service d'authentification
+/// </summary>
 public class AuthService:Services
 {
     /// <summary>
@@ -8,7 +11,7 @@ public class AuthService:Services
     /// <param name="login"></param>
     /// <param name="password"></param>
     /// <returns></returns>
-    public async Task GetTokenAsync(string login, string password)
+    public async Task<string?> GetTokenAsync(string login, string password)
     {
         var content = "{\"person_email\":\"" + login + "\"," +
                           "\"person_password\":\"" + password + "\"}";
@@ -16,8 +19,10 @@ public class AuthService:Services
         if (token != null)
         {
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            
+            return token;
         }
+        else
+            return null;
     }
 
     //logout

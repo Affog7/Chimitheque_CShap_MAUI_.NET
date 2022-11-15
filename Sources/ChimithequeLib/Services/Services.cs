@@ -1,21 +1,33 @@
 ﻿namespace ChimithequeLib;
 
+/// <summary>
+/// Classe de base pour les services
+/// </summary>
 public class Services
 {
-    protected HttpClient httpClient = new HttpClient();
+    public HttpClient httpClient = new HttpClient();
+    protected string fail = "Vous n'êtes pas connecté";
 
-    //Constructor
+    /// <summary>
+    /// Extencier un Service
+    /// </summary>
     public Services()
     {
         httpClient.BaseAddress = new System.Uri("https://imost.iut-clermont.uca.fr/chimithequedev/");
     }
 
-    protected async Task<string?> GetAsync(string url)
+    /// <summary>
+    /// Méthode de base pour les requêtes GET
+    /// </summary>
+    /// <param name="url"></param>
+    /// <returns></returns>
+    protected async Task<string> GetAsync(string url)
     {
-        var response = httpClient.GetAsync(url).Result;
+        var response =httpClient.GetAsync(url).Result;
         if (response.IsSuccessStatusCode)
         {
-            return await response.Content.ReadAsStringAsync();
+            var value=await response.Content.ReadAsStringAsync();
+            return value;
         }
         else
         {
@@ -23,6 +35,12 @@ public class Services
         }
     }
 
+    /// <summary>
+    /// Méthode de base pour les requêtes POST
+    /// </summary>
+    /// <param name="url"></param>
+    /// <param name="content"></param>
+    /// <returns></returns>
     protected async Task<string?> PostAsync(string url, HttpContent content)
     {
         var response = httpClient.PostAsync(url, content).Result;
