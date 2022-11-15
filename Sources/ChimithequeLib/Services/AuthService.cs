@@ -1,5 +1,8 @@
 ﻿namespace ChimithequeLib;
 
+/// <summary>
+/// Classe de service d'authentification
+/// </summary>
 public class AuthService:Services
 {
     /// <summary>

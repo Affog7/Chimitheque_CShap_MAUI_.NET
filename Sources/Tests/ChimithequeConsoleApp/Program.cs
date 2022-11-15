@@ -49,9 +49,9 @@ internal class Program
     //Methode pour effectuer le choix de l'utilisateur
     static async void DoChoice(HttpClient authentication)
     {
-        int choice = GetChoice();
         while (true)
         {
+            int choice = GetChoice();
             switch (choice)
             {
                 case 1:
@@ -69,26 +69,27 @@ internal class Program
                 case 3:
                     StorageService stock = new StorageService();
                     stock.httpClient = authentication;
-                    Console.WriteLine(stock.GetStoragesAsync());
+                    var value =await stock.GetStoragesAsync();
+                    Console.WriteLine(value);
                     break;
                 case 4:
                     StorageService stock1 = new StorageService();
                     stock1.httpClient = authentication;
                     Console.WriteLine("veillez entrer l'ID du stock");
                     int id1 = int.Parse(Console.ReadLine());
-                    Console.WriteLine(stock1.GetStorageByIdAsync(id1));
+                    Console.WriteLine(await stock1.GetStorageByIdAsync(id1));
                     break;
                 case 5:
                     StoreLocationService lieuStock = new StoreLocationService();
                     lieuStock.httpClient= authentication;
-                    Console.WriteLine(lieuStock.GetStoreLocationAsync());
+                    Console.WriteLine(await lieuStock.GetStoreLocationAsync());
                     break;
                 case 6:
                     StoreLocationService lieuStock1 = new StoreLocationService();
                     lieuStock1.httpClient = authentication;
                     Console.WriteLine("veillez entrer l'ID du lieu de stock");
                     int id2 = int.Parse(Console.ReadLine());
-                    Console.WriteLine(lieuStock1.GetStoreLocationByIdAsync(id2));
+                    Console.WriteLine(await lieuStock1.GetStoreLocationByIdAsync(id2));
                     break;
                 case 7:
                     Environment.Exit(0);

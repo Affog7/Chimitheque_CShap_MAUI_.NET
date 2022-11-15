@@ -1,5 +1,8 @@
 ﻿namespace ChimithequeLib;
 
+/// <summary>
+/// Classe de service pour les stockages
+/// </summary>
 public class StorageService:Services
 {
     /// <summary>
@@ -10,7 +13,13 @@ public class StorageService:Services
     {
         try
         {
-            return await GetAsync("storages");
+            if (httpClient.DefaultRequestHeaders.Authorization != null)
+            {
+                 var value = await GetAsync("storages");
+                return value;
+            }
+            else
+                return fail;
         }
         catch (Exception ex)
         {
@@ -28,7 +37,12 @@ public class StorageService:Services
     {
         try
         {
-            return await GetAsync("storages/" + id);
+            if (httpClient.DefaultRequestHeaders.Authorization != null)
+            {
+                return await GetAsync("storages/" + id);
+            }
+            else
+                return fail;
         }
         catch (Exception ex)
         {

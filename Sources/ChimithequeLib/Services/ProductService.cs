@@ -1,5 +1,8 @@
 ﻿namespace ChimithequeLib;
 
+/// <summary>
+/// Classe de service pour les produits
+/// </summary>
 public class ProductService : Services
 {
     /// <summary>
@@ -10,7 +13,12 @@ public class ProductService : Services
     {
         try
         {
-            return await GetAsync("products");
+            if (httpClient.DefaultRequestHeaders.Authorization != null)
+            {
+                return await GetAsync("products");
+            }
+            else
+                return fail;
         }
         catch (Exception ex)
         {
@@ -28,8 +36,12 @@ public class ProductService : Services
     {
         try
         {
-            var value = await GetAsync("products/" + id);
-            return value == null ? null : value.ToString();
+            if (httpClient.DefaultRequestHeaders.Authorization != null)
+            {
+                return await GetAsync("products/" + id);
+            }
+            else
+                return fail;
         }
         catch (Exception ex)
         {
