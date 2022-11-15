@@ -2,7 +2,7 @@
 
 public class Services
 {
-    protected HttpClient httpClient = new HttpClient();
+    public HttpClient httpClient = new HttpClient();
 
     //Constructor
     public Services()
@@ -10,12 +10,13 @@ public class Services
         httpClient.BaseAddress = new System.Uri("https://imost.iut-clermont.uca.fr/chimithequedev/");
     }
 
-    protected async Task<string?> GetAsync(string url)
+    protected async Task<string> GetAsync(string url)
     {
-        var response = httpClient.GetAsync(url).Result;
+        var response =httpClient.GetAsync(url).Result;
         if (response.IsSuccessStatusCode)
         {
-            return await response.Content.ReadAsStringAsync();
+            var value=await response.Content.ReadAsStringAsync();
+            return value;
         }
         else
         {

@@ -28,7 +28,8 @@ public class ProductService : Services
     {
         try
         {
-            return await GetAsync("products/" + id);
+            var value = await GetAsync("products/" + id);
+            return value == null ? null : value.ToString();
         }
         catch (Exception ex)
         {
