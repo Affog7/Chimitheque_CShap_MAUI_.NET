@@ -2,6 +2,7 @@
 {
     private static void Main(string[] args)
     {
+        //var data = new ProductsManager();
         Console.WriteLine("Hello, World!");
         Console.WriteLine("veillez entrer votre Email");
         string email = Console.ReadLine();
