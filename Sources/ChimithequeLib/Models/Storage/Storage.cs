@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chimitheque_Mobile_App.Model.Storage
+namespace ChimithequeLib.Model.Storage
 {
     public class Storage
     {

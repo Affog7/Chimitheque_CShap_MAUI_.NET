@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chimitheque_Mobile_App.Model.Storage
+namespace ChimithequeLib.Model
 {
-    public class Storage_Id
+    public class Storage_quantity
     {
-        public int Int64 { get; set; }
+        public double  Float64 { set; get; }
     }
 }

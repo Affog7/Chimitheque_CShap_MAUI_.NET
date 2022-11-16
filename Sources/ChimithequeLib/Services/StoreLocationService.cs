@@ -1,5 +1,8 @@
 ﻿namespace ChimithequeLib;
 
+/// <summary>
+/// Classe de service pour les emplacements de stockage
+/// </summary>
 public class StoreLocationService:Services
 {
     /// <summary>
@@ -10,7 +13,12 @@ public class StoreLocationService:Services
     {
         try
         {
-            return await GetAsync("storelocations");
+            if (httpClient.DefaultRequestHeaders.Authorization != null)
+            {
+                return await GetAsync("storelocations");
+            }
+            else
+                return fail;
         }
         catch (Exception ex)
         {
@@ -28,7 +36,12 @@ public class StoreLocationService:Services
     {
         try
         {
-            return await GetAsync("storelocations/" + id);
+            if (httpClient.DefaultRequestHeaders.Authorization != null)
+            {
+                return await GetAsync("storelocations/" + id);
+            }
+            else
+                return fail;
         }
         catch (Exception ex)
         {

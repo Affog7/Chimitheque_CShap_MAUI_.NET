@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chimitheque_Mobile_App.Model
+namespace ChimithequeLib.Model
 {
     public class Products
     {
@@ -12,7 +12,7 @@ namespace Chimitheque_Mobile_App.Model
         public string Product_type { set; get; }
         public int Product_sc{ set; get; }
 
-        public Product_Name Product_name { set; get; }
-        public List<Product_Symbol> Product_symbols { set; get; }
+        public Product_Name Name { set; get; }
+        public List<Product_Symbol> Symbols { set; get; }
     }
 }

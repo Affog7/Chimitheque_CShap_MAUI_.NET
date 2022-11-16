@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chimitheque_Mobile_App.Model.Storage
+namespace ChimithequeLib.Model.Storage
 {
     public class Product_Storage_Location
     {
@@ -12,7 +12,7 @@ namespace Chimitheque_Mobile_App.Model.Storage
         public string Storage_qrcode { set; get; }
         public Boolean Valid { set; get; }
 
-        public Products Products { set; get; }
+        public Products Product { set; get; }
 
         public StoreLocation Storelocation { get;set; }
         public Storage_quantity Storage_quantity { get;set; }

@@ -1,8 +1,9 @@
-﻿using Chimitheque_Mobile_App.Model;
-using ChimithequeLib;
+﻿using ChimithequeLib;
+using ChimithequeLib.Model;
+using ChimithequeLib.Models;
 using Newtonsoft.Json;
 
-namespace Chimitheque_Mobile_App.APisManagers
+namespace ChimithequeLib.APisManagers
 {
     public class ProductsManager
     {
@@ -13,8 +14,9 @@ namespace Chimitheque_Mobile_App.APisManagers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Products GetProductsById(int id)
+        public Products GetProductsById(int id,HttpClient client)
         {
+            service.httpClient = client;
             Products products;
             try
             {
@@ -36,19 +38,20 @@ namespace Chimitheque_Mobile_App.APisManagers
         /// Méthode pour convertir une list de donnée de produit en list d'objet Product
         /// </summary>
         /// <returns></returns>
-        public List<Products> GetAllProducts()
+        public ProductsList GetAllProducts(HttpClient client)
         {
+            service.httpClient = client;
 
-           List<Products> products;
+            ProductsList products;
             try
             {
                 var responseString =  service.GetProductsAsync().Result;
            
-                products = JsonConvert.DeserializeObject<List<Products>>(responseString);
+                products = JsonConvert.DeserializeObject<ProductsList>(responseString);
 
             }catch(Exception)
             {
-                products = new List<Products>();
+                products = new ProductsList();
             }
            
 

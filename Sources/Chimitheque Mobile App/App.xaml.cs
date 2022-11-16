@@ -1,18 +1,19 @@
-﻿using Chimitheque_Mobile_App.APisManagers;
+﻿using ChimithequeLib.APisManagers;
+using ChimithequeLib;
 
-namespace Chimitheque_Mobile_App
+namespace Chimitheque_Mobile_App;
+
+public partial class App : Application
 {
-    public partial class App : Application
+    public App()
     {
-        public App()
-        {
-            var ddd = new ProductsManager().GetProductsById(5);
+        AuthService authService = new AuthService();
+        var token = authService.GetTokenAsync("admin@chimitheque.fr", "chimitheque");
+        var httpClient = authService.httpClient;
 
-            Console.WriteLine(ddd);
+        var ddd = new Product_Storage_LocationManager().GetStorageServiceById(1,httpClient);
+        //InitializeComponent();
 
-            //InitializeComponent();
-
-           // MainPage = new AppShell();
-        }
+        // MainPage = new AppShell();
     }
 }

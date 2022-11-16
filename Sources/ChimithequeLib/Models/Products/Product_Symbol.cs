@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chimitheque_Mobile_App.Model
+namespace ChimithequeLib.Model
 {
     public class Product_Symbol
     {
-        public int Symbolid { set; get; }   
+        public int Symbol_id { set; get; }   
         public string Symbol_label { set; get; }
         public string Symbol_image { set; get; }
     }

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chimitheque_Mobile_App.Model
+namespace ChimithequeLib.Model
 {
-    public class Product_Name
+    public class StoreLocation_Name
     {
-        public string Product_label { get; set; }
+        public string String { get; set; }
     }
 }
