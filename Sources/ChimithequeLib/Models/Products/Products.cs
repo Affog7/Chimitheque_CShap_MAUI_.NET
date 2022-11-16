@@ -14,5 +14,28 @@ namespace ChimithequeLib.Model
 
         public Product_Name Name { set; get; }
         public List<Product_Symbol> Symbols { set; get; }
+
+        public override string? ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append($" Name : ");
+            sb.Append($"{Name.Name_label}");
+            sb.Append("\n Type : ");
+            sb.Append($"{Product_type}");
+
+            if(Symbols != null)
+            {
+                sb.Append("\n Symbols : ");
+                foreach(var symbol in Symbols)
+                {
+                    sb.Append($"\t- {symbol.Symbol_label}\n");
+                }
+                
+            }
+                
+            
+            
+            return sb.ToString();
+        }
     }
 }

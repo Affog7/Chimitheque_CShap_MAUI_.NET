@@ -11,7 +11,7 @@ public partial class App : Application
         var token = authService.GetTokenAsync("admin@chimitheque.fr", "chimitheque");
         var httpClient = authService.httpClient;
 
-        var ddd = new Product_Storage_LocationManager().GetStorageServiceById(1,httpClient);
+        var ddd = new ProductsManager().GetProductsById(1245,httpClient);
         //InitializeComponent();
 
         // MainPage = new AppShell();

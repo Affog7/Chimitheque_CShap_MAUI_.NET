@@ -8,6 +8,6 @@ namespace ChimithequeLib.Model.Storage
 {
     public class Storage
     {
-        public List<Product_Storage_Location> Storages { set; get; }    
+        public List<Product_Storage_Location> Rows { set; get; } = new List<Product_Storage_Location>();    
     }
 }

@@ -19,7 +19,7 @@ namespace ChimithequeLib.APisManagers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Product_Storage_Location GetStorageServiceById(int id, HttpClient client)
+        public Product_Storage_Location GetStorageLocationById(int id, HttpClient client)
         {
             service.httpClient = client;
             Product_Storage_Location storage;
