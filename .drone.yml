@@ -14,7 +14,6 @@ steps:
         path: /docs
     commands:
       - cd Sources/
-      - dotnet workload install maui
       - dotnet restore ChimithequeMobileApp.sln
       - dotnet build ChimithequeMobileApp.sln -c Release --no-restore
       - dotnet publish ChimithequeMobileApp.sln -c Release --no-restore -o CI_PROJECT_DIR/build/release

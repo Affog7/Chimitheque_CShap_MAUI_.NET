@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Chimitheque_Mobile_App.View.AuthenticationView"
+             Title="AuthenticationView">
+    <Grid RowDefinitions=".8*,.1*,.3*,.1*,.3*"
+          ColumnDefinitions=".2*,*,.5*">
+        <Grid RowDefinitions=".3*,.2*,.5*" 
+              Grid.ColumnSpan="3"
+              HorizontalOptions="Center">
+            <Image Source="logo_chimitheque_small.png"
+                   Aspect="Center"
+                   VerticalOptions="Center"
+                   HorizontalOptions="End"/>
+            <Label Text="AUTHENTICATION"
+                   FontAttributes="Bold"
+                   FontSize="Title"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   Grid.Row="1"
+                   FontFamily="AcmeRegular"/>
+            <ImageButton Source="qr_code.svg"
+                         Aspect="AspectFit"
+                         VerticalOptions="Start"
+                         Grid.Row="2"/>
+        </Grid>
+        <StackLayout Grid.Row="1"
+                     Grid.ColumnSpan="3"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center">
+            <Line X2="300"
+                  Stroke="Black"
+                  StrokeThickness="6"/>
+        </StackLayout>
+        <VerticalStackLayout Grid.Row="2"
+                             Grid.Column="1"
+                             VerticalOptions="Center"
+                             Spacing="30">
+            <Border Stroke="Gray"
+                    StrokeThickness="2"
+                    Padding="10,0,0,0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"/>
+                </Border.StrokeShape>
+                <Entry Placeholder="Compte" 
+                       PlaceholderColor="Black"
+                       FontSize="20"
+                       ClearButtonVisibility="WhileEditing"/>
+            </Border>
+            <Border Stroke="Gray"
+                    StrokeThickness="2"
+                    Padding="10,0,0,0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"/>
+                </Border.StrokeShape>
+                <Entry Placeholder="Mots de passe" 
+                       PlaceholderColor="Black" 
+                       FontSize="20"
+                       IsPassword="True"/>
+            </Border>
+        </VerticalStackLayout>
+        <Button Text="Valider"
+                Grid.Row="2"
+                Grid.Column="2"
+                FontSize="20"
+                TextColor="Black"
+                BackgroundColor="White"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+            <Button.Shadow>
+                <Shadow Brush="Gray"
+                        Offset="20,20"/>
+            </Button.Shadow>
+        </Button>
+        <StackLayout Grid.Row="3"
+                     Grid.ColumnSpan="3"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center">
+            <Line X2="300" 
+                  Stroke="Black"
+                  StrokeThickness="6"/>
+        </StackLayout>
+        <Button Text="Mode Annonyme"
+                Grid.Row="4"
+                Grid.ColumnSpan="3"
+                FontSize="20"
+                TextColor="Black"
+                BackgroundColor="White"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+            <Button.Shadow>
+                <Shadow Brush="Gray"
+                        Offset="20,20"/>
+            </Button.Shadow>
+        </Button>
+    </Grid>
+</ContentPage>

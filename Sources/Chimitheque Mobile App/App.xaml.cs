@@ -1,4 +1,6 @@
-﻿namespace Chimitheque_Mobile_App
+﻿using Chimitheque_Mobile_App.View;
+
+namespace Chimitheque_Mobile_App
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new AuthenticationView();
         }
     }
 }
