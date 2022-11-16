@@ -13,7 +13,7 @@ namespace ChimithequeLib.Model.Storage
         public string Storage_qrcode { set; get; }
         public Boolean Valid { set; get; }
 
-        public Products Product { set; get; }
+        public Product Product { set; get; }
 
         public StoreLocation Storelocation { get;set; }
         public Storage_quantity Storage_quantity { get;set; }

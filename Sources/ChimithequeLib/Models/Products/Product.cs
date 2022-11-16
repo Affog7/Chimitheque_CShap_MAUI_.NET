@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChimithequeLib.Model
 {
-    public class Products
+    public class Product
     {
         public int Product_id { set; get; }
         public string Product_type { set; get; }

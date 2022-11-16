@@ -9,6 +9,6 @@ namespace ChimithequeLib.Models
 {
     public class ProductsList
     {
-        public List<Products> Rows { set; get; } = new List<Products>();
+        public List<Product> Rows { set; get; } = new List<Product>();
     }
 }

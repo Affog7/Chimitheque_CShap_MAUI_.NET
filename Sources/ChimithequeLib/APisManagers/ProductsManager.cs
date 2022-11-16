@@ -14,19 +14,19 @@ namespace ChimithequeLib.APisManagers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Products GetProductsById(int id,HttpClient client)
+        public Product GetProductsById(int id,HttpClient client)
         {
             service.httpClient = client;
-            Products products;
+            Product products;
             try
             {
                 var responseString =  service.GetProductByIdAsync(id).Result;
            
-                products = JsonConvert.DeserializeObject<Products>(responseString);
+                products = JsonConvert.DeserializeObject<Product>(responseString);
 
             }catch (Exception)
             {
-                products = new Products();
+                products = new Product();
             }
            
 
