@@ -38,7 +38,7 @@
                              Spacing="30">
             <Border Stroke="Gray"
                     StrokeThickness="2"
-                    Padding="10,0,0,0">
+                    Padding="10,0,0,-6">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="10"/>
                 </Border.StrokeShape>
@@ -49,7 +49,7 @@
             </Border>
             <Border Stroke="Gray"
                     StrokeThickness="2"
-                    Padding="10,0,0,0">
+                    Padding="10,0,0,-6">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="10"/>
                 </Border.StrokeShape>
