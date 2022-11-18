@@ -6,4 +6,9 @@ public partial class AuthenticationView : ContentPage
 	{
 		InitializeComponent();
 	}
+
+	private void txtEmail_Completed(object sender, EventArgs e)
+	{
+		txtPassword.Focus();
+	}
 }

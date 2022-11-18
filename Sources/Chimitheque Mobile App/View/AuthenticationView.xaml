@@ -12,7 +12,7 @@
                    Aspect="Center"
                    VerticalOptions="Center"
                    HorizontalOptions="End"/>
-            <Label Text="AUTHENTICATION"
+            <Label Text="AUTHENTIFICATION"
                    FontAttributes="Bold"
                    FontSize="Title"
                    VerticalOptions="Center"
@@ -42,10 +42,10 @@
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="10"/>
                 </Border.StrokeShape>
-                <Entry Placeholder="Compte" 
-                       PlaceholderColor="Black"
+                <Entry x:Name="txtEmail" Placeholder="Email"
                        FontSize="20"
-                       ClearButtonVisibility="WhileEditing"/>
+                       ClearButtonVisibility="WhileEditing"
+                       Completed="txtEmail_Completed"/>
             </Border>
             <Border Stroke="Gray"
                     StrokeThickness="2"
@@ -53,8 +53,8 @@
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="10"/>
                 </Border.StrokeShape>
-                <Entry Placeholder="Mots de passe" 
-                       PlaceholderColor="Black" 
+                <Entry x:Name="txtPassword" 
+                       Placeholder="Mots de passe" 
                        FontSize="20"
                        IsPassword="True"/>
             </Border>
