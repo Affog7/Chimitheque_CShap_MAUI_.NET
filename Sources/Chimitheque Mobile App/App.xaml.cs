@@ -1,4 +1,4 @@
-﻿using ChimithequeLib.APisManagers;
+using ChimithequeLib.APisManagers;
 using ChimithequeLib;
 
 namespace Chimitheque_Mobile_App;
@@ -14,6 +14,7 @@ public partial class App : Application
         var ddd = new ProductsManager().GetProductsById(1245,httpClient);
         //InitializeComponent();
 
-        // MainPage = new AppShell();
+            MainPage = new AuthenticationView();
+        }
     }
 }
