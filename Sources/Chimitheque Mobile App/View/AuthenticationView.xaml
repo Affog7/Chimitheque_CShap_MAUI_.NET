@@ -16,6 +16,21 @@
                          x:Name="btnScanProduct"
                          Margin="0,20"
                          VerticalOptions="Start"/>
+        </Grid>
+        <StackLayout Grid.Row="1"
+                     Grid.ColumnSpan="3"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center">
+        </Grid>
+        <StackLayout Grid.Row="1"
+                     Grid.ColumnSpan="3"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center">
+        </Grid>
+        <StackLayout Grid.Row="1"
+                     Grid.ColumnSpan="3"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center">
             <Line X2="300"
                   Stroke="Black"
                   StrokeThickness="6"
