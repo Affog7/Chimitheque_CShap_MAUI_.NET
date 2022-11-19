@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Chimitheque_Mobile_App.View.MainView"
+             Title="MainView">
+    <StackLayout Spacing="20">
+        <Image Source="logo_chimitheque_small.png" />
+        <StackLayout Spacing="80">
+            <HorizontalStackLayout>
+                <Button Text="Retirer un produit"
+                    Style="{StaticResource CustomButton}"
+                        FontSize="Title"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+                <ImageButton Source="qr_code.png" HeightRequest="100" />
+            </HorizontalStackLayout>
+            <Button Text="Recevoir une livraison"
+                    Style="{StaticResource CustomButton}"
+                    HorizontalOptions="Fill"
+                    Margin="40,0"
+                    VerticalOptions="Center"/>
+
+            <Button Text="Mes whishes listes"
+                    Style="{StaticResource CustomButton}"
+                    HorizontalOptions="Fill"
+                    Margin="40,0" 
+                    VerticalOptions="Center"/>
+
+            <Button Text="Mes favories"
+                    Style="{StaticResource CustomButton}"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    HorizontalOptions="Fill"
+                    Margin="40,0"
+                    VerticalOptions="Center"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

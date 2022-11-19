@@ -3,102 +3,88 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:Chimitheque_Mobile_App.ViewModel"
              x:DataType="viewmodel:AuthentificationViewModel"
-             x:Class="Chimitheque_Mobile_App.View.AuthenticationView"
-             Title="AuthenticationView">
-    <Grid RowDefinitions=".8*,.1*,.3*,.1*,.3*"
-          ColumnDefinitions=".2*,*,.5*">
-        <Grid RowDefinitions=".3*,.2*,.5*" 
-              Grid.ColumnSpan="3"
-              HorizontalOptions="Center">
+             x:Class="Chimitheque_Mobile_App.View.AuthenticationView">
+    <ScrollView>
+        <VerticalStackLayout>
             <Image Source="logo_chimitheque_small.png"
-                   Aspect="Center"
-                   VerticalOptions="Center"
-                   HorizontalOptions="End"/>
+                   Margin="0,0,0,10"/>
             <Label Text="AUTHENTIFICATION"
                    FontAttributes="Bold"
                    FontSize="Title"
-                   VerticalOptions="Center"
-                   HorizontalOptions="Center"
-                   Grid.Row="1"/>
+                   HorizontalOptions="Center"/>
             <ImageButton Source="qr_code.svg"
-                         Aspect="AspectFit"
-                         VerticalOptions="Start"
-                         Grid.Row="2"/>
-        </Grid>
-        <StackLayout Grid.Row="1"
-                     Grid.ColumnSpan="3"
-                     VerticalOptions="Center"
-                     HorizontalOptions="Center">
+                         Margin="0,20"
+                         VerticalOptions="Start"/>
             <Line X2="300"
                   Stroke="Black"
-                  StrokeThickness="6"/>
-        </StackLayout>
-        <VerticalStackLayout Grid.Row="2"
-                             Grid.Column="1"
-                             VerticalOptions="Center"
-                             Spacing="30">
-            <Border Stroke="Gray"
-                    StrokeThickness="2"
-                    Padding="10,0,0,-6">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="10"/>
-                </Border.StrokeShape>
-                <Entry x:Name="txtEmail"
+                  StrokeThickness="6"
+                  HorizontalOptions="Center"/>
+            <Grid RowDefinitions="auto,auto"
+                  Margin="0,20"
+                  RowSpacing="30"
+                  ColumnDefinitions=".7*,.3*">
+                <Border Stroke="Gray"
+                        StrokeThickness="2"
+                        Margin="50,0,0,0"
+                        Padding="10,0,0,-6">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10"/>
+                    </Border.StrokeShape>
+                    <Entry x:Name="txtEmail"
                        Text="{Binding user.Person_email}"
                        Placeholder="Email"
                        FontSize="20"
                        ClearButtonVisibility="WhileEditing"
                        Keyboard="Email"
                        Completed="txtEmail_Completed"/>
-            </Border>
-            <Border Stroke="Gray"
-                    StrokeThickness="2"
-                    Padding="10,0,0,-6">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="10"/>
-                </Border.StrokeShape>
-                <Entry x:Name="txtPassword" 
+                </Border>
+                <Border Stroke="Gray"
+                        StrokeThickness="2"
+                        Margin="50,0,0,0"
+                        Grid.Row="1"
+                        Padding="10,0,0,-6">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10"/>
+                    </Border.StrokeShape>
+                    <Entry x:Name="txtPassword" 
                        Text="{Binding user.Person_password}"
                        Placeholder="Mots de passe" 
                        FontSize="20"
                        IsPassword="True"/>
-            </Border>
-        </VerticalStackLayout>
-        <Button x:Name="btnLogin" 
-                Text="Valider"
-                Grid.Row="2"
-                Grid.Column="2"
-                FontSize="20"
-                TextColor="Black"
-                BackgroundColor="White"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                Command="{Binding LoginCommand}">
-            <Button.Shadow>
-                <Shadow Brush="Gray"
+                </Border>
+                <Button x:Name="btnLogin" 
+                        Text="Valider"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Grid.RowSpan="2"
+                        HorizontalOptions="Center"
+                        VerticalOptions="CenterAndExpand"
+                        FontSize="20"
+                        TextColor="Black"
+                        BackgroundColor="White"
+                        Command="{Binding LoginCommand}">
+                    <Button.Shadow>
+                        <Shadow Brush="Gray"
                         Offset="20,20"/>
-            </Button.Shadow>
-        </Button>
-        <StackLayout Grid.Row="3"
-                     Grid.ColumnSpan="3"
-                     VerticalOptions="Center"
-                     HorizontalOptions="Center">
+                    </Button.Shadow>
+                </Button>
+            </Grid>
             <Line X2="300" 
                   Stroke="Black"
-                  StrokeThickness="6"/>
-        </StackLayout>
-        <Button Text="Mode Annonyme"
-                Grid.Row="4"
-                Grid.ColumnSpan="3"
-                FontSize="20"
-                TextColor="Black"
-                BackgroundColor="White"
-                VerticalOptions="Center"
-                HorizontalOptions="Center">
-            <Button.Shadow>
-                <Shadow Brush="Gray"
+                  StrokeThickness="6"
+                  HorizontalOptions="Center"/>
+            <Button Text="Mode Annonyme"
+                    Margin="0,20"
+                    FontSize="20"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+                <Button.Shadow>
+                    <Shadow Brush="Gray"
                         Offset="20,20"/>
-            </Button.Shadow>
-        </Button>
-    </Grid>
+                </Button.Shadow>
+            </Button>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

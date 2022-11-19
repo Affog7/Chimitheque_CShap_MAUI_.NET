@@ -8,19 +8,14 @@ public partial class App : Application
 {
     public App()
     {
-        //AuthService authService = new AuthService();
-        //var token = authService.GetTokenAsync("admin@chimitheque.fr", "chimitheque");
-        //var httpClient = authService.httpClient;
-
-        //var ddd = new ProductsManager().GetProductsById(1245,httpClient);
         InitializeComponent();
 
         var token = Preferences.Get("token", null);
 
         if (string.IsNullOrEmpty(token))
-            MainPage = new AppShell();
+            //MainPage = new AppShell();
+            MainPage = new MainView();
         else
-            MainPage = new NavigationPage(new QrCodeScane());
-
+            MainPage = new NavigationPage(new MainView());
     }
 }
