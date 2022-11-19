@@ -13,9 +13,14 @@ public partial class App : Application
         //var httpClient = authService.httpClient;
 
         //var ddd = new ProductsManager().GetProductsById(1245,httpClient);
-            InitializeComponent();
+        InitializeComponent();
 
-            MainPage = new AuthenticationView();
-        
+        var token = Preferences.Get("token", null);
+
+        if (string.IsNullOrEmpty(token))
+            MainPage = new AppShell();
+        else
+            MainPage = new NavigationPage(new QrCodeScane());
+
     }
 }
