@@ -6,16 +6,16 @@
     <StackLayout Spacing="20">
         <Image Source="logo_chimitheque_small.png" />
         <StackLayout Spacing="80">
-            <HorizontalStackLayout>
+            <StackLayout Orientation="Horizontal">
                 <Button Text="Retirer un produit"
                         x:Name="btnRetirerProduit"
-                    Style="{StaticResource CustomButton}"
+                        Style="{StaticResource CustomButton}"
                         FontSize="Title"
                         HorizontalOptions="Center"
                         VerticalOptions="Center"/>
                 <ImageButton Source="qr_code.png" HeightRequest="100"
                              x:Name="btnScanProduct" />
-            </HorizontalStackLayout>
+            </StackLayout>
             <Button Text="Recevoir une livraison"
                     x:Name="btnRessevoirProduit"
                     Style="{StaticResource CustomButton}"
@@ -29,7 +29,7 @@
                     HorizontalOptions="Fill"
                     Margin="40,0" 
                     VerticalOptions="Center"/>
-
+            
             <Button Text="Mes favories"
                     x:Name="btnFavorie"
                     Style="{StaticResource CustomButton}"
