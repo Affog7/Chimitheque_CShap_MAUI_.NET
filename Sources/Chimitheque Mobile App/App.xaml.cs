@@ -13,8 +13,8 @@ public partial class App : Application
         var token = Preferences.Get("token", null);
 
         if (string.IsNullOrEmpty(token))
-            //MainPage = new AppShell();
-            MainPage = new MainView();
+            MainPage = new AppShell();
+        //MainPage = new MainView();
         else
             MainPage = new NavigationPage(new MainView());
     }

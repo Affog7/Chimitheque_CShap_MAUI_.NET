@@ -16,21 +16,6 @@
                          x:Name="btnScanProduct"
                          Margin="0,20"
                          VerticalOptions="Start"/>
-        </Grid>
-        <StackLayout Grid.Row="1"
-                     Grid.ColumnSpan="3"
-                     VerticalOptions="Center"
-                     HorizontalOptions="Center">
-        </Grid>
-        <StackLayout Grid.Row="1"
-                     Grid.ColumnSpan="3"
-                     VerticalOptions="Center"
-                     HorizontalOptions="Center">
-        </Grid>
-        <StackLayout Grid.Row="1"
-                     Grid.ColumnSpan="3"
-                     VerticalOptions="Center"
-                     HorizontalOptions="Center">
             <Line X2="300"
                   Stroke="Black"
                   StrokeThickness="6"
@@ -69,20 +54,15 @@
                        IsPassword="True"/>
                 </Border>
                 <Button x:Name="btnLogin" 
+                        Style="{StaticResource CustomButton}"
+                        FontSize="20"
                         Text="Valider"
                         Grid.Row="0"
                         Grid.Column="1"
                         Grid.RowSpan="2"
                         HorizontalOptions="Center"
                         VerticalOptions="CenterAndExpand"
-                        FontSize="20"
-                        TextColor="Black"
-                        BackgroundColor="White"
                         Command="{Binding LoginCommand}">
-                    <Button.Shadow>
-                        <Shadow Brush="Gray"
-                        Offset="20,20"/>
-                    </Button.Shadow>
                 </Button>
             </Grid>
             <Line X2="300" 
@@ -90,16 +70,11 @@
                   StrokeThickness="6"
                   HorizontalOptions="Center"/>
             <Button Text="Mode Annonyme"
+                    Style="{StaticResource CustomButton}"
                     Margin="0,20"
                     FontSize="20"
-                    TextColor="Black"
-                    BackgroundColor="White"
                     VerticalOptions="Center"
                     HorizontalOptions="Center">
-                <Button.Shadow>
-                    <Shadow Brush="Gray"
-                        Offset="20,20"/>
-                </Button.Shadow>
             </Button>
         </VerticalStackLayout>
     </ScrollView>
