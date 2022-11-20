@@ -14,4 +14,10 @@ public partial class AuthenticationView : ContentPage
 	{
 		txtPassword.Focus();
     }
+
+    private async void onQrPageLoad(object sender, EventArgs e)
+    {
+        Page page = (Page)Activator.CreateInstance(typeof(QrCodeScane));
+              await Navigation.PushAsync(page);
+    }
 }

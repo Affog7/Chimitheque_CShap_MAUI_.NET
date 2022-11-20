@@ -31,6 +31,6 @@ namespace Chimitheque_Mobile_App.ViewModel
             }
         }
 
-
+      
     }
 }

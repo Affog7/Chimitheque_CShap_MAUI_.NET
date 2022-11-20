@@ -15,6 +15,7 @@
             <ImageButton Source="qr_code.svg"
                          x:Name="btnScanProduct"
                          Margin="0,20"
+                         Pressed="onQrPageLoad"
                          VerticalOptions="Start"/>
             <Line X2="300"
                   Stroke="Black"
