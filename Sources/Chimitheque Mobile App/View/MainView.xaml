@@ -12,8 +12,10 @@
                         FontSize="Title"
                         HorizontalOptions="Center"
                         VerticalOptions="Center"/>
-                <ImageButton Source="qr_code.png" HeightRequest="100"
-                             x:Name="btnScanProduct" />
+                <ImageButton Source="qr_code.png" 
+                             HeightRequest="100"
+                             x:Name="btnScanProduct" 
+                             Clicked="btnScanProduct_Clicked"/>
             </StackLayout>
             <Button Text="Recevoir une livraison"
                     x:Name="btnRessevoirProduit"
