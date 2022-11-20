@@ -1,5 +1,6 @@
 ﻿using Chimitheque_Mobile_App.View;
 using Chimitheque_Mobile_App.ViewModel;
+using ZXing.Net.Maui.Controls;
 
 namespace Chimitheque_Mobile_App
 {
@@ -9,7 +10,7 @@ namespace Chimitheque_Mobile_App
         {
             var builder = MauiApp.CreateBuilder();
             builder
-                .UseMauiApp<App>()
+                .UseMauiApp<App>().UseBarcodeReader()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
