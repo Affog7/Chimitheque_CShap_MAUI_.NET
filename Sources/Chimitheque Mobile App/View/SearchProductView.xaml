@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Chimitheque_Mobile_App.View.SearchProductView"
+             xmlns:vm="clr-namespace:Chimitheque_Mobile_App.ViewModel"
+             x:DataType="vm:SearchProductViewModel">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Image Source="logo_chimitheque_small.png" 
+                   HeightRequest="60"/>
+            <Label Text="Retirer un produit"
+               FontSize="Title"
+               HorizontalOptions="Center"/>
+            <Border Stroke="Black"
+                StrokeThickness="2"
+                Margin="30,0">
+                <VerticalStackLayout Spacing="15"
+                                 HorizontalOptions="CenterAndExpand"
+                                 Padding="0,20">
+                    <HorizontalStackLayout >
+                        <CheckBox VerticalOptions="Center" IsChecked="{Binding IsChimique}" />
+                        <Label Text="Produit Chimique" VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <CheckBox VerticalOptions="Center" IsChecked="{Binding IsBiologique}"/>
+                        <Label Text="Réactif Biologique" VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <CheckBox VerticalOptions="Center" IsChecked="{Binding IsConsommable}"/>
+                        <Label Text="Consommable" VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+                    <Border Stroke="Black"
+                        StrokeThickness="2">
+                        <Entry Placeholder="Partie du nom" Text="{Binding Nom}"/>
+                    </Border>
+                    <HorizontalStackLayout VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="FillAndExpand"
+                                       BackgroundColor="Red">
+                        <Border Stroke="Black"
+                            StrokeThickness="2"
+                            HorizontalOptions="FillAndExpand">
+                            <Entry Placeholder="Cas" Text="{Binding Cas}"/>
+                        </Border>
+                        <Border Stroke="Black"
+                            StrokeThickness="2">
+                            <Entry Placeholder="Code Bare" Text="{Binding Codebare}"/>
+                        </Border>
+                    </HorizontalStackLayout>
+                    <Entry Placeholder="Formule brute" Text="{Binding Formula}"/>
+                    <Button Text="Lancer" Command="{Binding SearchProductCommand}"/>
+                </VerticalStackLayout>
+            </Border>
+            <ScrollView>
+                <ListView ItemsSource="{Binding Products}">
+                </ListView>
+            </ScrollView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

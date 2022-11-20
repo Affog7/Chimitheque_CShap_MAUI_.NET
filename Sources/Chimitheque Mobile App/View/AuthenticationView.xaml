@@ -63,8 +63,7 @@
                         Grid.RowSpan="2"
                         HorizontalOptions="Center"
                         VerticalOptions="CenterAndExpand"
-                        Command="{Binding LoginCommand}">
-                </Button>
+                        Command="{Binding LoginCommand}"/>
             </Grid>
             <Line X2="300" 
                   Stroke="Black"
@@ -75,8 +74,7 @@
                     Margin="0,20"
                     FontSize="20"
                     VerticalOptions="Center"
-                    HorizontalOptions="Center">
-            </Button>
+                    HorizontalOptions="Center"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

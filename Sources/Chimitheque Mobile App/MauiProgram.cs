@@ -20,6 +20,9 @@ namespace Chimitheque_Mobile_App
             builder.Services.AddSingleton<AuthenticationView>();
             builder.Services.AddSingleton<AuthentificationViewModel>();
 
+            builder.Services.AddSingleton<SearchProductView>();
+            builder.Services.AddSingleton<SearchProductViewModel>();
+
             return builder.Build();
         }
     }

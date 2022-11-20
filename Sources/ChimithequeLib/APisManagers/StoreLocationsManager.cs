@@ -21,8 +21,9 @@ namespace ChimithequeLib.APisManagers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public StoreLocation GetLocationById(int id, HttpClient client)
+        public StoreLocation GetLocationById(int id,HttpClient client)
         {
+            service.httpClient.DefaultRequestHeaders.Clear();
             service.httpClient = client;
             StoreLocation storeLocation;
             try

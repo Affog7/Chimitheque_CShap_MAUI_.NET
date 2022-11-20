@@ -9,7 +9,7 @@ namespace ChimithequeLib.APisManagers
 {
     public class AuthManager
     {
-        private AuthService service = new AuthService();
+        public AuthService service = new AuthService();
         public string? GetToken(User user)
         {
             var token=service.GetTokenAsync(user.Person_email, user.Person_password);

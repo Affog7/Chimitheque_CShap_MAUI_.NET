@@ -6,4 +6,9 @@ public partial class MainView : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void btnScanProduct_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new QrCodeScane());
+    }
 }

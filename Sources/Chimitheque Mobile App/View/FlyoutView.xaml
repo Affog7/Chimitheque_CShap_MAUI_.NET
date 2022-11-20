@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Chimitheque_Mobile_App.View.FlyoutView"
-             xmlns:local="clr-namespace:Chimitheque_Mobile_App.View"
-             Title="FlyoutView"
-       FlyoutIcon="dotnet_bot.svg">
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       x:Class="Chimitheque_Mobile_App.View.FlyoutView"
+       xmlns:local="clr-namespace:Chimitheque_Mobile_App.View"
+       Title="FlyoutView">
     <ShellContent Title="Retirer un produit"
                   ContentTemplate="{DataTemplate local:MainView}"/>
-    <ShellContent Title="Transaction en attente"/>
+    <ShellContent Title="Rechercher un Produit"
+                  ContentTemplate="{DataTemplate local:SearchProductView}"/>
     <Shell.FlyoutHeader>
         <Label Text="Chimitheque" FontSize="Large" FontAttributes="Bold" />
     </Shell.FlyoutHeader>
-
 </Shell>

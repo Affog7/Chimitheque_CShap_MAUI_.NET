@@ -18,6 +18,6 @@ public partial class AuthenticationView : ContentPage
     private async void onQrPageLoad(object sender, EventArgs e)
     {
         Page page = (Page)Activator.CreateInstance(typeof(QrCodeScane));
-              await Navigation.PushAsync(page);
+        await Navigation.PushAsync(page);
     }
 }
