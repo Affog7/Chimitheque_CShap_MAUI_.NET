@@ -27,7 +27,7 @@ namespace Chimitheque_Mobile_App.ViewModel
             if (!string.IsNullOrEmpty(token))
             {
                 Preferences.Set("token", token);
-                Application.Current.MainPage = new NavigationPage(new QrCodeScane());
+                Application.Current.MainPage = new NavigationPage(new FlyoutView());
             }
         }
 

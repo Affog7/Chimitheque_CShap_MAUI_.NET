@@ -11,11 +11,9 @@ public partial class App : Application
         InitializeComponent();
 
         var token = Preferences.Get("token", null);
-
         if (string.IsNullOrEmpty(token))
             MainPage = new AppShell();
-        //MainPage = new MainView();
         else
-            MainPage = new NavigationPage(new MainView());
+            MainPage = new NavigationPage(new FlyoutView());
     }
 }
