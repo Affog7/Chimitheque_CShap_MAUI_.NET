@@ -1,5 +1,6 @@
 ﻿using Chimitheque_Mobile_App.View;
 using Chimitheque_Mobile_App.ViewModel;
+using CommunityToolkit.Maui;
 using ZXing.Net.Maui.Controls;
 
 namespace Chimitheque_Mobile_App
@@ -17,6 +18,8 @@ namespace Chimitheque_Mobile_App
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                     fonts.AddFont("Acme-Regular.ttf", "AcmeRegular");
                 });
+
+            builder.UseMauiApp<App>().UseMauiCommunityToolkit();
             builder.Services.AddSingleton<AuthenticationView>();
             builder.Services.AddSingleton<AuthentificationViewModel>();
 

@@ -7,7 +7,7 @@
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
-        ContentTemplate="{DataTemplate local:AuthenticationView}"
+        ContentTemplate="{DataTemplate local:StockDetailView}"
         Route="AuthenticationView" />
 
 </Shell>

@@ -52,6 +52,7 @@
             </Border>
             <ScrollView>
                 <ListView ItemsSource="{Binding Products}">
+                    
                 </ListView>
             </ScrollView>
         </VerticalStackLayout>
