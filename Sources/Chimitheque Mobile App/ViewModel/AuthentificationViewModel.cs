@@ -11,29 +11,36 @@ using System.Threading.Tasks;
 
 namespace Chimitheque_Mobile_App.ViewModel
 {
-    public partial class AuthentificationViewModel: ObservableObject
+    public partial class AuthentificationViewModel : ObservableObject
     {
         [ObservableProperty]
         public bool isLogged = false;
-        public User user { get; set; }
+        public UserViewModel user { get; set; }
         public AuthentificationViewModel()
         {
-            user = new User();
+            user = new UserViewModel();
         }
 
+
+        /// <summary>
+        /// The function is called when the user clicks on the login button. It checks if the user's
+        /// credentials are correct and if they are, it saves the token in the preferences and navigates
+        /// to the main page
+        /// </summary>
         [RelayCommand]
         public void Login()
         {
             AuthManager authManager = new AuthManager();
-            var token = authManager.GetToken(user);
+            var token = authManager.GetToken(user.user);
             if (!string.IsNullOrEmpty(token))
             {
                 Preferences.Set("token", token);
                 Preferences.Set("username", user.Person_email);
                 Preferences.Set("password", user.Person_password);
+                App.auth = authManager;
                 //IsLogged = true;
                 Application.Current.MainPage = new NavigationPage(new FlyoutView());
-                
+
             }
             else
             {

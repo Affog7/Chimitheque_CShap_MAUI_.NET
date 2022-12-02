@@ -1,5 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,13 +6,23 @@ using System.Threading.Tasks;
 
 namespace ChimithequeLib.Models.User
 {
-    public partial class User:ObservableObject
+    public class User
     {
-        [ObservableProperty]
         private string person_email;
         
-        [ObservableProperty]
         private string person_password;
+
+        public string Person_email
+        {
+            get => person_email;
+            set => person_email = value;
+        }
+
+        public string Person_password
+        {
+            get => person_password;
+            set => person_password = value;
+        }
 
     }
     

@@ -5,20 +5,18 @@
              xmlns:vm="clr-namespace:Chimitheque_Mobile_App.ViewModel"
              x:DataType="vm:SearchProductViewModel">
     <ScrollView>
-        <VerticalStackLayout>
+        <VerticalStackLayout Spacing="10">
             <Image Source="logo_chimitheque_small.png" 
                    HeightRequest="60"/>
             <Label Text="Retirer un produit"
                FontSize="Title"
                HorizontalOptions="Center"/>
-            <Border Stroke="Black"
-                StrokeThickness="2"
-                Margin="30,0">
-                <VerticalStackLayout Spacing="15"
-                                 HorizontalOptions="CenterAndExpand"
-                                 Padding="0,20">
+            <Frame Margin="40,0">
+                <StackLayout Spacing="10"
+                             HorizontalOptions="FillAndExpand"
+                             Padding="0,20">
                     <HorizontalStackLayout >
-                        <CheckBox VerticalOptions="Center" IsChecked="{Binding IsChimique}" />
+                        <CheckBox VerticalOptions="Center" HorizontalOptions="CenterAndExpand" IsChecked="{Binding IsChimique}" />
                         <Label Text="Produit Chimique" VerticalOptions="Center"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
@@ -33,27 +31,42 @@
                         StrokeThickness="2">
                         <Entry Placeholder="Partie du nom" Text="{Binding Nom}"/>
                     </Border>
-                    <HorizontalStackLayout VerticalOptions="CenterAndExpand"
-                                       HorizontalOptions="FillAndExpand"
-                                       BackgroundColor="Red">
+                    <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="FillAndExpand">
                         <Border Stroke="Black"
-                            StrokeThickness="2"
-                            HorizontalOptions="FillAndExpand">
+                            StrokeThickness="2">
                             <Entry Placeholder="Cas" Text="{Binding Cas}"/>
                         </Border>
                         <Border Stroke="Black"
-                            StrokeThickness="2">
+                            StrokeThickness="2"
+                            HorizontalOptions="FillAndExpand">
                             <Entry Placeholder="Code Bare" Text="{Binding Codebare}"/>
                         </Border>
-                    </HorizontalStackLayout>
-                    <Entry Placeholder="Formule brute" Text="{Binding Formula}"/>
-                    <Button Text="Lancer" Command="{Binding SearchProductCommand}"/>
-                </VerticalStackLayout>
-            </Border>
+                    </StackLayout>
+                    <Border Stroke="Black"
+                            StrokeThickness="2">
+                        <Entry Placeholder="Formule brute" Text="{Binding Formula}"/>
+                    </Border>
+                    <Button Style="{StaticResource CustomButton}" BackgroundColor="Black" TextColor="White" Text="Lancer" Command="{Binding SearchProductCommand}"/>
+                </StackLayout>
+            </Frame>
             <ScrollView>
-                <ListView ItemsSource="{Binding Products}">
-                    
-                </ListView>
+                <CollectionView ItemsSource="{Binding Products}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="{x:Type x:String}">
+                            <Grid>
+                                <Frame>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer 
+                                           Command="{Binding Source={RelativeSource AncestorType={x:Type vm:SearchProductViewModel}},                 Path=TapCommand}"
+                                           CommandParameter="{Binding .}"/>
+                                    </Frame.GestureRecognizers>
+                                    <Label Text="{Binding .}"/>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
             </ScrollView>
         </VerticalStackLayout>
     </ScrollView>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Chimitheque_Mobile_App.ViewModel"
+             x:DataType="vm:SearchProductViewModel"
              x:Class="Chimitheque_Mobile_App.View.MainView">
     <StackLayout Spacing="20">
         <Image Source="logo_chimitheque_small.png" />
@@ -11,7 +13,8 @@
                         Style="{StaticResource CustomButton}"
                         FontSize="Title"
                         HorizontalOptions="Center"
-                        VerticalOptions="Center"/>
+                        VerticalOptions="Center"
+                        Clicked="btnRetirerProduit_Clicked"/>
                 <ImageButton Source="qr_code.png" 
                              HeightRequest="100"
                              x:Name="btnScanProduct" 
