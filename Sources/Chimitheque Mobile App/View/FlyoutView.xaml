@@ -4,9 +4,11 @@
        x:Class="Chimitheque_Mobile_App.View.FlyoutView"
        xmlns:local="clr-namespace:Chimitheque_Mobile_App.View">
     <ShellContent Title="Retirer un produit"
-                  ContentTemplate="{DataTemplate local:MainView}"/>
+                  ContentTemplate="{DataTemplate local:MainView}"
+                  Route="MainView"/>
     <ShellContent Title="Rechercher un Produit"
-                  ContentTemplate="{DataTemplate local:SearchProductView}"/>
+                  ContentTemplate="{DataTemplate local:SearchProductView}"
+                  Route="RetirerProduit"/>
     <Shell.FlyoutHeader>
         <Label Text="Chimitheque" FontSize="Large" FontAttributes="Bold" />
     </Shell.FlyoutHeader>

@@ -6,7 +6,7 @@ using System.Net.Http.Headers;
 
 internal class Program
 {
-    
+
     private static void Main(string[] args)
     {
         //var data = new ProductsManager();
@@ -16,7 +16,7 @@ internal class Program
         Console.WriteLine("veillez entrer votre mot de passe");
         string password = Console.ReadLine();
         AuthService authService = new AuthService();
-        var token=authService.GetTokenAsync(email, password);
+        var token = authService.GetTokenAsync(email, password);
         var httpClient = authService.httpClient;
         DoChoice(httpClient);
     }
@@ -70,7 +70,7 @@ internal class Program
                 case 3:
                     StorageService stock = new StorageService();
                     stock.httpClient = authentication;
-                    var value =await stock.GetStoragesAsync();
+                    var value = await stock.GetStoragesAsync();
                     Console.WriteLine(value);
                     break;
                 case 4:
@@ -82,7 +82,7 @@ internal class Program
                     break;
                 case 5:
                     StoreLocationService lieuStock = new StoreLocationService();
-                    lieuStock.httpClient= authentication;
+                    lieuStock.httpClient = authentication;
                     Console.WriteLine(await lieuStock.GetStoreLocationAsync());
                     break;
                 case 6:

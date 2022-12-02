@@ -24,6 +24,7 @@ namespace Chimitheque_Mobile_App
             builder.Services.AddSingleton<AuthentificationViewModel>();
 
             builder.Services.AddSingleton<SearchProductView>();
+            builder.Services.AddSingleton<MainView>();
             builder.Services.AddSingleton<SearchProductViewModel>();
 
             return builder.Build();

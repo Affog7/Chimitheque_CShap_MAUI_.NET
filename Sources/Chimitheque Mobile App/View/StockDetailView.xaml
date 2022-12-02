@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:tool="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:local="clr-namespace:Chimitheque_Mobile_App"
-             x:Class="Chimitheque_Mobile_App.View.StockDetailView">
+             x:Class="Chimitheque_Mobile_App.View.StockDetailView"
+             Title="StockDetailView">
     <ScrollView>
         <VerticalStackLayout Spacing="10">
             <Image Source="logo_chimitheque_small.png" 
@@ -103,11 +104,8 @@
                                     VerticalOptions="Center" 
                                     Style="{StaticResource CustomButton}"
                                     FontSize="23"
-                                    BackgroundColor="Gray">
-                                <Button.Shadow>
-                                    <Shadow Brush="Black"
-                                            Offset="20,20"/>
-                                </Button.Shadow>
+                                    TextColor="White"
+                                    BackgroundColor="Black">
                             </Button>
                         </StackLayout>
                     </StackLayout>
