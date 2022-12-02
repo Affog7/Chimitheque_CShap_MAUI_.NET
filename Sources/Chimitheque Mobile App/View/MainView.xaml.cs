@@ -11,12 +11,19 @@ public partial class MainView : ContentPage
 
     private void btnScanProduct_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new QrCodeScane());
+        Navigation.PushAsync(new AjoutProduits());
     }
 
     private void btnRetirerProduit_Clicked(object sender, EventArgs e)
     {
         Navigation.PushAsync(new SearchProductView(new SearchProductViewModel()));
 
+    }
+
+    private void btnDeconnect_Clicked(object sender, EventArgs e)
+    {
+        Preferences.Set("token", null);
+
+        Application.Current.MainPage = new AppShell();
     }
 }

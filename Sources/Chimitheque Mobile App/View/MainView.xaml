@@ -4,7 +4,9 @@
              xmlns:vm="clr-namespace:Chimitheque_Mobile_App.ViewModel"
              x:DataType="vm:SearchProductViewModel"
              x:Class="Chimitheque_Mobile_App.View.MainView">
+    <ScrollView>
     <StackLayout Spacing="20">
+       
         <Image Source="logo_chimitheque_small.png" />
         <StackLayout Spacing="80">
             <StackLayout Orientation="Horizontal">
@@ -42,6 +44,15 @@
                     HorizontalOptions="Fill"
                     Margin="40,0"
                     VerticalOptions="Center"/>
+            <Button Text="Déconnecter"
+                    BackgroundColor="Red"
+                    x:Name="btnDeconnect"   
+                    Clicked="btnDeconnect_Clicked"
+                    TextColor="Black"
+                    HorizontalOptions="Fill"
+                    Margin="40,0"
+                    VerticalOptions="Center"/>
         </StackLayout>
-    </StackLayout>
+      </StackLayout>
+    </ScrollView>
 </ContentPage>

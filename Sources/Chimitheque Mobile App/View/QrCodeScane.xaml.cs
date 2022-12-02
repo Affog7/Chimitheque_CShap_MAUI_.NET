@@ -1,3 +1,4 @@
+using Microsoft.Maui.Dispatching;
 using ZXing.Net.Maui;
 using ZXing.Net.Maui.Controls;
 
@@ -17,18 +18,39 @@ public partial class QrCodeScane : ContentPage
             AutoRotate = true,
             Multiple = true
         };
+
+     
+
     }
 
     // Fonction de traitement de lecture des codes qrCode/barcode 
-    protected void BarcodesDetected(object sender, BarcodeDetectionEventArgs e)
+    protected void QrCodeDetected(object sender, BarcodeDetectionEventArgs e)
     {
-        var data = e.Results.FirstOrDefault();
-      
+        var data = e.Results.FirstOrDefault().Value;
+        
         if (data is not null)
         {
-           Console.WriteLine(data.ToString());
-        }
+
+            List<string> list = new List<string>();
+            char[] delimiterChars = { ',',':'};
+            list = data.ToString().Split(delimiterChars).ToList();
+            //   Console.WriteLine(data.ToString());
+
+            Preferences.Set("token", $"{list.ElementAt(1)}");
+
+
+
+            Dispatcher.DispatchAsync(() =>
+            {
+                Application.Current.MainPage = new NavigationPage(new MainView());
+            });           
+
+        }                                      
     }
+
+
+  
+   
 
     // Fonction de changement de camera (Front or Back)
     void SwitchCameraButton_Clicked(object sender, EventArgs e)
@@ -42,4 +64,8 @@ public partial class QrCodeScane : ContentPage
     {
         barcodeView.IsTorchOn = !barcodeView.IsTorchOn;
     }
+
+    
+
+    
 }

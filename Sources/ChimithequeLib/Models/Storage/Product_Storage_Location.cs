@@ -7,8 +7,10 @@ using System.Xml.Linq;
 
 namespace ChimithequeLib.Model.Storage
 {
-    public class Product_Storage_Location
-    {
+
+    public class Product_Storage_Location : IEquatable<Product_Storage_Location>
+    {   
+
         public Storage_Id Storage_id { set; get; }
         public string Storage_qrcode { set; get; }
         public Boolean Valid { set; get; }
@@ -19,6 +21,21 @@ namespace ChimithequeLib.Model.Storage
         public Storage_quantity Storage_quantity { get;set; }
         public Unit_quantity Unit_quantity { get;set; }
 
+        public override bool Equals(Object other)
+        {
+            if(ReferenceEquals(null, other)) return false;
+            if(ReferenceEquals(this, other)) return true;
+            if (GetType() != other.GetType()) return false;
+            return Equals((Product_Storage_Location)other);
+        }
+
+        public bool Equals(Product_Storage_Location other) { return Product.Equals(other.Product); }
+
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
 
         public override string? ToString()
         {
