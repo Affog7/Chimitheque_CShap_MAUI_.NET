@@ -6,7 +6,6 @@ using System.Net.Http.Headers;
 
 internal class Program
 {
-
     private static void Main(string[] args)
     {
         
@@ -15,7 +14,7 @@ internal class Program
         Console.WriteLine("veillez entrer votre mot de passe");
         string password = Console.ReadLine();
         AuthService authService = new AuthService();
-        var token = authService.GetTokenAsync(email, password);
+        var token=authService.GetTokenAsync(email, password).Result;
         var httpClient = authService.httpClient;
         DoChoice(httpClient);
     }
@@ -61,7 +60,7 @@ internal class Program
 
                     int id = int.Parse(Console.ReadLine());
 
-                    var data = new StoreLocationsManager().GetLocationById(id, authentication);
+                    var data = new StoreLocationsManager().GetLocationById(id,authentication);
 
                     Console.WriteLine(data);
                     break;

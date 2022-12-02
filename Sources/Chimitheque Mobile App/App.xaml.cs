@@ -1,21 +1,38 @@
-using ChimithequeLib.APisManagers;
-using ChimithequeLib;
 using Chimitheque_Mobile_App.View;
+using ChimithequeLib.APisManagers;
+using ChimithequeLib.Models.User;
 
 namespace Chimitheque_Mobile_App;
 
 public partial class App : Application
 {
+    public static AuthManager auth = new AuthManager();
     public App()
     {
-        //AuthService authService = new AuthService();
-        //var token = authService.GetTokenAsync("admin@chimitheque.fr", "chimitheque");
-        //var httpClient = authService.httpClient;
+        InitializeComponent();
 
-        //var ddd = new ProductsManager().GetProductsById(1245,httpClient);
-            InitializeComponent();
+        var token = Preferences.Get("token", null);
+        //User user = new User();
+        //user.Person_email = Preferences.Get("username", "admin@chimitheque.fr");
+        //user.Person_password = Preferences.Get("password", "chimitheque");
+        //MainPage = new AppShell();
 
-            MainPage = new AuthenticationView();
-        
+
+        /* Checking if the token is empty or not. If it is empty, it will go to the AppShell page. If
+        it is not empty, it will go to the FlyoutView page. */
+        if (string.IsNullOrEmpty(token))
+            MainPage = new AppShell();
+        else
+        {
+            /* Getting the username and password from the preferences and then it is getting the token
+            from the API. */
+            UserViewModel userVM = new UserViewModel();
+            Preferences.Set("username", "admin@chimitheque.fr");
+            userVM.Person_email = Preferences.Get("username", null);
+            Preferences.Set("password", "chimitheque");
+            userVM.Person_password = Preferences.Get("password", null);
+            auth.GetToken(userVM.user);
+            MainPage = new NavigationPage(new FlyoutView());
+        }
     }
 }

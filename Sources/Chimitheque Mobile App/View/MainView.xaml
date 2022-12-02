@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Chimitheque_Mobile_App.ViewModel"
+             x:DataType="vm:SearchProductViewModel"
+             x:Class="Chimitheque_Mobile_App.View.MainView">
+    <StackLayout Spacing="20">
+        <Image Source="logo_chimitheque_small.png" />
+        <StackLayout Spacing="80">
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Retirer un produit"
+                        x:Name="btnRetirerProduit"
+                        Style="{StaticResource CustomButton}"
+                        FontSize="Title"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Clicked="btnRetirerProduit_Clicked"/>
+                <ImageButton Source="qr_code.png" 
+                             HeightRequest="100"
+                             x:Name="btnScanProduct" 
+                             Clicked="btnScanProduct_Clicked"/>
+            </StackLayout>
+            <Button Text="Recevoir une livraison"
+                    x:Name="btnRessevoirProduit"
+                    Style="{StaticResource CustomButton}"
+                    HorizontalOptions="Fill"
+                    Margin="40,0"
+                    VerticalOptions="Center"/>
+
+            <Button Text="Mes whishes listes"
+                    x:Name="btnWhisheList"
+                    Style="{StaticResource CustomButton}"
+                    HorizontalOptions="Fill"
+                    Margin="40,0" 
+                    VerticalOptions="Center"/>
+            
+            <Button Text="Mes favories"
+                    x:Name="btnFavorie"
+                    Style="{StaticResource CustomButton}"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    HorizontalOptions="Fill"
+                    Margin="40,0"
+                    VerticalOptions="Center"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

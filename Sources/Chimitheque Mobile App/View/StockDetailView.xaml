@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tool="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:local="clr-namespace:Chimitheque_Mobile_App"
+             xmlns:vm="clr-namespace:Chimitheque_Mobile_App.ViewModel"
+             x:Class="Chimitheque_Mobile_App.View.StockDetailView"
+             x:DataType="vm:StockDetailViewModel"
+             Title="StockDetailView">
+    <ScrollView>
+        <VerticalStackLayout Spacing="10">
+            <Image Source="logo_chimitheque_small.png" 
+                   HeightRequest="60"/>
+            <Label Text="Retirer un produit"
+                   FontSize="Title"
+                   HorizontalOptions="Center"/>
+            <Frame>
+                <tool:Expander IsExpanded="{Binding IsExpanded1}" Command="{Binding ChangeImageCommand}">
+                    <tool:Expander.Header>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Produit"
+                                   HorizontalOptions="StartAndExpand"
+                                   FontAttributes="Bold"
+                                   FontSize="25" />
+                            <Image Source="{Binding ImagePath1}"
+                                   HeightRequest="20"
+                                   HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </tool:Expander.Header>
+                    <VerticalStackLayout>
+                        <Label Text="#5123"
+                               FontAttributes="Bold"
+                               FontSize="20"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="dotnet_bot.png" HeightRequest="30" Margin="10,0"/>
+                            <Image Source="dotnet_bot.png" HeightRequest="30" Margin="10,0"/>
+                        </StackLayout>
+                    </VerticalStackLayout>
+                </tool:Expander>
+            </Frame>
+            <Frame>
+                <tool:Expander IsExpanded="{Binding IsExpanded2}" Command="{Binding ChangeImageCommand}">
+                    <tool:Expander.Header>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Détail du Stock"
+                                   HorizontalOptions="StartAndExpand"
+                                   FontAttributes="Bold"
+                                   FontSize="25" />
+                            <Image Source="{Binding ImagePath2}"
+                                   HeightRequest="20"
+                                   HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </tool:Expander.Header>
+                    <StackLayout Spacing="20">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Quantité Restante:  "/>
+                            <Label Text="3.5L"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Entrepot: "/>
+                            <Label Text="entrepot 1"/>
+                            <Label Text="Lot: " HorizontalOptions="EndAndExpand"/>
+                            <Label Text="Lot 1" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Ouverture: "/>
+                            <Label Text="jj/mm/aaaa"/>
+                            <Label Text="Expiration: " HorizontalOptions="EndAndExpand"/>
+                            <Label Text="jj/mm/aaaa" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </StackLayout>
+                </tool:Expander>
+            </Frame>
+            <Frame>
+                <tool:Expander IsExpanded="{Binding IsExpanded3}" Command="{Binding ChangeImageCommand}">
+                    <tool:Expander.Header>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Détail de transaction"
+                                   HorizontalOptions="Start"
+                                   FontAttributes="Bold"
+                                   FontSize="25" />
+                            <Image Source="{Binding ImagePath3}"
+                                   HeightRequest="20"
+                                   HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </tool:Expander.Header>
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                            <Entry Placeholder="Quantity" HorizontalOptions="FillAndExpand"/>
+                            <Label Text="Unité" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Grid RowDefinitions="*,*" 
+                                  ColumnDefinitions="80,80,80"
+                                  RowSpacing="5"
+                                  ColumnSpacing="5"
+                                  HorizontalOptions="StartAndExpand">
+                                <Button Text="+1" FontSize="17"/>
+                                <Button Text="-1" FontSize="17" Grid.Row="1"/>
+                                <Button Text="+5" FontSize="17" Grid.Column="1"/>
+                                <Button Text="-5" FontSize="17" Grid.Column="1" Grid.Row="1"/>
+                                <Button Text="+10" FontSize="17" Grid.Column="2"/>
+                                <Button Text="-10" FontSize="17" Grid.Column="2" Grid.Row="1"/>
+                            </Grid>
+                            <Button Text="Valider" 
+                                    VerticalOptions="Center" 
+                                    Style="{StaticResource CustomButton}"
+                                    FontSize="23"
+                                    TextColor="White"
+                                    BackgroundColor="Black">
+                            </Button>
+                        </StackLayout>
+                    </StackLayout>
+                </tool:Expander>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

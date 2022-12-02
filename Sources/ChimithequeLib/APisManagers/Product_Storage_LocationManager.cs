@@ -44,9 +44,9 @@ namespace ChimithequeLib.APisManagers
         /// Méthode pour convertir une list de donnée de storage en Storage
         /// </summary>
         /// <returns></returns>
-        public Storages GetAllStorage(HttpClient client)
+        public Storages GetAllStorage(HttpClient auth)
         {
-            service.httpClient = client;
+            service.httpClient = auth;
 
             Storages storage;
             try
