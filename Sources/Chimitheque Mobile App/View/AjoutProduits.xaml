@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Chimitheque_Mobile_App.View.AjoutProduits"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+             xmlns:viewmodel="clr-namespace:Chimitheque_Mobile_App.ViewModel"
+             xmlns:model="clr-namespace:ChimithequeLib.Model;assembly=ChimithequeLib"
+             x:DataType="viewmodel:StoragesViewModel"
+             Title="Ajout de produit"
+             
+             
+             BackgroundColor="White">
+    <ScrollView>
+        <StackLayout>
+        <Label 
+            Text="Scannez le produit"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Grid>
+            
+            <Grid.RowDefinitions> 
+                <RowDefinition   />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  />
+            </Grid.ColumnDefinitions>
+                <Frame HeightRequest="250">
+                    <zxing:CameraBarcodeReaderView
+				                x:Name="barcodeGenerator"
+				                HorizontalOptions="Center"  
+                                BarcodesDetected="barcodeGenerator_BarcodesDetected"
+				                VerticalOptions="Center"   />
+                    
+                </Frame>
+ 
+                <Frame HeightRequest="250" Margin="5,30,5,1" Grid.Row="2"  BackgroundColor="AliceBlue" >
+
+                    <VerticalStackLayout Spacing="12">
+                        <Label  Text="Liste des choix" HorizontalOptions="Center" FontSize="20" />
+                        <Line Aspect="Fill" BackgroundColor="Black"  />
+                        <ListView  ItemsSource="{Binding Produits}"     >
+                            <ListView.ItemTemplate >
+                                <DataTemplate >
+
+                                    <ViewCell  x:DataType="model:StoreLocation">
+                                        <HorizontalStackLayout  x:DataType="model:Product"  >
+
+                                            <SwipeView BackgroundColor="#b2b9c1">
+                                                <HorizontalStackLayout>
+                                                     <Label   x:Name="DataProduct"  WidthRequest="200" Text="{Binding .}" TextColor="Black" />
+                                                    <ImageButton Source="edit.jpg" CommandParameter="{Binding .}"   WidthRequest="42" Padding="1" Margin="50,0,0,0"  BackgroundColor="DarkGreen" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:StoragesViewModel}}, Path=QuantityProductCommand }"  />
+                                                </HorizontalStackLayout>
+                                                <SwipeView.RightItems>
+                                                    <SwipeItems>
+                                                        <SwipeItem Text="Supprimer"
+                                                                   IconImageSource="suprimer.jpg"
+                                                                   BackgroundColor="red"
+                                                                    CommandParameter="{Binding .}"
+                                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:StoragesViewModel}}, Path=RemoveProductCommand }"
+                                                                   />
+                                                    </SwipeItems>
+                                                </SwipeView.RightItems>
+                                                
+                                            </SwipeView>
+
+                                           
+                                        </HorizontalStackLayout>
+                                    </ViewCell>
+
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </VerticalStackLayout>
+
+                </Frame>
+            </Grid>
+            
+            <Grid ColumnSpacing="12" Margin="8,25,8,8" >
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button Text="Retour" BackgroundColor="Red"  x:Name="Quit" Clicked="Quit_Pressed" />
+                <Button Grid.Column="1" Text="Valider" BackgroundColor="Green" HeightRequest="80" />
+            </Grid>
+        </StackLayout>
+    
+    </ScrollView>
+    
+</ContentPage>

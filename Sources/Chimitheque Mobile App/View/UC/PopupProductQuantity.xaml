@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mauiPopup:BasePopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mauiPopup="clr-namespace:MauiPopup.Views;assembly=MauiPopup"
+             x:Class="Chimitheque_Mobile_App.View.UC.PopupProductQuantity"
+             Title="Quantité" 
+                         ForegroundColor="Transparent" 
+                         BackgroundColor="Transparent"
+                         >
+    
+    <VerticalStackLayout Padding="12"  Spacing="10"  VerticalOptions="Center" BackgroundColor="#b2b9c1" WidthRequest="300" HeightRequest="420">
+       
+        <Label Text="La quantité : "  />
+        <HorizontalStackLayout>
+             <Entry Keyboard="Numeric" x:Name="Valeur"    BackgroundColor="AliceBlue"  Margin="10" WidthRequest="200"  />
+            <Label x:Name="Unity"  FontSize="25" Margin="10"/>
+        </HorizontalStackLayout>
+       
+        <Grid  RowSpacing="20" ColumnSpacing="5" >
+           
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+
+            <Button  Text="" x:Name="Qt1"  ScaleY="1.5" Pressed="Qt_Pressed"    />
+            <Button Grid.Column="1" x:Name="Qt2" ScaleY="1.5" Pressed="Qt_Pressed"    Text=""/>
+            <Button Grid.Row="1" x:Name="Qt3" ScaleY="1.5" Pressed="Qt_Pressed" Text=""/>
+            <Button Grid.Row="1" x:Name="Qt4" ScaleY="1.5" Grid.Column="1" Pressed="Qt_Pressed" Text=""/>
+            <Button Grid.Row="2" x:Name="Qt5"  Text="" Pressed="Qt_Pressed" ScaleY="1.5" />
+            <Button Grid.Row="2" Grid.Column="1" x:Name="Qt6"  Pressed="Qt_Pressed" Text="" ScaleY="1.5" />
+            
+        </Grid>
+
+     
+
+        <VerticalStackLayout VerticalOptions="End" Margin="35"  Spacing="15">
+            <Button Text="Quitter" BackgroundColor="red"  VerticalOptions="End" Clicked="Quit_Button_Clicked" />
+            <Button Text="Valider" BackgroundColor="Green"  VerticalOptions="End" Clicked="Validated_Button_Clicked" />
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+
+
+</mauiPopup:BasePopupPage>
