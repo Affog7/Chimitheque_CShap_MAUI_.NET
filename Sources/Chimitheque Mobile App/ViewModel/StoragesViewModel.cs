@@ -103,8 +103,7 @@ namespace Chimitheque_Mobile_App.ViewModel
             await Application.Current.Dispatcher.DispatchAsync(async () =>
             {
                 await MauiPopup.PopupAction.DisplayPopup(new PopupProductQuantity(this,data, ChoixProduits[data]));
-            }
-          );
+            });
         }
         
     

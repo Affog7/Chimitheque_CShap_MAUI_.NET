@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
@@ -108,7 +109,16 @@ namespace Chimitheque_Mobile_App.ViewModel
             {
                 {"Product",vm }
             };
-            await Shell.Current.GoToAsync($"{nameof(StockDetailView)}",navigationParamater);
+            try
+            {
+                var StockView = new StockDetailView(new StockDetailViewModel());
+                await Shell.Current.GoToAsync( $"StockDetailView", navigationParamater);
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
     }
 }

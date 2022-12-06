@@ -18,7 +18,7 @@ namespace Chimitheque_Mobile_App.ViewModel
         private int quantity;
 
         [ObservableProperty]
-        string productName;
+        string productName="Produit",productLocation,productLot,productCapacite;
 
         [ObservableProperty]
         private int productId;
@@ -64,6 +64,10 @@ namespace Chimitheque_Mobile_App.ViewModel
             var ProductStorageLocation = query["Product"] as Product_Storage_Location;
             ProductName = ProductStorageLocation.Product.Name.Name_label;
             ProductId = ProductStorageLocation.Product.Product_id;
+            ProductLocation = ProductStorageLocation.Storelocation.StoreLocation_name.String;
+            //ajout du lot
+
+            ProductCapacite = ProductStorageLocation.Storage_quantity.Float64+ ProductStorageLocation.Unit_quantity.Unit_label.String;
 
         }
     }
