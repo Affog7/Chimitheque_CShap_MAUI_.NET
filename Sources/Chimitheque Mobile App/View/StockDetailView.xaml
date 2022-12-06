@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:tool="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
@@ -88,7 +88,9 @@
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
                             <Entry Placeholder="Quantity" HorizontalOptions="FillAndExpand" Text="{Binding Quantity}"/>
                             <Picker Title="Unit"
-                                    x:Name="picker"/>
+                                    x:Name="picker"
+                                    SelectedItem="{Binding Unit}"
+                                    IsEnabled="False"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <Grid RowDefinitions="*,*" 

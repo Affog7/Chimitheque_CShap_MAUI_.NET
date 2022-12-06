@@ -6,6 +6,5 @@ public partial class FlyoutView : Shell
 	{
 		InitializeComponent();
         Routing.RegisterRoute(nameof(MainView), typeof(MainView));
-        Routing.RegisterRoute(nameof(SearchProductView), typeof(SearchProductView));
     }
 }

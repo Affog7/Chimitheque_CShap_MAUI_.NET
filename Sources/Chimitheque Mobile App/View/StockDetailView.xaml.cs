@@ -5,7 +5,6 @@ namespace Chimitheque_Mobile_App.View;
 
 public partial class StockDetailView : ContentPage
 {
-    Unit unit = new Unit();
     public StockDetailView(StockDetailViewModel vm)
 	{
 		InitializeComponent();
@@ -20,10 +19,7 @@ public partial class StockDetailView : ContentPage
 		List<string> list = new List<string>();
         list.AddRange(new string[] { "g", "mL", "L", "kg" });
         picker.ItemsSource = list;
-    }
-}
 
-public enum Unit
-{
-    
+        picker.SelectedItem = "mL";
+    }
 }

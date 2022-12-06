@@ -12,13 +12,13 @@ namespace Chimitheque_Mobile_App.ViewModel
     public partial class StockDetailViewModel:ObservableObject,IQueryAttributable
     {
         [ObservableProperty]
-        private string imagePath1="down.svg", imagePath2 = "down.svg", imagePath3 = "up.svg";
+        private string imagePath1="down.png", imagePath2 = "down.png", imagePath3 = "up.png";
 
         [ObservableProperty]
         private int quantity;
 
         [ObservableProperty]
-        string productName="Produit",productLocation,productLot,productCapacite;
+        string productName="Produit",productLocation,productLot,productCapacite,unit;
 
         [ObservableProperty]
         private int productId;
@@ -37,9 +37,9 @@ namespace Chimitheque_Mobile_App.ViewModel
         string Change(bool _isExpand)
         {
             if (_isExpand)
-                return  "up.svg";
+                return  "up.png";
             else
-                return  "down.svg";
+                return  "down.png";
         }
 
         [RelayCommand]
@@ -66,7 +66,7 @@ namespace Chimitheque_Mobile_App.ViewModel
             ProductId = ProductStorageLocation.Product.Product_id;
             ProductLocation = ProductStorageLocation.Storelocation.StoreLocation_name.String;
             //ajout du lot
-
+            Unit = ProductStorageLocation.Unit_quantity.Unit_label.String;
             ProductCapacite = ProductStorageLocation.Storage_quantity.Float64+ ProductStorageLocation.Unit_quantity.Unit_label.String;
 
         }

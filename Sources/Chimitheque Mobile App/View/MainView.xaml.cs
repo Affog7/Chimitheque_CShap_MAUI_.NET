@@ -7,6 +7,7 @@ public partial class MainView : ContentPage
 	public MainView()
 	{
 		InitializeComponent();
+        Routing.RegisterRoute(nameof(SearchProductView), typeof(SearchProductView));
     }
 
     private void btnScanProduct_Clicked(object sender, EventArgs e)
