@@ -16,13 +16,17 @@ public partial class MainView : ContentPage
 
     private void btnRetirerProduit_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new SearchProductView(new SearchProductViewModel()));
+        //Navigation.PushAsync(new SearchProductView(new SearchProductViewModel()));
+
+        Shell.Current.GoToAsync($"{nameof(SearchProductView)}");
 
     }
 
     private void btnDeconnect_Clicked(object sender, EventArgs e)
     {
         Preferences.Set("token", null);
+        Preferences.Set("username", null);
+        Preferences.Set("password", null);
 
         Application.Current.MainPage = new AppShell();
     }

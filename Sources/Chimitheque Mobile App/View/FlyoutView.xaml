@@ -7,9 +7,5 @@
                   ContentTemplate="{DataTemplate local:MainView}"
                   Route="MainView"/>
     <ShellContent Title="Rechercher un Produit"
-                  ContentTemplate="{DataTemplate local:SearchProductView}"
-                  Route="RetirerProduit"/>
-    <Shell.FlyoutHeader>
-        <Label Text="Chimitheque" FontSize="Large" FontAttributes="Bold" />
-    </Shell.FlyoutHeader>
+                  Content="zerefe"/>
 </Shell>

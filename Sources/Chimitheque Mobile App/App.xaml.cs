@@ -27,12 +27,10 @@ public partial class App : Application
             /* Getting the username and password from the preferences and then it is getting the token
             from the API. */
             UserViewModel userVM = new UserViewModel();
-            Preferences.Set("username", "admin@chimitheque.fr");
             userVM.Person_email = Preferences.Get("username", null);
-            Preferences.Set("password", "chimitheque");
             userVM.Person_password = Preferences.Get("password", null);
             auth.GetToken(userVM.user);
-            MainPage = new NavigationPage(new FlyoutView());
+            MainPage = new FlyoutView();
         }
     }
 }

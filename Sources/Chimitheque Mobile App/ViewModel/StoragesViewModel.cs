@@ -25,23 +25,20 @@ namespace Chimitheque_Mobile_App.ViewModel
 {
    public partial class StoragesViewModel : INotifyPropertyChanged
     {
-        public Product_Storage_LocationManager manager =  new Product_Storage_LocationManager();
+        public Product_Storage_LocationManager manager =  new();
 
         public ObservableCollection<Product_Storage_Location> Produits {private set; get; }  = new ObservableCollection<Product_Storage_Location>() ;
 
         public IDictionary<Product_Storage_Location, double> ChoixProduits = new Dictionary<Product_Storage_Location,double>() ;
 
-        
-        AuthService authService = new AuthService();
+        HttpClient httpClient;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public StoragesViewModel() {
                        
             manager = new Product_Storage_LocationManager();
-            var token = authService.GetTokenAsync("admin@chimitheque.fr", "chimitheque");
-            var httpClient = authService.httpClient;
-            authService.httpClient = httpClient;           
+            httpClient = App.auth.service.httpClient;           
 
         }
 
@@ -53,7 +50,7 @@ namespace Chimitheque_Mobile_App.ViewModel
             {
                 if (!string.IsNullOrWhiteSpace(value) && double.Parse(value.ToString()) > 0)
                 {
-                    var data  =  manager.GetStorageLocationById(int.Parse(value), authService.httpClient);
+                    var data  =  manager.GetStorageLocationById(int.Parse(value),httpClient);
 
                      if(data != null && IsNotContent(data))
                     {
@@ -78,8 +75,6 @@ namespace Chimitheque_Mobile_App.ViewModel
             {
                 await Message.MessageScanIncorrect();
             }
-           
- 
         }
 
         private bool IsNotContent(Product_Storage_Location location)
@@ -99,7 +94,7 @@ namespace Chimitheque_Mobile_App.ViewModel
         public void QuantityProduct(Product_Storage_Location product, double qte)
         {
             ChoixProduits[product] = qte;
-         }
+        }
 
 
         [RelayCommand]
@@ -107,9 +102,7 @@ namespace Chimitheque_Mobile_App.ViewModel
         {
             await Application.Current.Dispatcher.DispatchAsync(async () =>
             {
-
                 await MauiPopup.PopupAction.DisplayPopup(new PopupProductQuantity(this,data, ChoixProduits[data]));
-
             }
           );
         }
