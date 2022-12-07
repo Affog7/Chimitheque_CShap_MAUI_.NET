@@ -1,6 +1,7 @@
 ﻿using Chimitheque_Mobile_App.View;
 using ChimithequeLib.APisManagers;
 using ChimithequeLib.Models.User;
+using ChimithequeLib.ViewModel.Users;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;

@@ -1,4 +1,5 @@
 ﻿using Chimitheque_Mobile_App.APisManagers;
+using Chimitheque_Mobile_App.View;
 using Chimitheque_Mobile_App.View.UC;
 using Chimitheque_Mobile_App.View.Utils;
 using ChimithequeLib;
@@ -112,6 +113,16 @@ namespace Chimitheque_Mobile_App.ViewModel
 
             }
           );
+        }
+
+        [RelayCommand]
+        async Task RecapTransaction()
+        {
+            await Application.Current.Dispatcher.DispatchAsync( async () =>
+            {
+                 Application.Current.MainPage = new NavigationPage(new RecapitulatifsTransaction(ChoixProduits,Produits));
+                
+            });
         }
         
     
