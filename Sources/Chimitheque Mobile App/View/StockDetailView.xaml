@@ -27,15 +27,24 @@
                                    HorizontalOptions="EndAndExpand"/>
                         </StackLayout>
                     </tool:Expander.Header>
-                    <VerticalStackLayout>
+                    <StackLayout>
                         <Label Text="{Binding ProductId, StringFormat='#{0}'}"
                                FontAttributes="Bold"
                                FontSize="20"/>
-                        <StackLayout Orientation="Horizontal">
-                            <Image Source="dotnet_bot.png" HeightRequest="30" Margin="10,0"/>
-                            <Image Source="dotnet_bot.png" HeightRequest="30" Margin="10,0"/>
-                        </StackLayout>
-                    </VerticalStackLayout>
+                        <CollectionView ItemsSource="{Binding Symboles}"
+                                        HeightRequest="20">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Orientation="Horizontal"
+                                                     HorizontalOptions="Center">
+                                            <Image Source="{Binding .}"
+                                                   HeightRequest="30"
+                                                   Margin="10,0"/>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                    </StackLayout>
                 </tool:Expander>
             </Frame>
             <Frame>
@@ -86,7 +95,10 @@
                     </tool:Expander.Header>
                     <StackLayout>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                            <Entry Placeholder="Quantity" HorizontalOptions="FillAndExpand" Text="{Binding Quantity}"/>
+                            <Entry Placeholder="Quantity"
+                                   HorizontalOptions="FillAndExpand"
+                                   Text="{Binding Quantity}"
+                                   Keyboard="Numeric"/>
                             <Picker Title="Unit"
                                     x:Name="picker"
                                     SelectedItem="{Binding Unit}"

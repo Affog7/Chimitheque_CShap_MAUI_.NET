@@ -3,9 +3,12 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using static CoreFoundation.DispatchSource;
 
 namespace Chimitheque_Mobile_App.ViewModel
 {
@@ -23,8 +26,18 @@ namespace Chimitheque_Mobile_App.ViewModel
         [ObservableProperty]
         private int productId;
 
+        public ReadOnlyObservableCollection<ImageSource> Symboles { get; set; }
+
+        [ObservableProperty]
+        private ObservableCollection<ImageSource> sourceList = new ObservableCollection<ImageSource>();
+
         [ObservableProperty]
         private bool isExpanded1, isExpanded2, isExpanded3=true;
+
+        public StockDetailViewModel()
+        {
+            Symboles = new ReadOnlyObservableCollection<ImageSource>(SourceList);
+        }
 
         [RelayCommand]
         void ChangeImage()
@@ -67,8 +80,29 @@ namespace Chimitheque_Mobile_App.ViewModel
             ProductLocation = ProductStorageLocation.Storelocation.StoreLocation_name.String;
             //ajout du lot
             Unit = ProductStorageLocation.Unit_quantity.Unit_label.String;
-            ProductCapacite = ProductStorageLocation.Storage_quantity.Float64+ ProductStorageLocation.Unit_quantity.Unit_label.String;
+            ProductCapacite = ProductStorageLocation.Storage_quantity.Float64 + ProductStorageLocation.Unit_quantity.Unit_label.String;
+            var data = ProductStorageLocation.Product.Symbols;
+            foreach (var item in data)
+            {
+                SourceList.Add(ConverFromBase64ToImage(item.Symbol_image));
+            }
+        }
 
+        /// <summary>
+        /// Convert Base 64 String to Image
+        /// </summary>
+        /// <param name="base64"></param>
+        /// <returns></returns>
+        public ImageSource ConverFromBase64ToImage(string base64)
+        {
+
+            var base64Data = Regex.Match(base64, @"data:image/(?<type>.+?),(?<data>.+)").Groups["data"].Value;
+            byte[] bytes = Convert.FromBase64String(base64Data);
+            ImageSource image;
+            MemoryStream ms = new MemoryStream(bytes);
+            image = ImageSource.FromStream(()=>ms);
+            
+            return image;
         }
     }
 }

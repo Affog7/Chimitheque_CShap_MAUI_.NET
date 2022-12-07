@@ -34,21 +34,19 @@ namespace Chimitheque_Mobile_App.ViewModel
         bool isBiologique;
         [ObservableProperty]
         bool isConsommable;
-        //public ReadOnlyObservableCollection<Product> Products { get; set; }
+
         public ReadOnlyObservableCollection<Product_Storage_Location> Products { get; set; }
 
         public ProductViewModel productViewModel;
         public Product_Storage_Location_ViewModel product_Storage_Location_ViewModel;
 
-        //[ObservableProperty]
-        //private ObservableCollection<Product> productList = new ObservableCollection<Product>();
         [ObservableProperty]
         private ObservableCollection<Product_Storage_Location> productList = new ObservableCollection<Product_Storage_Location>();
 
         public SearchProductViewModel()
         {
             ProductManager = new Product_Storage_LocationManager();
-            //Products = new ReadOnlyObservableCollection<Product>(ProductList);
+
             Products = new ReadOnlyObservableCollection<Product_Storage_Location>(ProductList);
             productViewModel = new ProductViewModel();
             product_Storage_Location_ViewModel = new Product_Storage_Location_ViewModel();
@@ -66,6 +64,8 @@ namespace Chimitheque_Mobile_App.ViewModel
             if (string.IsNullOrWhiteSpace(Nom) && string.IsNullOrWhiteSpace(Cas) && string.IsNullOrWhiteSpace(Formula) && string.IsNullOrWhiteSpace(Codebare))
             {
                 /* Getting all the products from the server and adding them to the list. */
+
+                ProductList.Clear();
                 var result = ProductManager.GetAllStorage(auth).Rows.ToList();
                 foreach (var item in result)
                     ProductList.Add(item);
@@ -96,6 +96,7 @@ namespace Chimitheque_Mobile_App.ViewModel
             }
             else if (!string.IsNullOrWhiteSpace(Nom) && !string.IsNullOrWhiteSpace(Cas) && !string.IsNullOrWhiteSpace(Formula) && !string.IsNullOrWhiteSpace(Codebare))
             {
+                ProductList.Clear();
                 var result = ProductManager.GetAllStorage(auth).Rows.Where(x => x.Storage_qrcode.Contains(Codebare)).Where(x => x.Product.Name.Name_label.Contains(Nom)).ToList();
                 foreach (var item in result)
                     ProductList.Add(item);

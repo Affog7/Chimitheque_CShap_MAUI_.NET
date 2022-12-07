@@ -19,7 +19,5 @@ public partial class StockDetailView : ContentPage
 		List<string> list = new List<string>();
         list.AddRange(new string[] { "g", "mL", "L", "kg" });
         picker.ItemsSource = list;
-
-        picker.SelectedItem = "mL";
     }
 }
