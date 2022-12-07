@@ -12,14 +12,19 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-        <Border Stroke="#e8afea" StrokeThickness="4" >
+        <CollectionView   ItemsSource="{Binding Data}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <VerticalStackLayout>
+                         <Border Stroke="#e8afea" StrokeThickness="4" >
             <Border.StrokeShape>
                 <RoundRectangle  CornerRadius="2" />
             </Border.StrokeShape>
                 <kit:Expander   >
                 <kit:Expander.Header >
                     <StackLayout Orientation="Horizontal" BackgroundColor="#aae7c5"  Padding="5" >
-                        <Label Text="Produit"  
+                        <Label   Text="{Binding Key.Product.Name.Name_label}"  
                                    HorizontalOptions="StartAndExpand"
                                    FontAttributes="Bold"
                                    FontSize="25" />
@@ -40,11 +45,11 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <Label  x:DataType="module:Product_Storage_Location"  Text="{Binding Product}" />
-                        <Label Grid.Column="1" Text="125 ML" />
+                        <Label   Text="{Binding Value, StringFormat=Quantité :   {0}}" />
+                        <Label Grid.Column="1"   Text="{Binding Key.Unit_quantity.Unit_label.String}" />
 
-                        <Label Grid.Row="1" Text="Lot" />
-                        <Label Grid.Row="1" Grid.Column="1" Text=" Lot 1"/>
+                        <Label Grid.Row="1" Text="Lot: " />
+                        <Label Grid.Row="1"   Grid.Column="1" Text="{Binding Key.Storelocation.StoreLocation_name.String}"/>
 
                     </Grid>
 
@@ -52,5 +57,14 @@
                 </VerticalStackLayout>
             </kit:Expander>
         </Border>
+                    </VerticalStackLayout>
+               
+       
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
+                
+    
 </ContentView>

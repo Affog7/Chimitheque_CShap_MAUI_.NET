@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChimithequeLib.Models.Products;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace ChimithequeLib.Model
         public int Product_id { set; get; }
         public string Product_type { set; get; }
         public int Product_sc{ set; get; }
-
+        public CasNumber Casnumber { set; get; }
         public Product_Name Name { set; get; }
         public List<Product_Symbol> Symbols { set; get; }
 
