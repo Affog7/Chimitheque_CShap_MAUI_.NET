@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
@@ -9,6 +10,7 @@ using Chimitheque_Mobile_App.View;
 using ChimithequeLib.APisManagers;
 using ChimithequeLib.Model;
 using ChimithequeLib.Model.Storage;
+using ChimithequeLib.ViewModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
@@ -32,15 +34,22 @@ namespace Chimitheque_Mobile_App.ViewModel
         bool isBiologique;
         [ObservableProperty]
         bool isConsommable;
-        public ReadOnlyObservableCollection<Product> Products { get; set; }
+
+        public ReadOnlyObservableCollection<Product_Storage_Location> Products { get; set; }
+
+        public ProductViewModel productViewModel;
+        public Product_Storage_Location_ViewModel product_Storage_Location_ViewModel;
 
         [ObservableProperty]
-        private ObservableCollection<Product> productList = new ObservableCollection<Product>();
+        private ObservableCollection<Product_Storage_Location> productList = new ObservableCollection<Product_Storage_Location>();
 
         public SearchProductViewModel()
         {
             ProductManager = new Product_Storage_LocationManager();
-            Products = new ReadOnlyObservableCollection<Product>(ProductList);
+
+            Products = new ReadOnlyObservableCollection<Product_Storage_Location>(ProductList);
+            productViewModel = new ProductViewModel();
+            product_Storage_Location_ViewModel = new Product_Storage_Location_ViewModel();
         }
 
         /// <summary>
@@ -55,7 +64,9 @@ namespace Chimitheque_Mobile_App.ViewModel
             if (string.IsNullOrWhiteSpace(Nom) && string.IsNullOrWhiteSpace(Cas) && string.IsNullOrWhiteSpace(Formula) && string.IsNullOrWhiteSpace(Codebare))
             {
                 /* Getting all the products from the server and adding them to the list. */
-                var result = ProductManager.GetAllStorage(auth).Rows.Select(x => x.Product).ToList();
+
+                ProductList.Clear();
+                var result = ProductManager.GetAllStorage(auth).Rows.ToList();
                 foreach (var item in result)
                     ProductList.Add(item);
             }
@@ -63,7 +74,7 @@ namespace Chimitheque_Mobile_App.ViewModel
             {
                 /* Clearing the list and then adding the result of the search to the list. */
                 ProductList.Clear();
-                var result = ProductManager.GetAllStorage(auth).Rows.Select(x => x.Product).Where(x => x.Name.Name_label.Contains(Nom.ToUpper())).ToList();
+                var result = ProductManager.GetAllStorage(auth).Rows.Where(x => x.Product.Name.Name_label.Contains(Nom.ToUpper())).ToList();
 
                 foreach (var item in result)
                     ProductList.Add(item);
@@ -79,22 +90,36 @@ namespace Chimitheque_Mobile_App.ViewModel
             else if (!string.IsNullOrWhiteSpace(Codebare))
             {
                 ProductList.Clear();
-                var result = ProductManager.GetAllStorage(auth).Rows.Where(x => x.Storage_qrcode.Contains(Codebare)).Select(x => x.Product).ToList();
+                var result = ProductManager.GetAllStorage(auth).Rows.Where(x => x.Storage_qrcode.Contains(Codebare)).ToList();
                 foreach (var item in result)
                     ProductList.Add(item);
             }
             else if (!string.IsNullOrWhiteSpace(Nom) && !string.IsNullOrWhiteSpace(Cas) && !string.IsNullOrWhiteSpace(Formula) && !string.IsNullOrWhiteSpace(Codebare))
             {
-                var result = ProductManager.GetAllStorage(auth).Rows.Where(x => x.Storage_qrcode.Contains(Codebare)).Select(x => x.Product).Where(x => x.Name.Name_label.Contains(Nom)).ToList();
+                ProductList.Clear();
+                var result = ProductManager.GetAllStorage(auth).Rows.Where(x => x.Storage_qrcode.Contains(Codebare)).Where(x => x.Product.Name.Name_label.Contains(Nom)).ToList();
                 foreach (var item in result)
                     ProductList.Add(item);
             }
         }
 
         [RelayCommand]
-        async Task Tap()
+        async Task Tap(Product_Storage_Location vm)
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new StockDetailView(new StockDetailViewModel()));
+            var navigationParamater = new Dictionary<string, object>
+            {
+                {"Product",vm }
+            };
+            try
+            {
+                var StockView = new StockDetailView(new StockDetailViewModel());
+                await Shell.Current.GoToAsync( $"StockDetailView", navigationParamater);
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
     }
 }

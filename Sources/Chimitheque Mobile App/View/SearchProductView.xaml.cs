@@ -9,5 +9,6 @@ public partial class SearchProductView : ContentPage
 	{
 		InitializeComponent();
 		BindingContext = vm;
-	}
+        Routing.RegisterRoute(nameof(StockDetailView), typeof(StockDetailView));
+    }
 }

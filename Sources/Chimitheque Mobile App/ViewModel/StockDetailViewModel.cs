@@ -1,20 +1,43 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using ChimithequeLib.Model.Storage;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using static CoreFoundation.DispatchSource;
 
 namespace Chimitheque_Mobile_App.ViewModel
 {
-    public partial class StockDetailViewModel:ObservableObject
+    public partial class StockDetailViewModel:ObservableObject,IQueryAttributable
     {
         [ObservableProperty]
-        private string imagePath1="down.svg", imagePath2 = "down.svg", imagePath3 = "up.svg";
+        private string imagePath1="down.png", imagePath2 = "down.png", imagePath3 = "up.png";
+
+        [ObservableProperty]
+        private int quantity;
+
+        [ObservableProperty]
+        string productName="Produit",productLocation,productLot,productCapacite,unit;
+
+        [ObservableProperty]
+        private int productId;
+
+        public ReadOnlyObservableCollection<ImageSource> Symboles { get; set; }
+
+        [ObservableProperty]
+        private ObservableCollection<ImageSource> sourceList = new ObservableCollection<ImageSource>();
 
         [ObservableProperty]
         private bool isExpanded1, isExpanded2, isExpanded3=true;
+
+        public StockDetailViewModel()
+        {
+            Symboles = new ReadOnlyObservableCollection<ImageSource>(SourceList);
+        }
 
         [RelayCommand]
         void ChangeImage()
@@ -27,9 +50,59 @@ namespace Chimitheque_Mobile_App.ViewModel
         string Change(bool _isExpand)
         {
             if (_isExpand)
-                return  "up.svg";
+                return  "up.png";
             else
-                return  "down.svg";
+                return  "down.png";
+        }
+
+        [RelayCommand]
+        void SetQuantity(string value)
+        {
+            if (value.Contains('-'))
+            {
+                if (Quantity > 0)
+                    Quantity -= int.Parse(value.Remove(0, 1));
+                if (Quantity < 0)
+                    Quantity = 0;
+            }
+            else
+            {
+                Quantity += int.Parse(value.Remove(0, 1));
+            }
+
+        }
+
+        public void ApplyQueryAttributes(IDictionary<string, object> query)
+        {
+            var ProductStorageLocation = query["Product"] as Product_Storage_Location;
+            ProductName = ProductStorageLocation.Product.Name.Name_label;
+            ProductId = ProductStorageLocation.Product.Product_id;
+            ProductLocation = ProductStorageLocation.Storelocation.StoreLocation_name.String;
+            //ajout du lot
+            Unit = ProductStorageLocation.Unit_quantity.Unit_label.String;
+            ProductCapacite = ProductStorageLocation.Storage_quantity.Float64 + ProductStorageLocation.Unit_quantity.Unit_label.String;
+            var data = ProductStorageLocation.Product.Symbols;
+            foreach (var item in data)
+            {
+                SourceList.Add(ConverFromBase64ToImage(item.Symbol_image));
+            }
+        }
+
+        /// <summary>
+        /// Convert Base 64 String to Image
+        /// </summary>
+        /// <param name="base64"></param>
+        /// <returns></returns>
+        public ImageSource ConverFromBase64ToImage(string base64)
+        {
+
+            var base64Data = Regex.Match(base64, @"data:image/(?<type>.+?),(?<data>.+)").Groups["data"].Value;
+            byte[] bytes = Convert.FromBase64String(base64Data);
+            ImageSource image;
+            MemoryStream ms = new MemoryStream(bytes);
+            image = ImageSource.FromStream(()=>ms);
+            
+            return image;
         }
     }
 }
