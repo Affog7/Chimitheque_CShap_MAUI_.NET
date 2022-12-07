@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChimithequeLib.Models.Storage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,14 +13,36 @@ namespace ChimithequeLib.Model.Storage
     {   
 
         public Storage_Id Storage_id { set; get; }
+
+        // QrCode
         public string Storage_qrcode { set; get; }
+
         public Boolean Valid { set; get; }
 
+        // Produit
         public Product Product { set; get; }
 
+        // Entrepôt
         public StoreLocation Storelocation { get;set; }
+
+        // Stockage (Quantité)
         public Storage_quantity Storage_quantity { get;set; }
+
+        // Unité
         public Unit_quantity Unit_quantity { get;set; }
+
+        // Date de création
+        public string Storage_creationdate { set; get; }
+
+        // Date de modification
+        public string Storage_modificationdate { set; get; }
+
+        // Date d'ouverture
+        public StorageOpeningDate Storage_openingdate { set; get; }
+
+        // Date d'expiration
+        public StorageExpirationDate Storage_expirationdate { set; get; }
+
 
         public override bool Equals(Object other)
         {

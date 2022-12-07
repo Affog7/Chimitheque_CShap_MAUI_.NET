@@ -21,7 +21,7 @@ internal class Program
         DoChoice(httpClient);
     }
 
-    //Methode Menue
+    //Methode Menu
     static void Menu()
     {
         Console.WriteLine("1. Afficher les produit");

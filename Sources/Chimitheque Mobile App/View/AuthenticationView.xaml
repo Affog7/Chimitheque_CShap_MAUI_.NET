@@ -2,11 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:Chimitheque_Mobile_App.ViewModel"
+             
              x:DataType="viewmodel:AuthentificationViewModel"
              x:Class="Chimitheque_Mobile_App.View.AuthenticationView">
     <ScrollView>
+        
         <VerticalStackLayout>
-            <Image Source="logo_chimitheque_small.png"
+             <Image Source="logo_chimitheque_small.png"
                    Margin="0,0,0,10"/>
             <Label Text="AUTHENTIFICATION"
                    FontAttributes="Bold"

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:kit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="Chimitheque_Mobile_App.View.UC.ProductDetailsUc"
+             xmlns:module="clr-namespace:ChimithequeLib.Model.Storage;assembly=ChimithequeLib"
+
+             >
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome to .NET MAUI!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Border Stroke="#e8afea" StrokeThickness="4" >
+            <Border.StrokeShape>
+                <RoundRectangle  CornerRadius="2" />
+            </Border.StrokeShape>
+                <kit:Expander   >
+                <kit:Expander.Header >
+                    <StackLayout Orientation="Horizontal" BackgroundColor="#aae7c5"  Padding="5" >
+                        <Label Text="Produit"  
+                                   HorizontalOptions="StartAndExpand"
+                                   FontAttributes="Bold"
+                                   FontSize="25" />
+
+                       
+                      
+                    </StackLayout>
+                </kit:Expander.Header>
+                
+                <VerticalStackLayout>
+                    <Grid ColumnSpacing="15" Padding="5"  >
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions >
+                            <ColumnDefinition Width="250" />
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label  x:DataType="module:Product_Storage_Location"  Text="{Binding Product}" />
+                        <Label Grid.Column="1" Text="125 ML" />
+
+                        <Label Grid.Row="1" Text="Lot" />
+                        <Label Grid.Row="1" Grid.Column="1" Text=" Lot 1"/>
+
+                    </Grid>
+
+
+                </VerticalStackLayout>
+            </kit:Expander>
+        </Border>
+    </VerticalStackLayout>
+</ContentView>
