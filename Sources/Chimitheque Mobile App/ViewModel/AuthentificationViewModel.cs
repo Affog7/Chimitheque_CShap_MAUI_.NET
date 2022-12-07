@@ -40,7 +40,7 @@ namespace Chimitheque_Mobile_App.ViewModel
                 Preferences.Set("password", user.Person_password);
                 App.auth = authManager;
                 //IsLogged = true;
-                Application.Current.MainPage = new NavigationPage(new FlyoutView());
+                Application.Current.MainPage = new FlyoutView();
 
             }
             else
