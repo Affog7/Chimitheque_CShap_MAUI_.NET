@@ -3,14 +3,13 @@ using System;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ChimithequeLib.Models;
+using ChimithequeLib.Models.User;
 
-namespace ChimithequeLib.Models.User
+namespace ChimithequeLib.ViewModel.Users
 {
     public partial class UserViewModel:ObservableObject
     {
         public User user { get; set; }
-
         public UserViewModel()
         {
             user = new User();

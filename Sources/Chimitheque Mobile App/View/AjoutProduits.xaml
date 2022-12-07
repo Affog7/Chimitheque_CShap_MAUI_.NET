@@ -88,7 +88,12 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Text="Retour" BackgroundColor="Red"  x:Name="Quit" Clicked="Quit_Pressed" />
-                <Button Grid.Column="1" Text="Valider" BackgroundColor="Green" HeightRequest="80" />
+                <Button Grid.Column="1" 
+                        Text="Valider" 
+                        BackgroundColor="Green" 
+                        HeightRequest="80"
+                        Command="{Binding RecapTransactionCommand}"
+                        />
             </Grid>
         </StackLayout>
     
