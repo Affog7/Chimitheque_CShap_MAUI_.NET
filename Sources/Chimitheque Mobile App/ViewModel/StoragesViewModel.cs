@@ -108,13 +108,12 @@ namespace Chimitheque_Mobile_App.ViewModel
         }
 
         [RelayCommand]
-        async Task RecapTransaction()
+        async  Task  RecapTransaction()
         {
-            await Application.Current.Dispatcher.DispatchAsync( async () =>
-            {
+            
                  Application.Current.MainPage = new NavigationPage(new RecapitulatifsTransaction(ChoixProduits,Produits));
                 
-            });
+           
         }
         
     

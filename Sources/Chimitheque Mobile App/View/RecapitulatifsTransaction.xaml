@@ -11,6 +11,6 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-        <controls:ProductDetailsUc   BindingContext="{Binding Produits}" />
+        <controls:ProductDetailsUc   BindingContext="{Binding .}" />
     </VerticalStackLayout>
 </ContentPage>
