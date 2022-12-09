@@ -3,9 +3,8 @@ using Chimitheque_Mobile_App.View;
 using Chimitheque_Mobile_App.View.UC;
 using Chimitheque_Mobile_App.View.Utils;
 using ChimithequeLib;
-using ChimithequeLib.APisManagers;
-using ChimithequeLib.Model;
-using ChimithequeLib.Model.Storage;
+using ChimithequeLib.APisManagers; 
+using ChimithequeLib.Models.Storage;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -35,11 +34,19 @@ namespace Chimitheque_Mobile_App.ViewModel
         HttpClient httpClient;
 
         public event PropertyChangedEventHandler PropertyChanged;
+        AuthService authService = new AuthService();
 
         public StoragesViewModel() {
-                       
-            manager = new Product_Storage_LocationManager();
-            httpClient = App.auth.service.httpClient;           
+
+                 manager = new Product_Storage_LocationManager();
+            httpClient = App.auth.service.httpClient;
+
+            if (httpClient.DefaultRequestHeaders.Host == null)
+            {
+                var token = authService.GetTokenAsync("admin@chimitheque.fr", "chimitheque");
+                httpClient = authService.httpClient;
+            }
+                
 
         }
 
@@ -110,10 +117,16 @@ namespace Chimitheque_Mobile_App.ViewModel
         [RelayCommand]
         async  Task  RecapTransaction()
         {
+            var navigationParameter = new Dictionary<string, IDictionary<Product_Storage_Location,double>>
+            {
+                { "Donnes", ChoixProduits }
+            };
+           // Shell.Current.NavigatedTo += HandledEventArgs() new NavigationPage(new RecapitulatifsTransaction(ChoixProduits, Produits));
+          await Shell.Current.GoToAsync($"{nameof(RecapitulatifsTransaction)}?donnes={ChoixProduits}");
+
+           // Application.Current.MainPage. = new NavigationPage(new RecapitulatifsTransaction(ChoixProduits));
+          // await (ContentPage)Navigation.PushAsync(new RecapitulatifsTransaction(ChoixProduits, Produits));
             
-                 Application.Current.MainPage = new NavigationPage(new RecapitulatifsTransaction(ChoixProduits,Produits));
-                
-           
         }
         
     

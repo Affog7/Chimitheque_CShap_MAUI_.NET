@@ -1,16 +1,16 @@
-using ChimithequeLib.Model.Storage;
+using ChimithequeLib.Models.Storage;
 
 namespace Chimitheque_Mobile_App.View;
 
+[QueryProperty(nameof(Donnes), "donnes")]
 public partial class RecapitulatifsTransaction : ContentPage
 {
-	public IDictionary<Product_Storage_Location, double> Data { set; get; }
-	public IList<Product_Storage_Location> Produits { get; set; }
-    public RecapitulatifsTransaction(IDictionary<Product_Storage_Location, double> choixProduits, System.Collections.ObjectModel.ObservableCollection<Product_Storage_Location> produits)
+	public IDictionary<Product_Storage_Location, double> Donnes { set; get; }  
+
+    public RecapitulatifsTransaction(IDictionary<Product_Storage_Location, double> choixProduits)
 	{
 	//	Console.Write(choixProduits);
-		Produits =  choixProduits.Keys.ToList<Product_Storage_Location>();
-		Data = choixProduits;
+         Donnes = choixProduits;
 
 		Console.WriteLine(choixProduits.Keys);
 
@@ -19,4 +19,8 @@ public partial class RecapitulatifsTransaction : ContentPage
 		BindingContext = this;
 
 	}
+
+    public RecapitulatifsTransaction()
+    {
+    }
 }

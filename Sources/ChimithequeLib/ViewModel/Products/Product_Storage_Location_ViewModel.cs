@@ -1,11 +1,12 @@
-﻿using ChimithequeLib.Model.Storage;
-using ChimithequeLib.Model;
+﻿using ChimithequeLib.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
+using ChimithequeLib.Models.Storage;
+using ChimithequeLib.Models;
 
 namespace ChimithequeLib.ViewModel
 {

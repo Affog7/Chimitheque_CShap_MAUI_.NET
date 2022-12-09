@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Chimitheque_Mobile_App.View.RecapitulatifsTransaction"
              xmlns:controls="clr-namespace:Chimitheque_Mobile_App.View.UC"         
+             xmlns:module="clr-namespace:Chimitheque_Mobile_App.View"         
              Title="Recapitulatifs Transaction">
     
     <VerticalStackLayout>
@@ -11,6 +12,6 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-        <controls:ProductDetailsUc   BindingContext="{Binding .}" />
+        <controls:ProductDetailsUc  x:DataType="module:RecapitulatifsTransaction" BindingContext="{Binding .}" />
     </VerticalStackLayout>
 </ContentPage>

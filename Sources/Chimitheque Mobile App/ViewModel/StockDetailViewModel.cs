@@ -1,4 +1,4 @@
-﻿using ChimithequeLib.Model.Storage;
+﻿using ChimithequeLib.Models.Storage;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
@@ -8,8 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using static CoreFoundation.DispatchSource;
-
+ 
 namespace Chimitheque_Mobile_App.ViewModel
 {
     public partial class StockDetailViewModel:ObservableObject,IQueryAttributable

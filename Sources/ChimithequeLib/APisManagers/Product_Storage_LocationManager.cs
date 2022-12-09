@@ -1,5 +1,5 @@
 ﻿using ChimithequeLib.Model;
-using ChimithequeLib.Model.Storage;
+using ChimithequeLib.Models.Storage;
 using ChimithequeLib.Models;
 using Newtonsoft.Json;
 using System;

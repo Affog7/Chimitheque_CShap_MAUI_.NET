@@ -1,6 +1,6 @@
 using Chimitheque_Mobile_App.ViewModel;
 using ChimithequeLib.Model;
-using ChimithequeLib.Model.Storage;
+using ChimithequeLib.Models.Storage;
 using MauiPopup.Views;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.PlatformConfiguration;

@@ -1,11 +1,12 @@
-﻿using ChimithequeLib.Models.Products;
+﻿using ChimithequeLib.Model;
+using ChimithequeLib.Models.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChimithequeLib.Model
+namespace ChimithequeLib.Models
 {
     public class Product : IEquatable<Product>
     {

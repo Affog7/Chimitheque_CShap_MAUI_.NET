@@ -1,4 +1,4 @@
-﻿using ChimithequeLib.Models.Storage;
+﻿using ChimithequeLib.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace ChimithequeLib.Model.Storage
+namespace ChimithequeLib.Models.Storage
 {
 
     public class Product_Storage_Location : IEquatable<Product_Storage_Location>

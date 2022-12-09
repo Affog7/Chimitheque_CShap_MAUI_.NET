@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Chimitheque_Mobile_App.View;
 using ChimithequeLib.APisManagers;
 using ChimithequeLib.Model;
-using ChimithequeLib.Model.Storage;
+using ChimithequeLib.Models.Storage;
 using ChimithequeLib.ViewModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;

@@ -4,7 +4,8 @@
              x:Class="Chimitheque_Mobile_App.View.AjoutProduits"
              xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
              xmlns:viewmodel="clr-namespace:Chimitheque_Mobile_App.ViewModel"
-             xmlns:model="clr-namespace:ChimithequeLib.Model;assembly=ChimithequeLib"
+             xmlns:model="clr-namespace:ChimithequeLib.Models.Storage;assembly=ChimithequeLib"
+             xmlns:product="clr-namespace:ChimithequeLib.Models;assembly=ChimithequeLib"
              x:DataType="viewmodel:StoragesViewModel"
              Title="Ajout de produit"
              
@@ -46,7 +47,7 @@
                                 <DataTemplate >
 
                                     <ViewCell  x:DataType="model:StoreLocation">
-                                        <HorizontalStackLayout  x:DataType="model:Product"  >
+                                        <HorizontalStackLayout  x:DataType="product:Product"  >
 
                                             <SwipeView BackgroundColor="#b2b9c1">
                                                 <HorizontalStackLayout>
