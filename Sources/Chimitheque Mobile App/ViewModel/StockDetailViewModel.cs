@@ -1,4 +1,4 @@
-﻿using ChimithequeLib.Model.Storage;
+﻿using ChimithequeLib.Models.Storage;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
@@ -8,8 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using static CoreFoundation.DispatchSource;
-
+ 
 namespace Chimitheque_Mobile_App.ViewModel
 {
     public partial class StockDetailViewModel:ObservableObject,IQueryAttributable
@@ -74,7 +73,7 @@ namespace Chimitheque_Mobile_App.ViewModel
 
         public void ApplyQueryAttributes(IDictionary<string, object> query)
         {
-            var ProductStorageLocation = query["Product"] as Product_Storage_Location;
+            var ProductStorageLocation = query["Product"] as Product_Storage_LocationViewModel;
             ProductName = ProductStorageLocation.Product.Name.Name_label;
             ProductId = ProductStorageLocation.Product.Product_id;
             ProductLocation = ProductStorageLocation.Storelocation.StoreLocation_name.String;

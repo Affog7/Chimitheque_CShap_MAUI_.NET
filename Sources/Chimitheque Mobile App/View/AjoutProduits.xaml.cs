@@ -21,6 +21,7 @@ public partial class AjoutProduits : ContentPage
 
     private  void Quit_Pressed(object sender, EventArgs e)
     {
+        
          Navigation.PopAsync();
     }
 }

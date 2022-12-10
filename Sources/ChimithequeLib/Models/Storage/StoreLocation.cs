@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace ChimithequeLib.Model
+namespace ChimithequeLib.Models.Storage
 {
     public class StoreLocation
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChimithequeLib.Model.Storage
+namespace ChimithequeLib.Models.Storage
 {
     public class Storage_Id
     {

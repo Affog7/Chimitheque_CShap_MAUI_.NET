@@ -1,5 +1,5 @@
 ﻿using ChimithequeLib.Model;
-using ChimithequeLib.Model.Storage;
+using ChimithequeLib.Models.Storage;
 using ChimithequeLib.Models;
 using Newtonsoft.Json;
 using System;
@@ -19,20 +19,20 @@ namespace ChimithequeLib.APisManagers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Product_Storage_Location GetStorageLocationById(int id, HttpClient client)
+        public Product_Storage_LocationViewModel GetStorageLocationById(int id, HttpClient client)
         {
             service.httpClient = client;
-            Product_Storage_Location storage;
+            Product_Storage_LocationViewModel storage;
             try
             {
                 var responseString = service.GetStorageByIdAsync(id).Result;
 
-                storage = JsonConvert.DeserializeObject<Product_Storage_Location>(responseString);
+                storage = JsonConvert.DeserializeObject<Product_Storage_LocationViewModel>(responseString);
 
             }
             catch (Exception)
             {
-                storage = new Product_Storage_Location();
+                storage = new Product_Storage_LocationViewModel();
             }
 
 

@@ -3,16 +3,13 @@ using Chimitheque_Mobile_App.View;
 using Chimitheque_Mobile_App.View.UC;
 using Chimitheque_Mobile_App.View.Utils;
 using ChimithequeLib;
-using ChimithequeLib.APisManagers;
-using ChimithequeLib.Model;
-using ChimithequeLib.Model.Storage;
+using ChimithequeLib.APisManagers; 
+using ChimithequeLib.Models.Storage;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Maui.ApplicationModel.Communication;
-
-
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -26,24 +23,33 @@ namespace Chimitheque_Mobile_App.ViewModel
 {
    public partial class StoragesViewModel : INotifyPropertyChanged
     {
-        public Product_Storage_LocationManager manager =  new();
+        public Product_Storage_LocationManager manager ;
 
-        public ObservableCollection<Product_Storage_Location> Produits {private set; get; }  = new ObservableCollection<Product_Storage_Location>() ;
+        public ObservableCollection<Product_Storage_LocationViewModel> Produits {private set; get; }  = new ObservableCollection<Product_Storage_LocationViewModel>() ;
 
-        public IDictionary<Product_Storage_Location, double> ChoixProduits = new Dictionary<Product_Storage_Location,double>() ;
+        public IDictionary<Product_Storage_LocationViewModel, double> ChoixProduits = new Dictionary<Product_Storage_LocationViewModel,double>() ;
 
         HttpClient httpClient;
 
         public event PropertyChangedEventHandler PropertyChanged;
+        AuthService authService = new AuthService();
 
         public StoragesViewModel() {
-                       
+
             manager = new Product_Storage_LocationManager();
-            httpClient = App.auth.service.httpClient;           
+            httpClient = App.auth.service.httpClient;
+
+            if (httpClient.DefaultRequestHeaders.Host == null)
+            {
+                var token = authService.GetTokenAsync("admin@chimitheque.fr", "chimitheque");
+                httpClient = authService.httpClient;
+            }
+            QrCodeDetectedCommand("1");
+            QrCodeDetectedCommand("9");
 
         }
 
-            
+
         public async void QrCodeDetectedCommand(string value)
         {
 
@@ -78,28 +84,28 @@ namespace Chimitheque_Mobile_App.ViewModel
             }
         }
 
-        private bool IsNotContent(Product_Storage_Location location)
+        private bool IsNotContent(Product_Storage_LocationViewModel location)
         {
             if (Produits.Contains(location)) return false;
             return true;
         }
 
         [RelayCommand]
-        async Task RemoveProduct(Product_Storage_Location product)
+        async Task RemoveProduct(Product_Storage_LocationViewModel product)
         {
             Produits.Remove(product);
            // Console.WriteLine(product);
         }
 
      
-        public void QuantityProduct(Product_Storage_Location product, double qte)
+        public void QuantityProduct(Product_Storage_LocationViewModel product, double qte)
         {
             ChoixProduits[product] = qte;
         }
 
 
         [RelayCommand]
-        async Task QuantityProduct(Product_Storage_Location data)
+        async Task QuantityProduct(Product_Storage_LocationViewModel data)
         {
             await Application.Current.Dispatcher.DispatchAsync(async () =>
             {
@@ -110,10 +116,13 @@ namespace Chimitheque_Mobile_App.ViewModel
         [RelayCommand]
         async  Task  RecapTransaction()
         {
-            
-                 Application.Current.MainPage = new NavigationPage(new RecapitulatifsTransaction(ChoixProduits,Produits));
-                
-           
+            var navigationParameter = new Dictionary<string, object>
+            {
+                { "Donnes",   ChoixProduits } 
+            };
+
+            await Shell.Current.GoToAsync($"{nameof(RecapitulatifsTransaction)}",navigationParameter);
+   
         }
         
     

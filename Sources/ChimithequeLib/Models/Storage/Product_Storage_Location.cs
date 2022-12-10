@@ -1,4 +1,4 @@
-﻿using ChimithequeLib.Models.Storage;
+﻿using ChimithequeLib.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,10 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace ChimithequeLib.Model.Storage
+namespace ChimithequeLib.Models.Storage
 {
 
-    public class Product_Storage_Location : IEquatable<Product_Storage_Location>
+    public class Product_Storage_LocationViewModel : IEquatable<Product_Storage_LocationViewModel>
     {   
 
         public Storage_Id Storage_id { set; get; }
@@ -49,10 +49,10 @@ namespace ChimithequeLib.Model.Storage
             if(ReferenceEquals(null, other)) return false;
             if(ReferenceEquals(this, other)) return true;
             if (GetType() != other.GetType()) return false;
-            return Equals((Product_Storage_Location)other);
+            return Equals((Product_Storage_LocationViewModel)other);
         }
 
-        public bool Equals(Product_Storage_Location other) { return Product.Equals(other.Product); }
+        public bool Equals(Product_Storage_LocationViewModel other) { return Product.Equals(other.Product); }
 
 
         public override int GetHashCode()
