@@ -73,7 +73,7 @@ namespace Chimitheque_Mobile_App.ViewModel
 
         public void ApplyQueryAttributes(IDictionary<string, object> query)
         {
-            var ProductStorageLocation = query["Product"] as Product_Storage_Location;
+            var ProductStorageLocation = query["Product"] as Product_Storage_LocationViewModel;
             ProductName = ProductStorageLocation.Product.Name.Name_label;
             ProductId = ProductStorageLocation.Product.Product_id;
             ProductLocation = ProductStorageLocation.Storelocation.StoreLocation_name.String;

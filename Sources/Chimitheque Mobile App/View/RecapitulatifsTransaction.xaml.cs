@@ -8,9 +8,9 @@ namespace Chimitheque_Mobile_App.View;
 
 public partial class RecapitulatifsTransaction : ContentPage, IQueryAttributable, INotifyPropertyChanged
 {
-	public IDictionary<Product_Storage_Location, double> Donnes { set; get; }  
+	public IDictionary<Product_Storage_LocationViewModel, double> Donnes { set; get; }  
 
-    public RecapitulatifsTransaction(IDictionary<Product_Storage_Location, double> choixProduits)
+    public RecapitulatifsTransaction(IDictionary<Product_Storage_LocationViewModel, double> choixProduits)
 	{
 
          Donnes = choixProduits;
@@ -33,7 +33,7 @@ public partial class RecapitulatifsTransaction : ContentPage, IQueryAttributable
     public void ApplyQueryAttributes(IDictionary<string, object> query)
     {
         
-        Donnes = query["Donnes"] as Dictionary<Product_Storage_Location, double>;
+        Donnes = query["Donnes"] as Dictionary<Product_Storage_LocationViewModel, double>;
 
         OnPropertyChanged(nameof(Donnes));
     }

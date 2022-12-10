@@ -12,10 +12,22 @@ namespace ChimithequeLib.ViewModel
 {
     public class Product_Storage_Location_ViewModel:ObservableObject
     {
-        private Product_Storage_Location product_Storage_Location;
-        private Product product;
+        private Product_Storage_LocationViewModel product_Storage_Location;
+        private ProductViewModel product;
 
-        public string Nomm { get; set; } = "tfgyhjk";
+        public Product_Storage_Location_ViewModel()
+        {
+        }
+
+        public Product_Storage_Location_ViewModel(Product_Storage_LocationViewModel model)
+        {
+            product_Storage_Location = model;
+            product = new ProductViewModel(product_Storage_Location.Product);
+
+        }
+
+
+        // Id stockage
         public int Storage_id 
         { 
             get => product_Storage_Location.Storage_id.Int64;
@@ -24,6 +36,8 @@ namespace ChimithequeLib.ViewModel
                 SetProperty(product_Storage_Location.Storage_id.Int64, value, product_Storage_Location.Storage_id, (u, n) => u.Int64 = n);
             }
         }
+
+        // Qrcode
         public string Storage_qrcode
         {
             get => product_Storage_Location.Storage_qrcode;
@@ -32,6 +46,8 @@ namespace ChimithequeLib.ViewModel
                 SetProperty(product_Storage_Location.Storage_qrcode, value, product_Storage_Location, (u, n) => u.Storage_qrcode = n);
             }
          }
+
+        // Validité
         public bool Valid
         {
             get => product_Storage_Location.Valid;
@@ -41,15 +57,14 @@ namespace ChimithequeLib.ViewModel
             }
         }
 
-        public Product Product
+        // Produit
+        public ProductViewModel Product
         {
             get => product;
-            set
-            {
-                product = value;
-            }
+          
         }
 
+        // Entrepôt
         public string Storelocation
         {
             get => product_Storage_Location.Storelocation.StoreLocation_name.String;
@@ -58,6 +73,8 @@ namespace ChimithequeLib.ViewModel
                 SetProperty(product_Storage_Location.Storelocation.StoreLocation_name.String, value, product_Storage_Location, (u, n) => u.Storelocation.StoreLocation_name.String = n);
             }
         }
+
+        // Quantité
         public double Storage_quantity
         {
             get => product_Storage_Location.Storage_quantity.Float64;
@@ -66,6 +83,8 @@ namespace ChimithequeLib.ViewModel
                 SetProperty(product_Storage_Location.Storage_quantity.Float64, value, product_Storage_Location, (u, n) => u.Storage_quantity.Float64 = n);
             }
         }
+
+        // Unité 
         public string Unit_quantity
         {
             get => product_Storage_Location.Unit_quantity.Unit_label.String;
@@ -74,5 +93,13 @@ namespace ChimithequeLib.ViewModel
                 SetProperty(product_Storage_Location.Unit_quantity.Unit_label.String, value, product_Storage_Location, (u, n) => u.Unit_quantity.Unit_label.String = n);
             }
         }
+
+
+        // Date d'ouverture
+        public string Storage_openingdate { get => product_Storage_Location.Storage_openingdate.Time; }
+
+        // Date d'expiration
+        public string Storage_expirationdate {  get => product_Storage_Location.Storage_expirationdate.Time; }
+
     }
 }

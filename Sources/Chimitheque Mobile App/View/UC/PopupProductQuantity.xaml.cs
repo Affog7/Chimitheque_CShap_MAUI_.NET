@@ -8,11 +8,11 @@ namespace Chimitheque_Mobile_App.View.UC;
 
 public partial class PopupProductQuantity : BasePopupPage
 {
-	public Product_Storage_Location Product { get; }
+	public Product_Storage_LocationViewModel Product { get; }
 	public double Unit { get;  }
 	public double Choix { get; }
 
-    public PopupProductQuantity(StoragesViewModel page, Product_Storage_Location data, double choix=10)
+    public PopupProductQuantity(StoragesViewModel page, Product_Storage_LocationViewModel data, double choix=10)
 	{
         Product = data;
 
@@ -20,6 +20,7 @@ public partial class PopupProductQuantity : BasePopupPage
 
 		InitializeComponent();
 		BindingContext = page;
+
         Valeur.Text = choix.ToString();
 		Unity.Text = data.Unit_quantity.Unit_label.String ;
         Qt1.Text = (Unit* 1) .ToString();
