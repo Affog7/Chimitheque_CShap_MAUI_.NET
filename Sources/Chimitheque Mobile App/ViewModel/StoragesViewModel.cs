@@ -10,8 +10,6 @@ using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Maui.ApplicationModel.Communication;
-
-
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -46,11 +44,12 @@ namespace Chimitheque_Mobile_App.ViewModel
                 var token = authService.GetTokenAsync("admin@chimitheque.fr", "chimitheque");
                 httpClient = authService.httpClient;
             }
-                
+            QrCodeDetectedCommand("1");
+            QrCodeDetectedCommand("9");
 
         }
 
-            
+
         public async void QrCodeDetectedCommand(string value)
         {
 
@@ -117,16 +116,13 @@ namespace Chimitheque_Mobile_App.ViewModel
         [RelayCommand]
         async  Task  RecapTransaction()
         {
-            var navigationParameter = new Dictionary<string, IDictionary<Product_Storage_Location,double>>
+            var navigationParameter = new Dictionary<string, object>
             {
-                { "Donnes", ChoixProduits }
+                { "Donnes",   ChoixProduits } 
             };
-           // Shell.Current.NavigatedTo += HandledEventArgs() new NavigationPage(new RecapitulatifsTransaction(ChoixProduits, Produits));
-          await Shell.Current.GoToAsync($"{nameof(RecapitulatifsTransaction)}?donnes={ChoixProduits}");
 
-           // Application.Current.MainPage. = new NavigationPage(new RecapitulatifsTransaction(ChoixProduits));
-          // await (ContentPage)Navigation.PushAsync(new RecapitulatifsTransaction(ChoixProduits, Produits));
-            
+            await Shell.Current.GoToAsync($"{nameof(RecapitulatifsTransaction)}",navigationParameter);
+   
         }
         
     

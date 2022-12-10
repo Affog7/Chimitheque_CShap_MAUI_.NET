@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:kit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:view="clr-namespace:Chimitheque_Mobile_App.View"
+              
+            
              x:Class="Chimitheque_Mobile_App.View.UC.ProductDetailsUc" 
               >
     <VerticalStackLayout>
@@ -16,13 +19,26 @@
             <Border.StrokeShape>
                 <RoundRectangle  CornerRadius="2" />
             </Border.StrokeShape>
-                <kit:Expander   >
-                <kit:Expander.Header >
+                <kit:Expander  IsExpanded="True"  >
+                <kit:Expander.Header  >
                     <StackLayout Orientation="Horizontal" BackgroundColor="#aae7c5"  Padding="5" >
-                        <Label   Text="{Binding Key.Product.Name.Name_label}"  
-                                   HorizontalOptions="StartAndExpand"
-                                   FontAttributes="Bold"
-                                   FontSize="25" />
+                                        <Grid ColumnSpacing="50">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions >
+                                            <Grid.ColumnDefinitions >
+                                                <ColumnDefinition Width="200" />
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+
+                                             <Label   Text="{Binding Key.Product.Name.Name_label}"  
+                                                                               HorizontalOptions="StartAndExpand"
+                                                                               FontAttributes="Bold"
+                                                                               FontSize="25" />
+
+                                            <ImageButton Grid.Column="1" FlowDirection="LeftToRight" HeightRequest="30"  Source="star.png" />
+                                        </Grid>
+                       
                        
                       
                     </StackLayout>
@@ -36,7 +52,7 @@
                         </Grid.RowDefinitions>
                         
                         <Grid.ColumnDefinitions >
-                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition  />
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
@@ -58,6 +74,8 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
+       
     </VerticalStackLayout>
                 
     

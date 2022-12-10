@@ -1,20 +1,23 @@
+using System.Collections;
+using System.ComponentModel;
 using ChimithequeLib.Models.Storage;
+using Newtonsoft.Json;
 
 namespace Chimitheque_Mobile_App.View;
 
-[QueryProperty(nameof(Donnes), "donnes")]
-public partial class RecapitulatifsTransaction : ContentPage
+
+public partial class RecapitulatifsTransaction : ContentPage, IQueryAttributable, INotifyPropertyChanged
 {
 	public IDictionary<Product_Storage_Location, double> Donnes { set; get; }  
 
     public RecapitulatifsTransaction(IDictionary<Product_Storage_Location, double> choixProduits)
 	{
-	//	Console.Write(choixProduits);
+
          Donnes = choixProduits;
 
 		Console.WriteLine(choixProduits.Keys);
 
-	//	Console.WriteLine(choixProduits.First().Key);
+
 		InitializeComponent();
 		BindingContext = this;
 
@@ -22,5 +25,18 @@ public partial class RecapitulatifsTransaction : ContentPage
 
     public RecapitulatifsTransaction()
     {
+        InitializeComponent();
+        BindingContext = this;
+    }
+
+    
+    public void ApplyQueryAttributes(IDictionary<string, object> query)
+    {
+        
+        Donnes = query["Donnes"] as Dictionary<Product_Storage_Location, double>;
+
+        OnPropertyChanged(nameof(Donnes));
     }
 }
+
+ 
