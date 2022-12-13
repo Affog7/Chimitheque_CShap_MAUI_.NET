@@ -14,17 +14,9 @@ public partial class App : Application
         InitializeComponent();
 
         var token = Preferences.Get("token", null);
-        //User user = new User();
-        //user.Person_email = Preferences.Get("username", "admin@chimitheque.fr");
-        //user.Person_password = Preferences.Get("password", "chimitheque");
-        //MainPage = new AppShell();
-
-
-        /* Checking if the token is empty or not. If it is empty, it will go to the AppShell page. If
-        it is not empty, it will go to the FlyoutView page. */
+        Preferences.Set("isConnected", false);
         if (string.IsNullOrEmpty(token))
             MainPage = new AppShell();
-       // MainPage = new ProductDetailsUc();
         else
         {
             /* Getting the username and password from the preferences and then it is getting the token
@@ -32,8 +24,21 @@ public partial class App : Application
             UserViewModel userVM = new UserViewModel();
             userVM.Person_email = Preferences.Get("username", null);
             userVM.Person_password = Preferences.Get("password", null);
-            auth.GetToken(userVM.user);
-            MainPage = new FlyoutView();
+
+            //Verifier si le portable est connecté à internet ou non
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                //Getting the token from the API
+                auth.GetToken(userVM.user);
+                Preferences.Set("isConnected", true);
+                MainPage = new FlyoutView();
+            }
+            else
+            {
+                Preferences.Set("isConnected", false);
+                //Getting the token from the local storage
+                MainPage = new FlyoutView();
+            }
         }
     }
 }

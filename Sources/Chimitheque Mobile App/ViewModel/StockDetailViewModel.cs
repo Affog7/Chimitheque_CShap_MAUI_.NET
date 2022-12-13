@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using static CoreFoundation.DispatchSource;
 
 namespace Chimitheque_Mobile_App.ViewModel
 {
@@ -21,7 +20,7 @@ namespace Chimitheque_Mobile_App.ViewModel
         private int quantity;
 
         [ObservableProperty]
-        string productName="Produit",productLocation,productLot,productCapacite,unit;
+        string productName="Produit",productLocation,productLot,productCapacite,unit,dateOuverture,datePeremtion;
 
         [ObservableProperty]
         private int productId;
@@ -81,6 +80,9 @@ namespace Chimitheque_Mobile_App.ViewModel
             //ajout du lot
             Unit = ProductStorageLocation.Unit_quantity.Unit_label.String;
             ProductCapacite = ProductStorageLocation.Storage_quantity.Float64 + ProductStorageLocation.Unit_quantity.Unit_label.String;
+            //extraire les 8 premiers caractères de la date
+            DateOuverture = ProductStorageLocation.Storage_openingdate.Time.Substring(0, 10);
+            DatePeremtion = ProductStorageLocation.Storage_expirationdate.Time.Substring(0, 10);
             var data = ProductStorageLocation.Product.Symbols;
             foreach (var item in data)
             {
@@ -101,7 +103,6 @@ namespace Chimitheque_Mobile_App.ViewModel
             ImageSource image;
             MemoryStream ms = new MemoryStream(bytes);
             image = ImageSource.FromStream(()=>ms);
-            
             return image;
         }
     }
