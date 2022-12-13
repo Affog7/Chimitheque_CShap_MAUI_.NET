@@ -53,4 +53,23 @@ public class Services
             return null;
         }
     }
+
+    /// <summary>
+    /// Méthode de base pour les requêtes PUT 
+    /// </summary>
+    /// <param name="url"></param>
+    /// <param name="content"></param>
+    /// <returns></returns>
+    protected async Task<string?> PutAsync(string url, HttpContent content)
+    {
+        var response = httpClient.PutAsync(url, content).Result;
+        if (response.IsSuccessStatusCode)
+        {
+            return await response.Content.ReadAsStringAsync();
+        }
+        else
+        {
+            return null;
+        }
+    }
 }

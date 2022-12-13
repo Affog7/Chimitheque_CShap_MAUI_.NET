@@ -64,5 +64,22 @@ namespace ChimithequeLib.APisManagers
 
             return storage;
         }
+
+        public bool PutStorageLocation(int id,Product_Storage_Location storage, HttpClient client)
+        {
+            service.httpClient = client;
+            bool result = false;
+            try
+            {
+                var responseString = service.PutStorageAsync(storage,id).Result;
+                result = true;
+            }
+            catch (Exception)
+            {
+                result = false;
+            }
+
+            return result;
+        }
     }
 }
