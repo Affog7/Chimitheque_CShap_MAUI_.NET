@@ -21,7 +21,7 @@ public partial class MainView : ContentPage
         var isLogged = Preferences.Get("isConnected", false);
         if (isLogged)
         {
-            Shell.Current.GoToAsync($"{nameof(StockDetailOfflineView)}");
+            Shell.Current.GoToAsync($"{nameof(SearchProductView)}");
         }
         else
         {
