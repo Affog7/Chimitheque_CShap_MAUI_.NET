@@ -10,21 +10,20 @@ using ChimithequeLib.Models;
 
 namespace ChimithequeLib.ViewModel
 {
-    public class Product_Storage_Location_ViewModel:ObservableObject
+    public class Product_Storage_LocationViewModel : ObservableObject
     {
-        private Product_Storage_LocationViewModel product_Storage_Location;
+        private Product_Storage_Location product_Storage_Location;
         private ProductViewModel product;
 
-        public Product_Storage_Location_ViewModel()
+        public Product_Storage_LocationViewModel()
         {
         }
 
-        public Product_Storage_Location_ViewModel(Product_Storage_LocationViewModel model)
+        public Product_Storage_LocationViewModel(Product_Storage_Location model)
         {
             product_Storage_Location = model;
-            product = new ProductViewModel(product_Storage_Location.Product);
-
-        }
+            product = new ProductViewModel(model.Product);
+         }
 
 
         // Id stockage
@@ -101,5 +100,11 @@ namespace ChimithequeLib.ViewModel
         // Date d'expiration
         public string Storage_expirationdate {  get => product_Storage_Location.Storage_expirationdate.Time; }
 
+
+        public override string ToString()
+        {
+            return product.ToString();
+        }
     }
+
 }

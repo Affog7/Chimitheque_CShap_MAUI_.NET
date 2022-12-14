@@ -38,20 +38,25 @@
  
                 <Frame HeightRequest="250" Margin="5,30,5,1" Grid.Row="2"  BackgroundColor="AliceBlue" >
 
-                    <VerticalStackLayout Spacing="12">
+                    <VerticalStackLayout Spacing="15">
                         <Label  Text="Liste des choix" HorizontalOptions="Center" FontSize="20" />
                         <Line Aspect="Fill" BackgroundColor="Black"  />
-                        <ListView  ItemsSource="{Binding Produits}"     >
-                            <ListView.ItemTemplate >
+                        <ListView  ItemsSource="{Binding Produits}" RowHeight="70"    >
+                            <ListView.ItemTemplate  >
                                 <DataTemplate >
 
-                                    <ViewCell  >
-                                        <HorizontalStackLayout  x:DataType="product:ProductViewModel"  >
-
-                                            <SwipeView BackgroundColor="#b2b9c1">
-                                                <HorizontalStackLayout>
-                                                     <Label   x:Name="DataProduct"  WidthRequest="200" Text="{Binding .}" TextColor="Black" />
-                                                    <ImageButton Source="edit.jpg" CommandParameter="{Binding .}"   WidthRequest="42" Padding="1" Margin="50,0,0,0"  BackgroundColor="DarkGreen" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:StoragesViewModel}}, Path=QuantityProductCommand }"  />
+                                    <ViewCell >
+                                        <HorizontalStackLayout Padding="8,10,8,8" HeightRequest="90"  >
+                                         <Border Stroke="#e8afea" StrokeThickness="4" >
+                                            <Border.StrokeShape>
+                                                <RoundRectangle  CornerRadius="5" />
+                                            </Border.StrokeShape>
+                                           <HorizontalStackLayout BackgroundColor="White" Padding="12,12,0,0" x:DataType="product:ProductViewModel"   >
+                                           
+                                            <SwipeView   >
+                                                <HorizontalStackLayout >
+                                                     <Label  x:DataType="product:Product_Storage_LocationViewModel" x:Name="DataProduct"  WidthRequest="220"  Text="{Binding  Product}" TextColor="Black" />
+                                                    <ImageButton Source="edit.jpg" CommandParameter="{Binding .}"   WidthRequest="42" Padding="1" Margin="50,0,0,0"   Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:StoragesViewModel}}, Path=QuantityProductCommand }"  />
                                                 </HorizontalStackLayout>
                                                 <SwipeView.RightItems>
                                                     <SwipeItems>
@@ -66,7 +71,10 @@
                                                 
                                             </SwipeView>
 
-                                           
+                                            
+
+                                        </HorizontalStackLayout>
+</Border>
                                         </HorizontalStackLayout>
                                     </ViewCell>
 

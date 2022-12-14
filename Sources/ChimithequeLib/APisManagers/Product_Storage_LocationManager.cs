@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ChimithequeLib.ViewModel;
 
 namespace ChimithequeLib.APisManagers
 {
@@ -22,16 +23,20 @@ namespace ChimithequeLib.APisManagers
         public Product_Storage_LocationViewModel GetStorageLocationById(int id, HttpClient client)
         {
             service.httpClient = client;
-            Product_Storage_LocationViewModel storage;
+            Product_Storage_LocationViewModel storage ;
             try
             {
                 var responseString = service.GetStorageByIdAsync(id).Result;
 
-                storage = JsonConvert.DeserializeObject<Product_Storage_LocationViewModel>(responseString);
+               Product_Storage_Location storagec = JsonConvert.DeserializeObject<Product_Storage_Location>(responseString);
 
+                storage = new Product_Storage_LocationViewModel(storagec);
+
+                Console.Write(storage);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 storage = new Product_Storage_LocationViewModel();
             }
 

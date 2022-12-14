@@ -18,7 +18,15 @@ public class AuthService:Services
         var token = await PostAsync("get-token", new StringContent(content, Encoding.UTF8, "application/json"));
         if (token != null)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            try
+            {
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
             return token;
         }
         else

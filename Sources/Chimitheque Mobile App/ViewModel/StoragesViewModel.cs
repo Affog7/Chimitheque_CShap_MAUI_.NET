@@ -5,6 +5,7 @@ using Chimitheque_Mobile_App.View.Utils;
 using ChimithequeLib;
 using ChimithequeLib.APisManagers; 
 using ChimithequeLib.Models.Storage;
+using ChimithequeLib.ViewModel;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -70,7 +71,7 @@ namespace Chimitheque_Mobile_App.ViewModel
                     }
                     else
                     {
-
+                        ChoixProduits.Add(new Product_Storage_LocationViewModel());
                         await Message.MessageProduitExist();
                     }
 
@@ -78,7 +79,7 @@ namespace Chimitheque_Mobile_App.ViewModel
 
                 }
    
-            }catch(FormatException e)
+            }catch(Exception )
             {
                 await Message.MessageScanIncorrect();
             }

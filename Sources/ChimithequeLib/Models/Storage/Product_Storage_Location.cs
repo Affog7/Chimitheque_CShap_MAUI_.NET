@@ -9,7 +9,7 @@ using System.Xml.Linq;
 namespace ChimithequeLib.Models.Storage
 {
 
-    public class Product_Storage_LocationViewModel : IEquatable<Product_Storage_LocationViewModel>
+    public class Product_Storage_Location : IEquatable<Product_Storage_Location>
     {   
 
         public Storage_Id Storage_id { set; get; }
@@ -49,10 +49,10 @@ namespace ChimithequeLib.Models.Storage
             if(ReferenceEquals(null, other)) return false;
             if(ReferenceEquals(this, other)) return true;
             if (GetType() != other.GetType()) return false;
-            return Equals((Product_Storage_LocationViewModel)other);
+            return Equals((Product_Storage_Location)other);
         }
 
-        public bool Equals(Product_Storage_LocationViewModel other) { return Product.Equals(other.Product); }
+        public bool Equals(Product_Storage_Location other) { return Product.Equals(other.Product); }
 
 
         public override int GetHashCode()

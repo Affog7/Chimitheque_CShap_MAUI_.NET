@@ -25,9 +25,12 @@ namespace ChimithequeLib.ViewModel
         public ProductViewModel(Product product)
         {
             this.product = product;
-            foreach (var e in product.Symbols)
+            if (product.Symbols != null)
             {
-                symbols.Add(new Product_SymbolVM(e));
+                foreach (var e in product.Symbols)
+                {
+                    symbols.Add(new Product_SymbolVM(e));
+                }
             }
         }
 
@@ -35,14 +38,14 @@ namespace ChimithequeLib.ViewModel
         public int Product_id { get => product.Product_id; }
 
         // Product Name
-        public string Name 
-        { 
-            get=>product.Name.Name_label;
+        public string Name
+        {
+            get => product.Name.Name_label;
             set
             {
                 SetProperty(product.Name.Name_label, value, product.Name, (u, n) => u.Name_label = n);
             }
-        }
+        } 
 
         // Product Type
         public string Product_type
@@ -84,5 +87,12 @@ namespace ChimithequeLib.ViewModel
             
            
         }
+
+
+        public override string ToString()
+        {
+            return product.ToString();
+        }
     }
-}
+    }
+

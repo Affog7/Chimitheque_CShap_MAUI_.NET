@@ -1,6 +1,7 @@
 using Chimitheque_Mobile_App.ViewModel;
 using ChimithequeLib.Model;
 using ChimithequeLib.Models.Storage;
+using ChimithequeLib.ViewModel;
 using MauiPopup.Views;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.PlatformConfiguration;
@@ -16,22 +17,21 @@ public partial class PopupProductQuantity : BasePopupPage
 	{
         Product = data;
 
-		 Unit = data.Storage_quantity.Float64 / 5;
+		 Unit = data.Storage_quantity / 5;
 
 		InitializeComponent();
 		BindingContext = page;
-
+        
         Valeur.Text = choix.ToString();
-		Unity.Text = data.Unit_quantity.Unit_label.String ;
-        Qt1.Text = (Unit* 1) .ToString();
-		Qt2.Text = (Unit* 1.5) .ToString();
-		Qt3.Text = (Unit* 2) .ToString();
-		Qt4.Text = (Unit* 2.5) .ToString();
-		Qt5.Text = (Unit* 3) .ToString();
-		Qt6.Text = (Unit* 4) .ToString();
+		Unity.Text = data.Unit_quantity ;
+        Qt1.Text = string.Format("{0:0.0}", Unit * 1);
+        Qt2.Text = string.Format("{0:0.0}", Unit * 1.5);
+        Qt3.Text = string.Format("{0:0.0}", Unit * 2);
+        Qt4.Text = string.Format("{0:0.0}", Unit * 2.5);
+        Qt5.Text = string.Format("{0:0.0}", Unit * 3);
+        Qt6.Text = string.Format("{0:0.0}", Unit * 4);  
 
-		
-    }
+     }
 
     public void Save_Quantity(double qte)
     {

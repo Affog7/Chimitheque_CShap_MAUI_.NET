@@ -31,7 +31,7 @@
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
 
-                                             <Label   Text="{Binding Key.Product.Name.Name_label}"  
+                                             <Label   Text="{Binding Key.Product.Name}"  
                                                                                HorizontalOptions="StartAndExpand"
                                                                                FontAttributes="Bold"
                                                                                FontSize="25" />
@@ -59,10 +59,10 @@
                         
                         <Label   Text="Quantité" />
                         <Label Grid.Column="1" Text="{Binding Value}" />
-                        <Label Grid.Column="2"   Text="{Binding Key.Unit_quantity.Unit_label.String}" />
+                        <Label Grid.Column="2"   Text="{Binding Key.Unit_quantity}" />
 
                         <Label Grid.Row="1" Text="Lot: " />
-                        <Label Grid.Row="1"   Grid.Column="2" Text="{Binding Key.Storelocation.StoreLocation_name.String}"/>
+                        <Label Grid.Row="1"   Grid.Column="2" Text="{Binding Key.Storelocation }" />
 
                     </Grid>
 

@@ -1,4 +1,5 @@
 ﻿using ChimithequeLib.Models.Storage;
+using ChimithequeLib.ViewModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
@@ -74,12 +75,12 @@ namespace Chimitheque_Mobile_App.ViewModel
         public void ApplyQueryAttributes(IDictionary<string, object> query)
         {
             var ProductStorageLocation = query["Product"] as Product_Storage_LocationViewModel;
-            ProductName = ProductStorageLocation.Product.Name.Name_label;
+            ProductName = ProductStorageLocation.Product.Name;
             ProductId = ProductStorageLocation.Product.Product_id;
-            ProductLocation = ProductStorageLocation.Storelocation.StoreLocation_name.String;
+            ProductLocation = ProductStorageLocation.Storelocation;
             //ajout du lot
-            Unit = ProductStorageLocation.Unit_quantity.Unit_label.String;
-            ProductCapacite = ProductStorageLocation.Storage_quantity.Float64 + ProductStorageLocation.Unit_quantity.Unit_label.String;
+            Unit = ProductStorageLocation.Unit_quantity;
+            ProductCapacite = ProductStorageLocation.Storage_quantity + ProductStorageLocation.Unit_quantity;
             var data = ProductStorageLocation.Product.Symbols;
             foreach (var item in data)
             {

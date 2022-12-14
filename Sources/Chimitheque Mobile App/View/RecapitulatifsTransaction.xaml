@@ -14,10 +14,40 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-        <controls:ProductDetailsUc x:DataType="module:RecapitulatifsTransaction" BindingContext="{Binding .}" />
+        <controls:ProductDetailsUc    x:DataType="module:RecapitulatifsTransaction" BindingContext="{Binding .}" />
 
 
-              <Grid ColumnSpacing="12" Margin="8,350,8,8" >
+            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Margin="0,45,0,0"> 
+                    <Button x:Name="ResetButton"
+                Text="Sauvegarde automatique dans..."
+                Clicked="ResetButton_OnClicked"
+                BackgroundColor="{StaticResource Gray600}"
+                TextColor="WhiteSmoke"/>
+
+        <Grid>
+
+            <GraphicsView x:Name="ProgressView"
+                        Style="{StaticResource CustomButton}"
+                          HeightRequest="100"
+                          WidthRequest="100"/>
+            <Button x:Name="ProgressButton"
+                    Text=""
+                    FontSize="32"
+                    FontFamily="fa-regular"
+                    HeightRequest="80"
+                    WidthRequest="80"
+                    CornerRadius="40"
+                    HorizontalOptions="Center"
+                    Clicked="StartButton_OnClicked"
+                    BorderWidth="1"
+                    BorderColor="red"
+                    TextColor="Black"
+                    BackgroundColor="white"
+                    />
+        </Grid>
+    </VerticalStackLayout>
+            <VerticalStackLayout>
+                          <Grid ColumnSpacing="12" Margin="8,150,8,8" >
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
@@ -35,6 +65,8 @@
                         />
             </Grid>
 
+
+        </VerticalStackLayout>
     </VerticalStackLayout>
 
 </ContentPage>
