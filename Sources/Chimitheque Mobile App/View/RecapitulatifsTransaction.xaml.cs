@@ -1,22 +1,42 @@
-using ChimithequeLib.Model.Storage;
+using System.Collections;
+using System.ComponentModel;
+using ChimithequeLib.Models.Storage;
+using Newtonsoft.Json;
 
 namespace Chimitheque_Mobile_App.View;
 
-public partial class RecapitulatifsTransaction : ContentPage
+
+public partial class RecapitulatifsTransaction : ContentPage, IQueryAttributable, INotifyPropertyChanged
 {
-	public IDictionary<Product_Storage_Location, double> Data { set; get; }
-	public IList<Product_Storage_Location> Produits { get; set; }
-    public RecapitulatifsTransaction(IDictionary<Product_Storage_Location, double> choixProduits, System.Collections.ObjectModel.ObservableCollection<Product_Storage_Location> produits)
+	public IDictionary<Product_Storage_LocationViewModel, double> Donnes { set; get; }  
+
+    public RecapitulatifsTransaction(IDictionary<Product_Storage_LocationViewModel, double> choixProduits)
 	{
-	//	Console.Write(choixProduits);
-		Produits =  choixProduits.Keys.ToList<Product_Storage_Location>();
-		Data = choixProduits;
+
+         Donnes = choixProduits;
 
 		Console.WriteLine(choixProduits.Keys);
 
-	//	Console.WriteLine(choixProduits.First().Key);
+
 		InitializeComponent();
 		BindingContext = this;
 
 	}
+
+    public RecapitulatifsTransaction()
+    {
+        InitializeComponent();
+        BindingContext = this;
+    }
+
+    
+    public void ApplyQueryAttributes(IDictionary<string, object> query)
+    {
+        
+        Donnes = query["Donnes"] as Dictionary<Product_Storage_LocationViewModel, double>;
+
+        OnPropertyChanged(nameof(Donnes));
+    }
 }
+
+ 

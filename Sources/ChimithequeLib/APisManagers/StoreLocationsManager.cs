@@ -8,7 +8,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using StoreLocation = ChimithequeLib.Model.StoreLocation;
+using StoreLocation = ChimithequeLib.Models.Storage.StoreLocation;
 
 namespace ChimithequeLib.APisManagers
 {
