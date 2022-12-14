@@ -28,6 +28,7 @@ namespace Chimitheque_Mobile_App
             builder.Services.AddSingleton<SearchProductViewModel>();
 
             builder.Services.AddSingleton<StockDetailView>();
+            builder.Services.AddSingleton<StockDetailOfflineView>();
             builder.Services.AddSingleton<StockDetailViewModel>();
             return builder.Build();
         }

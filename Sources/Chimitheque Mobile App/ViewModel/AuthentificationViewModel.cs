@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+//hanaene.elhalaoui@ofppt.ma
 namespace Chimitheque_Mobile_App.ViewModel
 {
     public partial class AuthentificationViewModel : ObservableObject
@@ -38,6 +38,7 @@ namespace Chimitheque_Mobile_App.ViewModel
                 Preferences.Set("token", token);
                 Preferences.Set("username", user.Person_email);
                 Preferences.Set("password", user.Person_password);
+                Preferences.Set("isConnected", true);
                 App.auth = authManager;
                 //IsLogged = true;
                 Application.Current.MainPage = new FlyoutView();
@@ -47,6 +48,13 @@ namespace Chimitheque_Mobile_App.ViewModel
             {
                 Application.Current.MainPage.DisplayAlert("Erreur", "Identifiant ou mot de passe incorrect", "OK");
             }
+        }
+
+        [RelayCommand]
+        void ModeAnnonyme()
+        {
+            Preferences.Set("isConnected", false);
+            Application.Current.MainPage = new FlyoutView();
         }
     }
 }

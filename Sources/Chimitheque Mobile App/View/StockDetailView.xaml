@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:tool="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:local="clr-namespace:Chimitheque_Mobile_App"
+             xmlns:UC="clr-namespace:Chimitheque_Mobile_App.View.UC"
              xmlns:vm="clr-namespace:Chimitheque_Mobile_App.ViewModel"
              x:Class="Chimitheque_Mobile_App.View.StockDetailView"
              x:DataType="vm:StockDetailViewModel"
@@ -73,9 +74,9 @@
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="Ouverture: "/>
-                            <Label Text="jj/mm/aaaa"/>
+                            <Label Text="{Binding DateOuverture, StringFormat='{0:D}'}"/>
                             <Label Text="Expiration: " HorizontalOptions="EndAndExpand"/>
-                            <Label Text="jj/mm/aaaa" HorizontalOptions="EndAndExpand"/>
+                            <Label Text="{Binding DatePeremtion}" HorizontalOptions="EndAndExpand"/>
                         </StackLayout>
                     </StackLayout>
                 </tool:Expander>
@@ -93,64 +94,7 @@
                                    HorizontalOptions="EndAndExpand"/>
                         </StackLayout>
                     </tool:Expander.Header>
-                    <StackLayout>
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                            <Entry Placeholder="Quantity"
-                                   HorizontalOptions="FillAndExpand"
-                                   Text="{Binding Quantity}"
-                                   Keyboard="Numeric"/>
-                            <Picker Title="Unit"
-                                    x:Name="picker"
-                                    SelectedItem="{Binding Unit}"
-                                    IsEnabled="False"/>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Grid RowDefinitions="*,*" 
-                                  ColumnDefinitions="80,80,80"
-                                  RowSpacing="5"
-                                  ColumnSpacing="5"
-                                  HorizontalOptions="StartAndExpand">
-                                <Button x:Name="plus1" 
-                                        Text="+1"
-                                        FontSize="17" 
-                                        Command="{Binding SetQuantityCommand}"/>
-                                <Button x:Name="moin1"
-                                        Text="-1" 
-                                        FontSize="17"
-                                        Grid.Row="1"
-                                        Command="{Binding SetQuantityCommand}"/>
-                                <Button x:Name="plus5" 
-                                        Text="+5" 
-                                        FontSize="17" 
-                                        Grid.Column="1"
-                                        Command="{Binding SetQuantityCommand}"/>
-                                <Button x:Name="moin5" 
-                                        Text="-5" 
-                                        FontSize="17" 
-                                        Grid.Column="1" 
-                                        Grid.Row="1"
-                                        Command="{Binding SetQuantityCommand}"/>
-                                <Button x:Name="plus10" 
-                                        Text="+10" 
-                                        FontSize="17" 
-                                        Grid.Column="2"
-                                        Command="{Binding SetQuantityCommand}"/>
-                                <Button x:Name="moin10" 
-                                        Text="-10" 
-                                        FontSize="17"
-                                        Grid.Column="2" 
-                                        Grid.Row="1"
-                                        Command="{Binding SetQuantityCommand}"/>
-                            </Grid>
-                            <Button Text="Valider" 
-                                    VerticalOptions="Center" 
-                                    Style="{StaticResource CustomButton}"
-                                    FontSize="23"
-                                    TextColor="White"
-                                    BackgroundColor="Black">
-                            </Button>
-                        </StackLayout>
-                    </StackLayout>
+                    <UC:KeyboardUserControl x:Name="Keyboard"/>
                 </tool:Expander>
             </Frame>
         </VerticalStackLayout>

@@ -81,7 +81,11 @@ namespace Chimitheque_Mobile_App.ViewModel
             }
             else if (!string.IsNullOrWhiteSpace(Cas))
             {
-                //ProductList = ProductManager.GetAllStorage(httpClient).Rows.Select(x => x.Product).Where(x => x.Cas.Contains(Cas)).ToList();
+                var result = ProductManager.GetAllStorage(auth).Rows.Where(x => x.Product.Casnumber.Casnumber_label.String.Contains(Cas)).ToList();
+                foreach (var item in result)
+                {
+                    ProductList.Add(item);
+                }
             }
             else if (!string.IsNullOrWhiteSpace(Formula))
             {
@@ -112,8 +116,7 @@ namespace Chimitheque_Mobile_App.ViewModel
             };
             try
             {
-                var StockView = new StockDetailView(new StockDetailViewModel());
-                await Shell.Current.GoToAsync( $"StockDetailView", navigationParamater);
+                await Shell.Current.GoToAsync( nameof(StockDetailView), navigationParamater);
 
             }
             catch (Exception ex)

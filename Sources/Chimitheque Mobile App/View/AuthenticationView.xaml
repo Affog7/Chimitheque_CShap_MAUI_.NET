@@ -72,6 +72,8 @@
                   StrokeThickness="6"
                   HorizontalOptions="Center"/>
             <Button Text="Mode Annonyme"
+                    Command="{Binding ModeAnnonymeCommand}"
+                    x:Name="btnAnnonyme"
                     Style="{StaticResource CustomButton}"
                     Margin="0,20"
                     FontSize="20"

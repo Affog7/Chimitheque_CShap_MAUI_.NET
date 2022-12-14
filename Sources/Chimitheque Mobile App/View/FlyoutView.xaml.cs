@@ -5,6 +5,6 @@ public partial class FlyoutView : Shell
 	public FlyoutView()
 	{
 		InitializeComponent();
-        Routing.RegisterRoute(nameof(MainView), typeof(MainView));
-    }
+		Routing.RegisterRoute(nameof(MainView), typeof(MainView));
+	}
 }

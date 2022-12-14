@@ -8,6 +8,7 @@ public partial class MainView : ContentPage
 	{
 		InitializeComponent();
         Routing.RegisterRoute(nameof(SearchProductView), typeof(SearchProductView));
+        Routing.RegisterRoute(nameof(StockDetailOfflineView), typeof(StockDetailOfflineView));
     }
 
     private void btnScanProduct_Clicked(object sender, EventArgs e)
@@ -17,10 +18,16 @@ public partial class MainView : ContentPage
 
     private void btnRetirerProduit_Clicked(object sender, EventArgs e)
     {
-        //Navigation.PushAsync(new SearchProductView(new SearchProductViewModel()));
-
-        Shell.Current.GoToAsync($"{nameof(SearchProductView)}");
-
+        var isLogged = Preferences.Get("isConnected", false);
+        if (isLogged)
+        {
+            Shell.Current.GoToAsync($"{nameof(StockDetailOfflineView)}");
+        }
+        else
+        {
+            Shell.Current.GoToAsync($"{nameof(StockDetailOfflineView)}");
+            //Navigation.PushAsync(new StockDetailOfflineView(new StockDetailViewModel()));
+        }
     }
 
     private void btnDeconnect_Clicked(object sender, EventArgs e)
