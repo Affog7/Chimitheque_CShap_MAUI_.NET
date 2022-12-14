@@ -105,6 +105,11 @@ namespace ChimithequeLib.ViewModel
         {
             return product.ToString();
         }
+
+        public override bool Equals(object? obj)
+        {
+            return product_Storage_Location.Equals(((Product_Storage_LocationViewModel)obj).product_Storage_Location);
+        }
     }
 
 }

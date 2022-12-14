@@ -16,7 +16,7 @@
                    FontSize="Title"
                    HorizontalOptions="Center"/>
             <Frame>
-                <tool:Expander IsExpanded="{Binding IsExpanded1}" Command="{Binding ChangeImageCommand}">
+                <tool:Expander >
                     <tool:Expander.Header>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="{Binding ProductName}"

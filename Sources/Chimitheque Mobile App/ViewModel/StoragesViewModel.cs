@@ -44,6 +44,7 @@ namespace Chimitheque_Mobile_App.ViewModel
             QrCodeDetectedCommand("1");
             QrCodeDetectedCommand("9");
             QrCodeDetectedCommand("13");
+            QrCodeDetectedCommand("13");
 
         }
 
@@ -91,6 +92,7 @@ namespace Chimitheque_Mobile_App.ViewModel
         async Task RemoveProduct(Product_Storage_LocationViewModel product)
         {
             Produits.Remove(product);
+            ChoixProduits.Remove(product);
            // Console.WriteLine(product);
         }
 
