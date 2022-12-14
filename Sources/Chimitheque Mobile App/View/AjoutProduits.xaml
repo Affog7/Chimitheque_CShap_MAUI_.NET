@@ -37,7 +37,7 @@
                 </Frame>
  
                 <Frame HeightRequest="250" Margin="5,30,5,1" Grid.Row="2"  BackgroundColor="AliceBlue" >
-
+<ScrollView>
                     <VerticalStackLayout Spacing="15">
                         <Label  Text="Liste des choix" HorizontalOptions="Center" FontSize="20" />
                         <Line Aspect="Fill" BackgroundColor="Black"  />
@@ -82,7 +82,7 @@
                             </ListView.ItemTemplate>
                         </ListView>
                     </VerticalStackLayout>
-
+</ScrollView>
                 </Frame>
             </Grid>
             
