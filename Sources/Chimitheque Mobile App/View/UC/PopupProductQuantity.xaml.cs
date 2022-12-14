@@ -10,15 +10,20 @@ namespace Chimitheque_Mobile_App.View.UC;
 public partial class PopupProductQuantity : BasePopupPage
 {
 	public Product_Storage_LocationViewModel Product { get; }
-	public double Unit { get;  }
+	public double Unit { get; set; }
 	public double Choix { get; }
 
-    public PopupProductQuantity(StoragesViewModel page, Product_Storage_LocationViewModel data, double choix=10)
+    public PopupProductQuantity(ViewModel.StoragesViewModel page, Product_Storage_LocationViewModel data, double choix=10)
 	{
         Product = data;
-
-		 Unit = data.Storage_quantity / 5;
-
+        if (data.Storage_quantity / 5 != 0)
+        {
+            Unit = data.Storage_quantity / 5;
+        }
+        else
+        {
+            Unit = 2.0;
+        }
 		InitializeComponent();
 		BindingContext = page;
         
@@ -31,11 +36,12 @@ public partial class PopupProductQuantity : BasePopupPage
         Qt5.Text = string.Format("{0:0.0}", Unit * 3);
         Qt6.Text = string.Format("{0:0.0}", Unit * 4);  
 
+
      }
 
     public void Save_Quantity(double qte)
     {
-        ((StoragesViewModel)BindingContext).QuantityProduct(Product,qte);
+        ((ViewModel.StoragesViewModel)BindingContext).QuantityProduct(Product,qte);
 
     }
 

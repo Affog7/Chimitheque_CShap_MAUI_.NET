@@ -1,4 +1,4 @@
-using ChimithequeLib.ViewModel;
+using ChimithequeLib.Models.Storage;
 
 namespace Chimitheque_Mobile_App.View.UC;
 

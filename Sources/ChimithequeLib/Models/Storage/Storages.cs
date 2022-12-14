@@ -9,6 +9,6 @@ namespace ChimithequeLib.Models.Storage
 {
     public class Storages
     {
-        public List<Product_Storage_LocationViewModel> Rows { set; get; } = new List<Product_Storage_LocationViewModel>();    
+        public List<Product_Storage_Location> Rows { set; get; } = new List<Product_Storage_Location>();    
     }
 }

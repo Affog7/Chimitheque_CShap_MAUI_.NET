@@ -7,13 +7,12 @@
              xmlns:module="clr-namespace:Chimitheque_Mobile_App.View"         
 
              x:Class="Chimitheque_Mobile_App.View.UC.ProductDetailsUc"
-             x:DataType="module:RecapitulatifsTransaction"
-   >
+    >
 
     <VerticalStackLayout > 
  
 
-        <CollectionView   ItemsSource="{Binding .}">
+        <CollectionView   ItemsSource="{Binding Donnes}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
 

@@ -49,25 +49,25 @@ namespace ChimithequeLib.APisManagers
         /// Méthode pour convertir une list de donnée de storage en Storage
         /// </summary>
         /// <returns></returns>
-        public Storages GetAllStorage(HttpClient auth)
+        public StoragesViewModel GetAllStorage(HttpClient auth)
         {
             service.httpClient = auth;
 
-            Storages storage;
-            try
+            StoragesViewModel storage;
+             try
             {
                 var responseString = service.GetStoragesAsync().Result;
 
-                storage = JsonConvert.DeserializeObject<Storages>(responseString);
-
+                storage = new StoragesViewModel(JsonConvert.DeserializeObject<Storages>(responseString));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                storage = new Storages();
+                string e=ex.Message;
+                storage = new StoragesViewModel();
             }
 
 
-            return storage;
+            return  storage;
         }
 
         public bool PutStorageLocation(int id,Product_Storage_Location storage, HttpClient client)

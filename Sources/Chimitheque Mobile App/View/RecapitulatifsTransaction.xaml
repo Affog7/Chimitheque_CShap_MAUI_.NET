@@ -56,12 +56,12 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Button Text="Retour" BackgroundColor="Red"  />
+                <Button Text="Retour" BackgroundColor="Red" Clicked="Quit_Click"  />
                 <Button Grid.Column="1" 
                         Text="Valider" 
                         BackgroundColor="Green" 
                         HeightRequest="80"
-
+                        Clicked="Valider_btn_Clicked"
                         />
             </Grid>
 

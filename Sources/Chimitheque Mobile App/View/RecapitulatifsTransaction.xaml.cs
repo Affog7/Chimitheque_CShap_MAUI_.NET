@@ -36,7 +36,21 @@ public partial class RecapitulatifsTransaction : ContentPage, IQueryAttributable
         Start_Clock();
     }
 
-    
+
+
+    void Valider_btn_Clicked(System.Object sender, System.EventArgs e)
+    {
+        
+    }
+
+
+    private void Quit_Click(object sender, EventArgs e)
+    {
+
+        Navigation.PopAsync();
+    }
+
+
     public void ApplyQueryAttributes(IDictionary<string, object> query)
     {
         
@@ -49,11 +63,11 @@ public partial class RecapitulatifsTransaction : ContentPage, IQueryAttributable
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        ProgressButton.Text = "25"; // Play icon - workaround because setting it in xaml broke the build for some reason
+        ProgressButton.Text = "25"; // 
         ProgressView.Drawable = _progressArc;
     }
 
-    // Handle button click events
+    // 
     private void StartButton_OnClicked(object sender, EventArgs e)
     {
         Start_Clock();
@@ -66,7 +80,7 @@ public partial class RecapitulatifsTransaction : ContentPage, IQueryAttributable
         UpdateArc();
     }
 
-    // Cancel the update loop
+    // 
     private void ResetButton_OnClicked(object sender, EventArgs e)
     {
         _cancellationTokenSource.Cancel();
@@ -106,6 +120,8 @@ public partial class RecapitulatifsTransaction : ContentPage, IQueryAttributable
         ProgressView.Invalidate();
         ProgressButton.Text = "25 s";
     }
+
+
 }
 
  

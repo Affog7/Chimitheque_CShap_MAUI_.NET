@@ -40,13 +40,10 @@ namespace Chimitheque_Mobile_App.ViewModel
             manager = new Product_Storage_LocationManager();
             httpClient = App.auth.service.httpClient;
 
-            if (httpClient.DefaultRequestHeaders.Host == null)
-            {
-                var token = authService.GetTokenAsync("admin@chimitheque.fr", "chimitheque");
-                httpClient = authService.httpClient;
-            }
+           // Test
             QrCodeDetectedCommand("1");
             QrCodeDetectedCommand("9");
+            QrCodeDetectedCommand("13");
 
         }
 

@@ -29,12 +29,12 @@
             </Grid.ColumnDefinitions>
 
 
-            <Button  Text="" x:Name="Qt1"  ScaleY="1.5" Pressed="Qt_Pressed"    />
-            <Button Grid.Column="1" x:Name="Qt2" ScaleY="1.5" Pressed="Qt_Pressed"    Text=""  />
-            <Button Grid.Row="1" x:Name="Qt3" ScaleY="1.5" Pressed="Qt_Pressed" Text=""/>
-            <Button Grid.Row="1" x:Name="Qt4" ScaleY="1.5" Grid.Column="1" Pressed="Qt_Pressed" Text=""/>
-            <Button Grid.Row="2" x:Name="Qt5"  Text="" Pressed="Qt_Pressed" ScaleY="1.5" />
-            <Button Grid.Row="2" Grid.Column="1" x:Name="Qt6"  Pressed="Qt_Pressed" Text="" ScaleY="1.5" />
+            <Button  Text="" x:Name="Qt1"  ScaleY="1.5" Clicked="Qt_Pressed"    />
+            <Button Grid.Column="1" x:Name="Qt2" ScaleY="1.5" Clicked="Qt_Pressed"    Text=""  />
+            <Button Grid.Row="1" x:Name="Qt3" ScaleY="1.5" Clicked="Qt_Pressed" Text=""/>
+            <Button Grid.Row="1" x:Name="Qt4" ScaleY="1.5" Grid.Column="1" Clicked="Qt_Pressed" Text=""/>
+            <Button Grid.Row="2" x:Name="Qt5"  Text="" Clicked="Qt_Pressed" ScaleY="1.5" />
+            <Button Grid.Row="2" Grid.Column="1" x:Name="Qt6"  Clicked="Qt_Pressed" Text="" ScaleY="1.5" />
             
         </Grid>
 
