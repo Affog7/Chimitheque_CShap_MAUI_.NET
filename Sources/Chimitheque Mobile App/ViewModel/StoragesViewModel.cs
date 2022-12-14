@@ -71,7 +71,6 @@ namespace Chimitheque_Mobile_App.ViewModel
                     }
                     else
                     {
-                        ChoixProduits.Add(new Product_Storage_LocationViewModel());
                         await Message.MessageProduitExist();
                     }
 

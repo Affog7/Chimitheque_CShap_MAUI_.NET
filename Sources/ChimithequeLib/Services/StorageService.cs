@@ -1,4 +1,4 @@
-﻿using ChimithequeLib.Model.Storage;
+﻿using ChimithequeLib.Models.Storage;
 using Newtonsoft.Json;
 
 namespace ChimithequeLib;

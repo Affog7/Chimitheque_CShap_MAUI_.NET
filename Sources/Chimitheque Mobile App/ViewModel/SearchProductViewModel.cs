@@ -81,7 +81,7 @@ namespace Chimitheque_Mobile_App.ViewModel
             }
             else if (!string.IsNullOrWhiteSpace(Cas))
             {
-                var result = ProductManager.GetAllStorage(auth).Rows.Where(x => x.Product.Casnumber.Casnumber_label.String.Contains(Cas)).ToList();
+                var result = ProductManager.GetAllStorage(auth).Rows.Where(x => x.Product.Casnumber.Contains(Cas)).ToList();
                 foreach (var item in result)
                 {
                     ProductList.Add(item);
