@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Chimitheque_Mobile_App.View;
 using ChimithequeLib.APisManagers;
 using ChimithequeLib.Model;
-using ChimithequeLib.Model.Storage;
+using ChimithequeLib.Models.Storage;
 using ChimithequeLib.ViewModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -35,19 +35,19 @@ namespace Chimitheque_Mobile_App.ViewModel
         [ObservableProperty]
         bool isConsommable;
 
-        public ReadOnlyObservableCollection<Product_Storage_Location> Products { get; set; }
+        public ReadOnlyObservableCollection<Product_Storage_LocationViewModel> Products { get; set; }
 
         public ProductViewModel productViewModel;
         public Product_Storage_Location_ViewModel product_Storage_Location_ViewModel;
 
         [ObservableProperty]
-        private ObservableCollection<Product_Storage_Location> productList = new ObservableCollection<Product_Storage_Location>();
+        private ObservableCollection<Product_Storage_LocationViewModel> productList = new ObservableCollection<Product_Storage_LocationViewModel>();
 
         public SearchProductViewModel()
         {
             ProductManager = new Product_Storage_LocationManager();
 
-            Products = new ReadOnlyObservableCollection<Product_Storage_Location>(ProductList);
+            Products = new ReadOnlyObservableCollection<Product_Storage_LocationViewModel>(ProductList);
             productViewModel = new ProductViewModel();
             product_Storage_Location_ViewModel = new Product_Storage_Location_ViewModel();
         }
@@ -108,7 +108,7 @@ namespace Chimitheque_Mobile_App.ViewModel
         }
 
         [RelayCommand]
-        async Task Tap(Product_Storage_Location vm)
+        async Task Tap(Product_Storage_LocationViewModel vm)
         {
             var navigationParamater = new Dictionary<string, object>
             {

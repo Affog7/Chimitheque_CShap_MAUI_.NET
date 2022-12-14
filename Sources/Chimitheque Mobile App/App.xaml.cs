@@ -12,6 +12,7 @@ public partial class App : Application
     public App()
     {
         InitializeComponent();
+        Routing.RegisterRoute(nameof(RecapitulatifsTransaction), typeof(RecapitulatifsTransaction));
 
         var token = Preferences.Get("token", null);
         Preferences.Set("isConnected", false);

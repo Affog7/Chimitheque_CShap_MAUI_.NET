@@ -35,6 +35,7 @@ l'application auras les fonctionnalités suivantes:
 - gestion des erreurs: permet de gérer les erreurs (envoyer un mail, ...)
 - gestion des mises à jour: permet de mettre à jour l'application
 
+
 ## Outillage 🛠️
 - Visual Studio 2022 community: https://visualstudio.microsoft.com/fr/vs/
 - .Net MAUI
