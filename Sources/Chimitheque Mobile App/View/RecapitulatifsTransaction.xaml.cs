@@ -1,6 +1,7 @@
 using System.Collections;
 using System.ComponentModel;
 using Chimitheque_Mobile_App.View.Utils;
+using Chimitheque_Mobile_App.ViewModel;
 using ChimithequeLib.Models.Storage;
 using ChimithequeLib.ViewModel;
 using Newtonsoft.Json;
@@ -8,7 +9,7 @@ using Newtonsoft.Json;
 namespace Chimitheque_Mobile_App.View;
 
 
-public partial class RecapitulatifsTransaction : ContentPage, IQueryAttributable, INotifyPropertyChanged
+public partial class RecapitulatifsTransaction : ContentPage
 {
     private readonly ProgressArc _progressArc;
     private DateTime _startTime;
@@ -16,22 +17,13 @@ public partial class RecapitulatifsTransaction : ContentPage, IQueryAttributable
     private double _progress;
     private CancellationTokenSource _cancellationTokenSource = new();
 
-    public IDictionary<Product_Storage_LocationViewModel, double> Donnes { set; get; }  
+    public IDictionary<Product_Storage_LocationViewModel, double> Donnes { set; get; }
 
-    public RecapitulatifsTransaction(IDictionary<Product_Storage_LocationViewModel, double> choixProduits)
-	{
-
-         Donnes = choixProduits;
-
-		InitializeComponent();
-		BindingContext = this;
-
-	}
-
-    public RecapitulatifsTransaction()
+ 
+    public RecapitulatifsTransaction(RecapitulatifViewModel vm)
     {
         InitializeComponent();
-        BindingContext = this;
+        BindingContext = vm;
         _progressArc = new ProgressArc();
         Start_Clock();
     }
@@ -51,13 +43,11 @@ public partial class RecapitulatifsTransaction : ContentPage, IQueryAttributable
     }
 
 
-    public void ApplyQueryAttributes(IDictionary<string, object> query)
-    {
+    //public void ApplyQueryAttributes(IDictionary<string, object> query)
+    //{
         
-        Donnes = query["Donnes"] as Dictionary<Product_Storage_LocationViewModel, double>;
-
-        OnPropertyChanged(nameof(Donnes));
-    }
+        
+    //}
 
 
     protected override void OnAppearing()

@@ -30,6 +30,9 @@ namespace Chimitheque_Mobile_App
             builder.Services.AddTransient<StockDetailView>();
             builder.Services.AddTransient<StockDetailOfflineView>();
             builder.Services.AddTransient<StockDetailViewModel>();
+
+            builder.Services.AddTransient<RecapitulatifsTransaction>();
+            builder.Services.AddTransient<RecapitulatifViewModel>();
             return builder.Build();
         }
     }

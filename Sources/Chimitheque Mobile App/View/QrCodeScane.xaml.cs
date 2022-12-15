@@ -42,7 +42,7 @@ public partial class QrCodeScane : ContentPage
 
             Dispatcher.DispatchAsync(() =>
             {
-                Application.Current.MainPage = new NavigationPage(new MainView());
+                Application.Current.MainPage = new FlyoutView();
             });           
 
         }                                      

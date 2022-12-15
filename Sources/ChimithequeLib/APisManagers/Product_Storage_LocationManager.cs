@@ -70,13 +70,13 @@ namespace ChimithequeLib.APisManagers
             return  storage;
         }
 
-        public bool PutStorageLocation(int id,Product_Storage_Location storage, HttpClient client)
+        public bool PutStorageLocation(Product_Storage_LocationViewModel storage, HttpClient client)
         {
             service.httpClient = client;
             bool result = false;
             try
             {
-                var responseString = service.PutStorageAsync(storage,id).Result;
+                var responseString = service.PutStorageAsync(storage.Product_Storage_Location,storage.Storage_id).Result;
                 result = true;
             }
             catch (Exception)

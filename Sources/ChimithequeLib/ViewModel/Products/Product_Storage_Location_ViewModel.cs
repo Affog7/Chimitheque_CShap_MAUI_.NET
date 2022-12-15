@@ -12,11 +12,17 @@ namespace ChimithequeLib.ViewModel
 {
     public class Product_Storage_LocationViewModel : ObservableObject
     {
-        private Product_Storage_Location product_Storage_Location;
+        private readonly Product_Storage_Location product_Storage_Location;
         private ProductViewModel product;
 
         public Product_Storage_LocationViewModel()
         {
+            product_Storage_Location = new Product_Storage_Location();
+        }
+
+        public Product_Storage_Location Product_Storage_Location
+        {
+            get => product_Storage_Location;
         }
 
         public Product_Storage_LocationViewModel(Product_Storage_Location model)

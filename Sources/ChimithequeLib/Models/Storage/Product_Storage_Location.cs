@@ -31,6 +31,7 @@ namespace ChimithequeLib.Models.Storage
         // Unité
         public Unit_quantity Unit_quantity { get;set; }
 
+
         // Date de création
         public string Storage_creationdate { set; get; }
 

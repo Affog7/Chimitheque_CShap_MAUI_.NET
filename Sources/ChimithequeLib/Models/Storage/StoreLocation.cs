@@ -10,6 +10,7 @@ namespace ChimithequeLib.Models.Storage
     public class StoreLocation
     {
         public StoreLocation_Name StoreLocation_name { get; set; }
+        public Storelocation_id Storelocation_Id { get; set; }
 
         public override string? ToString()
         {

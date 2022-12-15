@@ -98,7 +98,6 @@
                     <UC:KeyboardUserControl x:Name="Keyboard"/>
                 </tool:Expander>
             </Frame>
-            <Button Text="Cancel" Command="{Binding BackCommand}"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
