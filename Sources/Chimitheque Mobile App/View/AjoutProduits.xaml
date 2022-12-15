@@ -37,7 +37,7 @@
                 </Frame>
  
                 <Frame HeightRequest="250" Margin="5,30,5,1" Grid.Row="2"  BackgroundColor="AliceBlue" >
-
+<ScrollView>
                     <VerticalStackLayout Spacing="15">
                         <Label  Text="Liste des choix" HorizontalOptions="Center" FontSize="20" />
                         <Line Aspect="Fill" BackgroundColor="Black"  />
@@ -46,12 +46,12 @@
                                 <DataTemplate >
 
                                     <ViewCell >
-                                        <HorizontalStackLayout Padding="8,10,8,8" HeightRequest="90"  >
+                                        <HorizontalStackLayout Padding="8,10,8,8" Margin="1" HeightRequest="90"  >
                                          <Border Stroke="#e8afea" StrokeThickness="4" >
                                             <Border.StrokeShape>
                                                 <RoundRectangle  CornerRadius="5" />
                                             </Border.StrokeShape>
-                                           <HorizontalStackLayout BackgroundColor="White" Padding="12,12,0,0" x:DataType="product:ProductViewModel"   >
+                                           <HorizontalStackLayout BackgroundColor="White" Padding="12,12,0,0"  x:DataType="product:ProductViewModel"   >
                                            
                                             <SwipeView   >
                                                 <HorizontalStackLayout >
@@ -82,7 +82,7 @@
                             </ListView.ItemTemplate>
                         </ListView>
                     </VerticalStackLayout>
-
+</ScrollView>
                 </Frame>
             </Grid>
             
