@@ -107,5 +107,11 @@ namespace Chimitheque_Mobile_App.ViewModel
             image = ImageSource.FromStream(()=>ms);
             return image;
         }
+
+        [RelayCommand]
+        void Back()
+        {
+            Shell.Current.GoToAsync("..");
+        }
     }
 }
