@@ -67,10 +67,7 @@ public class StorageService:Services
         {
             if (httpClient.DefaultRequestHeaders.Authorization != null)
             {
-                var content = JsonConvert.SerializeObject(storage);
-                content = @"{""Storage_quantity"": {""Float64"": 50.62,""Valid"": true},""Product"": {""product_id"": 5217},""Storelocation"": {""Storelocation_id"": {""Int64"": 1,""Valid"": true}}}";
-                //return await PutAsync("storages/" + id, new StringContent(content, Encoding.UTF8, "application/json"));
-                var response= httpClient.PutAsJsonAsync("storages/" + id, content).Result;
+                var response= httpClient.PutAsJsonAsync("storages/" + id, storage).Result;
 
                 var detail = response.ReasonPhrase;
                 return detail;

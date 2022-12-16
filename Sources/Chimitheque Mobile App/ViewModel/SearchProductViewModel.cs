@@ -116,8 +116,6 @@ namespace Chimitheque_Mobile_App.ViewModel
             };
             try
             {
-                //var test = new StockDetailView(navigationParamater["Product"] as StockDetailViewModel);
-                //await Shell.Current.
                 await Shell.Current.GoToAsync( nameof(StockDetailView), navigationParamater);
 
             }

@@ -26,12 +26,26 @@ public partial class RecapitulatifViewModel:ObservableObject, IQueryAttributable
     }
 
     [RelayCommand]
-    void ValiderTransaction()
+    async void ValiderTransaction()
     {
         var storagevm = Donnes.First().Key;
-        storagevm.Unit_quantity = (storagevm.Storage_quantity - Donnes.First().Value).ToString();
+        storagevm.Storage_quantity = storagevm.Storage_quantity - Donnes.First().Value;
+        
         var auth = App.auth.service.httpClient;
         var IsUpadate=locationManager.PutStorageLocation(storagevm, auth);
+
+        if (IsUpadate)
+        {
+            bool answer = await Application.Current.MainPage.DisplayAlert("Validation", "Le produit a été recuperr avec succes. Voulez vous Recuperez un autre produits?", "Oui", "Non",FlowDirection.MatchParent);
+            if (answer)
+            {
+                Shell.Current.GoToAsync("../../");
+            }
+            else
+            {
+                Application.Current.MainPage = new View.FlyoutView();
+            }
+        }
 
     }
 }
