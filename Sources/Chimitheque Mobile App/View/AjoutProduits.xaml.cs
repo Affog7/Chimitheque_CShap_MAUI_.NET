@@ -14,7 +14,9 @@ public partial class AjoutProduits : ContentPage
 
     public void barcodeGenerator_BarcodesDetected(object sender, ZXing.Net.Maui.BarcodeDetectionEventArgs e)
 	{
+        if(((StoragesViewModel)BindingContext).IsConnected)
         ((StoragesViewModel)BindingContext).QrCodeDetectedCommand(e.Results.FirstOrDefault().Value);
+        ((StoragesViewModel)BindingContext).QrCodeDetectedOfflineCommand(e.Results.FirstOrDefault().Value);
     }
 
     

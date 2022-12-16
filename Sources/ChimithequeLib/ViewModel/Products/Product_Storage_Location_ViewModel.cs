@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using ChimithequeLib.Models.Storage;
 using ChimithequeLib.Models;
+using System.Reflection;
 
 namespace ChimithequeLib.ViewModel
 {
@@ -15,9 +16,7 @@ namespace ChimithequeLib.ViewModel
         private Product_Storage_Location product_Storage_Location;
         private ProductViewModel product;
 
-        public Product_Storage_LocationViewModel()
-        {
-        }
+         
 
         public Product_Storage_LocationViewModel(Product_Storage_Location model)
         {
@@ -25,7 +24,11 @@ namespace ChimithequeLib.ViewModel
             product = new ProductViewModel(model.Product);
          }
 
-
+        public Product_Storage_LocationViewModel()
+        {
+            product_Storage_Location = new Product_Storage_Location();
+            product = new ProductViewModel();
+        }
         // Id stockage
         public int Storage_id 
         { 

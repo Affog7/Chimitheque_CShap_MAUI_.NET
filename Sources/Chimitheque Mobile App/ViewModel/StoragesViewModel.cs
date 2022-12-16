@@ -30,6 +30,7 @@ namespace Chimitheque_Mobile_App.ViewModel
 
         public IDictionary<Product_Storage_LocationViewModel, double> ChoixProduits = new Dictionary<Product_Storage_LocationViewModel,double>() ;
 
+        public bool IsConnected { set; get; }
         HttpClient httpClient;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -40,7 +41,9 @@ namespace Chimitheque_Mobile_App.ViewModel
             manager = new Product_Storage_LocationManager();
             httpClient = App.auth.service.httpClient;
 
-           // Test
+            IsConnected = Preferences.Get("isConnected", false);
+            
+            // Test
             QrCodeDetectedCommand("1");
             QrCodeDetectedCommand("9");
             QrCodeDetectedCommand("13");
@@ -123,7 +126,48 @@ namespace Chimitheque_Mobile_App.ViewModel
             await Shell.Current.GoToAsync($"{nameof(RecapitulatifsTransaction)}",navigationParameter);
    
         }
-        
-    
+
+
+
+        public async void QrCodeDetectedOfflineCommand(string value)
+        {
+
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(value) && double.Parse(value.ToString()) > 0)
+                {
+                    var data = new Product_Storage_LocationViewModel(new Product_Storage_Location
+                    {
+                        Product = new ChimithequeLib.Models.Product { Name = new ChimithequeLib.Model.Product_Name { Name_label = $"PRODUCT-{Produits.Count}" } },
+                        Storage_id = new Storage_Id { Int64 = int.Parse(value.ToString()) }
+                    });
+
+                    if ( IsNotContent(data))
+                    {
+                       
+                        Produits.Add(data);
+
+                        ChoixProduits.Add(data, 0);
+
+                        await QuantityProduct(data);
+
+                    }
+                    else
+                    {
+                        await Message.MessageProduitExist();
+                    }
+
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Produits"));
+
+                }
+
+            }
+            catch (Exception)
+            {
+                await Message.MessageScanIncorrect();
+            }
+        }
+
+
     }
 }

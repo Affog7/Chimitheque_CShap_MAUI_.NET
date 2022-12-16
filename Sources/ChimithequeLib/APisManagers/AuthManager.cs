@@ -20,7 +20,7 @@ namespace ChimithequeLib.APisManagers
         public string? GetToken(User user)
         {
             var token=service.GetTokenAsync(user.Person_email, user.Person_password);
-            return token.Result;
+           return token?.Result;
         }
     }
 }
