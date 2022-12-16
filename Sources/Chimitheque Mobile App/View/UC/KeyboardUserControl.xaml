@@ -13,7 +13,7 @@
             <Picker Title="Unit"
                     x:Name="picker"
                     SelectedItem="{Binding Unit}"
-                    IsEnabled="True"/>
+                    IsEnabled="False"/>
         </StackLayout>
         <StackLayout Orientation="Horizontal">
             <Grid RowDefinitions="*,*" 

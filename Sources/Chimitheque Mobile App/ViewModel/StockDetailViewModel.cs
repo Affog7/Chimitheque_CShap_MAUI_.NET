@@ -113,7 +113,6 @@ namespace Chimitheque_Mobile_App.ViewModel
         [RelayCommand]
         async void Valider()
         {
-            ProductStorageLocation.Unit_quantity = Unit;
             if (ChoixProduits.Count!=0)
             {
                 ChoixProduits.Clear();
