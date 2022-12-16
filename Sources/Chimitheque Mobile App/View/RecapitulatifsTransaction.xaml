@@ -57,10 +57,14 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Button Text="Retour" BackgroundColor="Red" Clicked="Quit_Click"  />
+                <Button Text="Retour"
+                        Style="{StaticResource CustomButton}"
+                        TextColor="White"
+                        BackgroundColor="Black"
+                        Clicked="Quit_Click"  />
                 <Button Grid.Column="1" 
+                        Style="{StaticResource CustomButton}"
                         Text="Valider" 
-                        BackgroundColor="Green" 
                         HeightRequest="80"
                         Clicked="Valider_btn_Clicked"
                         Command="{Binding ValiderTransactionCommand}"/>
