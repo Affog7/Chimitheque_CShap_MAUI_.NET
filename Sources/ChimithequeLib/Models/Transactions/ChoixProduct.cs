@@ -1,14 +1,16 @@
 ﻿using System;
+using ChimithequeLib.Models.Storage;
+
 namespace ChimithequeLib.Models.Transactions;
 
 public class ChoixProduct :IEquatable<ChoixProduct>
 {
-	private int idProduit;
+	private Product_Storage_Location produit;
 	private double quantity;
 
-	public ChoixProduct(int id, double quantity)
+	public ChoixProduct(Product_Storage_Location product_stored, double quantity)
 	{
-		this.idProduit = id;
+		this.produit = product_stored;
 		this.quantity = quantity;
 	}
 
@@ -26,7 +28,7 @@ public class ChoixProduct :IEquatable<ChoixProduct>
 
     public bool Equals(ChoixProduct obj)
     {
-        return idProduit.Equals(obj.idProduit);
+        return produit.Equals(obj.produit);
     }
 }
 

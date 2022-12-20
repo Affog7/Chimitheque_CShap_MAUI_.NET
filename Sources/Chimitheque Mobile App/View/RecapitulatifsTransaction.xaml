@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Chimitheque_Mobile_App.View.RecapitulatifsTransaction"
              xmlns:controls="clr-namespace:Chimitheque_Mobile_App.View.UC"         
-             xmlns:module="clr-namespace:Chimitheque_Mobile_App.View"         
+             xmlns:module="clr-namespace:Chimitheque_Mobile_App.ViewModel"
+             x:DataType="module:RecapitulatifViewModel"
              Title="Recapitulatifs Transaction">
 
 
@@ -14,8 +15,11 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-        <controls:ProductDetailsUc    x:DataType="module:RecapitulatifsTransaction" BindingContext="{Binding .}" />
+   <VerticalStackLayout>
+                 <controls:ProductDetailsUc   x:DataType="module:RecapitulatifViewModel" BindingContext="{Binding .}" />
 
+
+        </VerticalStackLayout>
 
             <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Margin="0,45,0,0"> 
                     <Button x:Name="ResetButton"
@@ -46,27 +50,30 @@
                     />
         </Grid>
     </VerticalStackLayout>
-            <VerticalStackLayout>
-                          <Grid ColumnSpacing="12" Margin="8,150,8,8" >
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+    <VerticalStackLayout>
+                <Label Text="fdghgh"/>
+                              <Grid ColumnSpacing="12" Margin="8,150,8,8" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
 
-                <Button Text="Retour" BackgroundColor="Red" Clicked="Quit_Click"  />
-                <Button Grid.Column="1" 
-                        Text="Valider" 
-                        BackgroundColor="Green" 
-                        HeightRequest="80"
-                        Clicked="Valider_btn_Clicked"
-                        />
-            </Grid>
-
-
-        </VerticalStackLayout>
+                    <Button Text="Retour"
+                            Style="{StaticResource CustomButton}"
+                            TextColor="White"
+                            BackgroundColor="Black"
+                            Clicked="Quit_Click"  />
+                    <Button Grid.Column="1" 
+                            Style="{StaticResource CustomButton}"
+                            Text="Valider" 
+                            HeightRequest="80"
+                            Clicked="Valider_btn_Clicked"
+                            Command="{Binding ValiderTransactionCommand}"/>
+                </Grid>
+          </VerticalStackLayout>
     </VerticalStackLayout>
 
 </ContentPage>

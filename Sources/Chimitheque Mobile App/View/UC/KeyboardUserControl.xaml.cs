@@ -15,5 +15,10 @@ public partial class KeyboardUserControl : ContentView
 		List<string> list = new List<string>();
         list.AddRange(new string[] { "g", "mL", "L", "kg" });
         picker.ItemsSource = list;
-	}
+        var isLogged = Preferences.Get("isConnected", false);
+		if (!isLogged)
+		{
+			picker.IsEnabled = true;
+		}
+    }
 }

@@ -1,4 +1,5 @@
-﻿using ChimithequeLib.Models.Storage;
+﻿using System.Net.Http.Json;
+using ChimithequeLib.Models.Storage;
 using Newtonsoft.Json;
 
 namespace ChimithequeLib;
@@ -66,8 +67,10 @@ public class StorageService:Services
         {
             if (httpClient.DefaultRequestHeaders.Authorization != null)
             {
-                var content = JsonConvert.SerializeObject(storage);
-                return await PutAsync("storages/" + id, new StringContent(content, Encoding.UTF8, "application/json"));
+                var response= httpClient.PutAsJsonAsync("storages/" + id, storage).Result;
+
+                var detail = response.ReasonPhrase;
+                return detail;
             }
             else
                 return fail;

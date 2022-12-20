@@ -58,7 +58,8 @@
                     Style="{StaticResource CustomButton}"
                     FontSize="23"
                     TextColor="White"
-                    BackgroundColor="Black">
+                    BackgroundColor="Black"
+                    Command="{Binding ValiderCommand}">
             </Button>
         </StackLayout>
     </StackLayout>

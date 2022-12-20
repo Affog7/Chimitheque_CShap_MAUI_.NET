@@ -27,9 +27,14 @@ namespace Chimitheque_Mobile_App
             builder.Services.AddSingleton<MainView>();
             builder.Services.AddSingleton<SearchProductViewModel>();
 
-            builder.Services.AddSingleton<StockDetailView>();
-            builder.Services.AddSingleton<StockDetailOfflineView>();
-            builder.Services.AddSingleton<StockDetailViewModel>();
+            builder.Services.AddTransient<StockDetailView>();
+            builder.Services.AddTransient<StockDetailOfflineView>();
+            builder.Services.AddTransient<StockDetailViewModel>();
+
+            builder.Services.AddTransient<RecapitulatifsTransaction>();
+            builder.Services.AddTransient<View.UC.ProductDetailsUc>();
+            builder.Services.AddTransient<AjoutProduits>();
+            builder.Services.AddTransient<RecapitulatifViewModel>();
             return builder.Build();
         }
     }

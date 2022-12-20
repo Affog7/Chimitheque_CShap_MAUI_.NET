@@ -31,6 +31,7 @@ namespace Chimitheque_Mobile_App.ViewModel
 
         [ObservableProperty]
         private ObservableCollection<ImageSource> sourceList = new ObservableCollection<ImageSource>();
+        Product_Storage_LocationViewModel ProductStorageLocation = new Product_Storage_LocationViewModel();
 
         [ObservableProperty]
         private bool isExpanded1, isExpanded2, isExpanded3=true;
@@ -39,6 +40,7 @@ namespace Chimitheque_Mobile_App.ViewModel
         {
             Symboles = new ReadOnlyObservableCollection<ImageSource>(SourceList);
         }
+        public IDictionary<Product_Storage_LocationViewModel, double> ChoixProduits = new Dictionary<Product_Storage_LocationViewModel, double>();
 
         [RelayCommand]
         void ChangeImage()
@@ -75,7 +77,7 @@ namespace Chimitheque_Mobile_App.ViewModel
 
         public void ApplyQueryAttributes(IDictionary<string, object> query)
         {
-            var ProductStorageLocation = query["Product"] as Product_Storage_LocationViewModel;
+            ProductStorageLocation = query["Product"] as Product_Storage_LocationViewModel;
             ProductName = ProductStorageLocation.Product.Name;
             ProductId = ProductStorageLocation.Product.Product_id;
             ProductLocation = ProductStorageLocation.Storelocation;
@@ -106,6 +108,22 @@ namespace Chimitheque_Mobile_App.ViewModel
             MemoryStream ms = new MemoryStream(bytes);
             image = ImageSource.FromStream(()=>ms);
             return image;
+        }
+
+        [RelayCommand]
+        async void Valider()
+        {
+            if (ChoixProduits.Count!=0)
+            {
+                ChoixProduits.Clear();
+            }
+            ChoixProduits.Add(ProductStorageLocation, Quantity);
+            var navigationParameter = new Dictionary<string, object>
+            {
+                { "Donnes",   ChoixProduits }
+            };
+
+            await Shell.Current.GoToAsync($"{nameof(View.RecapitulatifsTransaction)}", navigationParameter);
         }
     }
 }

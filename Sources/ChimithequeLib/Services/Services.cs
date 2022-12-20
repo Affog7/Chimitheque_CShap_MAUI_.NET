@@ -63,6 +63,7 @@ public class Services
     protected async Task<string?> PutAsync(string url, HttpContent content)
     {
         var response = httpClient.PutAsync(url, content).Result;
+        //var ok=httpClient.put
         if (response.IsSuccessStatusCode)
         {
             return await response.Content.ReadAsStringAsync();

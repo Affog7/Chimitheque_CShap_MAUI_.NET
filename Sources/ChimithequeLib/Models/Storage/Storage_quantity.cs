@@ -9,5 +9,6 @@ namespace ChimithequeLib.Models.Storage
     public class Storage_quantity
     {
         public double  Float64 { set; get; }
+        public bool Valid { get; set; }
     }
 }
