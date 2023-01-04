@@ -16,7 +16,7 @@ public partial class PopupProductQuantity : BasePopupPage
     public PopupProductQuantity(ViewModel.StoragesViewModel page, Product_Storage_LocationViewModel data, double choix=10)
 	{
         Product = data;
-        if (data.Storage_quantity / 5 != 0)
+        if (data.Storage_quantity / 5 != 0 && data.Storage_quantity > 0)
         {
             Unit = data.Storage_quantity / 5;
         }

@@ -51,8 +51,7 @@
         </Grid>
     </VerticalStackLayout>
     <VerticalStackLayout>
-                <Label Text="fdghgh"/>
-                              <Grid ColumnSpacing="12" Margin="8,150,8,8" >
+                               <Grid ColumnSpacing="12" Margin="8,150,8,8" >
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                     </Grid.RowDefinitions>

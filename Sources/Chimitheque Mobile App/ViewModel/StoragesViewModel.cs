@@ -1,5 +1,4 @@
-﻿using Chimitheque_Mobile_App.APisManagers;
-using Chimitheque_Mobile_App.View;
+﻿using Chimitheque_Mobile_App.View;
 using Chimitheque_Mobile_App.View.UC;
 using Chimitheque_Mobile_App.View.Utils;
 using ChimithequeLib;
@@ -47,11 +46,12 @@ namespace Chimitheque_Mobile_App.ViewModel
             IsConnected = Preferences.Get("isConnected", false);
 
             // Test
-          /*  QrCodeDetectedCommand("1");*/
-           QrCodeDetectedOfflineCommand("9");
-               QrCodeDetectedOfflineCommand("13");
-               QrCodeDetectedOfflineCommand("13");
-           
+          QrCodeDetectedCommand("1");
+          QrCodeDetectedCommand("1");
+            /*  QrCodeDetectedOfflineCommand("9");
+                QrCodeDetectedOfflineCommand("13");
+                QrCodeDetectedOfflineCommand("13");*/
+
         }
 
 
