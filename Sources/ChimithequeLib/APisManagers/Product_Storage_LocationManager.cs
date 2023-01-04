@@ -9,9 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using ChimithequeLib.ViewModel;
 
-namespace ChimithequeLib.APisManagers
+namespace ChimithequeLib.APisManagers 
 {
-    public class Product_Storage_LocationManager
+    public class Product_Storage_LocationManager 
     {
         private StorageService service = new StorageService();
 

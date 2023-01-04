@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ChimithequeLib.APisManagers
 {
-    public class AuthManager
+    public class AuthManager 
     {
         public AuthService service = new AuthService();
         /// <summary>
