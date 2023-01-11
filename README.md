@@ -1,9 +1,19 @@
-# ChimithequeMobile 👨‍🔬
-## Mobile application for Chimitheque 📱
 
+## Mobile application for Chimitheque 📱
 Application mobile de gestion des stocks de produits chimiques pour les laboratoires de chimie , de biologie, de mathématiques et de physique.
 à l'origine développée pour le laboratoire de l'IUT clermont-Auvergne, le but est de pouvoir être utilisé par plusieurs autres laboratoires.
 Elle est développée en .Net et utilise le framework .Net MAUI pour l'interface utilisateur et consomme une API REST développée en ... pour la partie web. le but est de fournir une application multiplateforme (Android, iOS, Windows, MacOS, Linux, ...) et multi-langue qui permetra de gérer(emprunter, rendre, ajouter, supprimer, ...) les produits chimiques du laboratoire. 
+<br>
+<p align="center">
+  <img src="https://github.com/Affog7/Chimitheque_CShap_MAUI_.NET/blob/master/im/login.png" width="250" title="Login">
+    <img src="https://github.com/Affog7/Chimitheque_CShap_MAUI_.NET/blob/master/im/qr_auth.png" width="250" title="Fonctionnalités">
+    <img src="https://github.com/Affog7/Chimitheque_CShap_MAUI_.NET/blob/master/im/home.png" width="250" title="Directives">
+    <img src="https://github.com/Affog7/Chimitheque_CShap_MAUI_.NET/blob/master/im/add.png" width="250" title="Equalizer">
+    <img src="https://github.com/Affog7/Chimitheque_CShap_MAUI_.NET/blob/master/im/add_quantity.png" width="250" title="Record/Enregistrement">
+      <img src="https://github.com/Affog7/Chimitheque_CShap_MAUI_.NET/blob/master/im/recap.png" width="250" title="Playlist">
+</p>
+
+
 on devrait pouvoir aussi gérer les stocks de produits chimiques et les commandes de produits chimiques.
 l'application auras les fonctionnalités suivantes:
 - authentification (login, mot de passe, qr code, ...): permet de s'authentifier sur l'application
@@ -35,6 +45,7 @@ l'application auras les fonctionnalités suivantes:
 - gestion des erreurs: permet de gérer les erreurs (envoyer un mail, ...)
 - gestion des mises à jour: permet de mettre à jour l'application
 
+### DIAGRAMME DE PACQUAGE (MVVM)
 
 ## Outillage 🛠️
 - Visual Studio 2022 community: https://visualstudio.microsoft.com/fr/vs/
@@ -57,11 +68,9 @@ L'application sera disponible sur le store de l'OS de votre choix (Android, iOS,
 
 L'application sera utilisable par les utilisateurs du laboratoire de l'IUT clermont-Auvergne et par les utilisateurs des autres laboratoires.
 
-## Roadmap 🚀
-
-## Auteurs ✒️
-
-
+## Webographie
+* [MAUI .NET 6/7](https://learn.microsoft.com/fr-fr/dotnet/maui/what-is-maui?view=net-maui-7.0)
+* [DTOs](https://learn.microsoft.com/en-us/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5)
 ## Support
 
 Please hit a like to plugin on pub if you used it and love it. put a ⭐️ my GitHub [repo](https://github.com/Affog7/Web_Radio_Flutter_App) and show me some ♥️ so i can keep working on this.
