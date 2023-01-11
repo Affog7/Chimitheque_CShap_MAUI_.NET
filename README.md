@@ -46,7 +46,7 @@ l'application auras les fonctionnalités suivantes:
 - gestion des mises à jour: permet de mettre à jour l'application
 
 ### DIAGRAMME DE PACQUAGE (MVVM)
-  <img src="https://github.com/Affog7/Chimitheque_CShap_MAUI_.NET/blob/master/im/diagramm_organize.png" width="250" title="Diagramm">
+  <img src="https://github.com/Affog7/Chimitheque_CShap_MAUI_.NET/blob/master/im/diagramm_organize.png"  title="Diagramm">
 
 ## Outillage 🛠️
 - Visual Studio 2022 community: https://visualstudio.microsoft.com/fr/vs/
