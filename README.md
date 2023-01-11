@@ -60,3 +60,18 @@ L'application sera utilisable par les utilisateurs du laboratoire de l'IUT clerm
 ## Roadmap 🚀
 
 ## Auteurs ✒️
+
+
+## Support
+
+Please hit a like to plugin on pub if you used it and love it. put a ⭐️ my GitHub [repo](https://github.com/Affog7/Web_Radio_Flutter_App) and show me some ♥️ so i can keep working on this.
+
+### Found a bug ?
+
+Please feel free to throw in a pull request. Any support is warmly welcome.
+
+## Contributor
+* [Augustin AFFOGNON](https://www.linkedin.com/in/augustin-affognon-54a867248/)
+
+## License
+* [MIT](https://github.com/Affog7/Web_Radio_Flutter_App/blob/main/LICENSE)
