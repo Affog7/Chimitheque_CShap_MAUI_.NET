@@ -6,11 +6,11 @@ Elle est développée en .Net et utilise le framework .Net MAUI pour l'interface
 <br>
 <p align="center">
   <img src="https://github.com/Affog7/Chimitheque_CShap_MAUI_.NET/blob/master/im/login.png" width="250" title="Login">
-    <img src="https://github.com/Affog7/Chimitheque_CShap_MAUI_.NET/blob/master/im/qr_auth.png" width="250" title="Fonctionnalités">
-    <img src="https://github.com/Affog7/Chimitheque_CShap_MAUI_.NET/blob/master/im/home.png" width="250" title="Directives">
-    <img src="https://github.com/Affog7/Chimitheque_CShap_MAUI_.NET/blob/master/im/add.png" width="250" title="Equalizer">
-    <img src="https://github.com/Affog7/Chimitheque_CShap_MAUI_.NET/blob/master/im/add_quantity.png" width="250" title="Record/Enregistrement">
-      <img src="https://github.com/Affog7/Chimitheque_CShap_MAUI_.NET/blob/master/im/recap.png" width="250" title="Playlist">
+    <img src="https://github.com/Affog7/Chimitheque_CShap_MAUI_.NET/blob/master/im/qr_auth.png" width="250" title="Auth with QR code">
+    <img src="https://github.com/Affog7/Chimitheque_CShap_MAUI_.NET/blob/master/im/home.png" width="250" title="Home Page">
+    <img src="https://github.com/Affog7/Chimitheque_CShap_MAUI_.NET/blob/master/im/add.png" width="250" title="Add a chimic product">
+    <img src="https://github.com/Affog7/Chimitheque_CShap_MAUI_.NET/blob/master/im/add_quantity.png" width="250" title="Add quantity">
+      <img src="https://github.com/Affog7/Chimitheque_CShap_MAUI_.NET/blob/master/im/recap.png" width="250" title="Recap">
 </p>
 
 
@@ -46,6 +46,7 @@ l'application auras les fonctionnalités suivantes:
 - gestion des mises à jour: permet de mettre à jour l'application
 
 ### DIAGRAMME DE PACQUAGE (MVVM)
+  <img src="https://github.com/Affog7/Chimitheque_CShap_MAUI_.NET/blob/master/im/diagramm_organize.png" width="250" title="Diagramm">
 
 ## Outillage 🛠️
 - Visual Studio 2022 community: https://visualstudio.microsoft.com/fr/vs/
@@ -83,4 +84,4 @@ Please feel free to throw in a pull request. Any support is warmly welcome.
 * [Augustin AFFOGNON](https://www.linkedin.com/in/augustin-affognon-54a867248/)
 
 ## License
-* [MIT](https://github.com/Affog7/Web_Radio_Flutter_App/blob/main/LICENSE)
+* [Open Source - GNU GENERAL PUBLIC LICENSE V3](https://github.com/Affog7/Chimitheque_CShap_MAUI_.NET/edit/master/LICENSE)
